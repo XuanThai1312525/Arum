@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94874444264F748600CFCDB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874443264F748600CFCDB2 /* AppDelegate.swift */; };
+		94874446264F748600CFCDB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874445264F748600CFCDB2 /* SceneDelegate.swift */; };
+		94874448264F748600CFCDB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874447264F748600CFCDB2 /* ViewController.swift */; };
+		9487444B264F748600CFCDB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94874449264F748600CFCDB2 /* Main.storyboard */; };
+		9487444D264F748700CFCDB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9487444C264F748700CFCDB2 /* Assets.xcassets */; };
+		94874450264F748700CFCDB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */; };
+		9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9487445A264F748700CFCDB2 /* ArumTests.swift */; };
+		94874466264F748700CFCDB2 /* ArumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874465264F748700CFCDB2 /* ArumUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94874457264F748700CFCDB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94874438264F748600CFCDB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9487443F264F748600CFCDB2;
+			remoteInfo = Arum;
+		};
+		94874462264F748700CFCDB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94874438264F748600CFCDB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9487443F264F748600CFCDB2;
+			remoteInfo = Arum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94874440264F748600CFCDB2 /* Arum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94874443264F748600CFCDB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94874445264F748600CFCDB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		94874447264F748600CFCDB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9487444A264F748600CFCDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9487444C264F748700CFCDB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9487444F264F748700CFCDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94874451264F748700CFCDB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94874456264F748700CFCDB2 /* ArumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9487445A264F748700CFCDB2 /* ArumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArumTests.swift; sourceTree = "<group>"; };
+		9487445C264F748700CFCDB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94874461264F748700CFCDB2 /* ArumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94874465264F748700CFCDB2 /* ArumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArumUITests.swift; sourceTree = "<group>"; };
+		94874467264F748700CFCDB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9487443D264F748600CFCDB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94874453264F748700CFCDB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9487445E264F748700CFCDB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94874437264F748600CFCDB2 = {
+			isa = PBXGroup;
+			children = (
+				94874442264F748600CFCDB2 /* Arum */,
+				94874459264F748700CFCDB2 /* ArumTests */,
+				94874464264F748700CFCDB2 /* ArumUITests */,
+				94874441264F748600CFCDB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94874441264F748600CFCDB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94874440264F748600CFCDB2 /* Arum.app */,
+				94874456264F748700CFCDB2 /* ArumTests.xctest */,
+				94874461264F748700CFCDB2 /* ArumUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94874442264F748600CFCDB2 /* Arum */ = {
+			isa = PBXGroup;
+			children = (
+				94874443264F748600CFCDB2 /* AppDelegate.swift */,
+				94874445264F748600CFCDB2 /* SceneDelegate.swift */,
+				94874447264F748600CFCDB2 /* ViewController.swift */,
+				94874449264F748600CFCDB2 /* Main.storyboard */,
+				9487444C264F748700CFCDB2 /* Assets.xcassets */,
+				9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */,
+				94874451264F748700CFCDB2 /* Info.plist */,
+			);
+			path = Arum;
+			sourceTree = "<group>";
+		};
+		94874459264F748700CFCDB2 /* ArumTests */ = {
+			isa = PBXGroup;
+			children = (
+				9487445A264F748700CFCDB2 /* ArumTests.swift */,
+				9487445C264F748700CFCDB2 /* Info.plist */,
+			);
+			path = ArumTests;
+			sourceTree = "<group>";
+		};
+		94874464264F748700CFCDB2 /* ArumUITests */ = {
+			isa = PBXGroup;
+			children = (
+				94874465264F748700CFCDB2 /* ArumUITests.swift */,
+				94874467264F748700CFCDB2 /* Info.plist */,
+			);
+			path = ArumUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9487443F264F748600CFCDB2 /* Arum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9487446A264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "Arum" */;
+			buildPhases = (
+				9487443C264F748600CFCDB2 /* Sources */,
+				9487443D264F748600CFCDB2 /* Frameworks */,
+				9487443E264F748600CFCDB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Arum;
+			productName = Arum;
+			productReference = 94874440264F748600CFCDB2 /* Arum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94874455264F748700CFCDB2 /* ArumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9487446D264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "ArumTests" */;
+			buildPhases = (
+				94874452264F748700CFCDB2 /* Sources */,
+				94874453264F748700CFCDB2 /* Frameworks */,
+				94874454264F748700CFCDB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94874458264F748700CFCDB2 /* PBXTargetDependency */,
+			);
+			name = ArumTests;
+			productName = ArumTests;
+			productReference = 94874456264F748700CFCDB2 /* ArumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		94874460264F748700CFCDB2 /* ArumUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94874470264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "ArumUITests" */;
+			buildPhases = (
+				9487445D264F748700CFCDB2 /* Sources */,
+				9487445E264F748700CFCDB2 /* Frameworks */,
+				9487445F264F748700CFCDB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94874463264F748700CFCDB2 /* PBXTargetDependency */,
+			);
+			name = ArumUITests;
+			productName = ArumUITests;
+			productReference = 94874461264F748700CFCDB2 /* ArumUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94874438264F748600CFCDB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					9487443F264F748600CFCDB2 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					94874455264F748700CFCDB2 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9487443F264F748600CFCDB2;
+					};
+					94874460264F748700CFCDB2 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9487443F264F748600CFCDB2;
+					};
+				};
+			};
+			buildConfigurationList = 9487443B264F748600CFCDB2 /* Build configuration list for PBXProject "Arum" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94874437264F748600CFCDB2;
+			productRefGroup = 94874441264F748600CFCDB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9487443F264F748600CFCDB2 /* Arum */,
+				94874455264F748700CFCDB2 /* ArumTests */,
+				94874460264F748700CFCDB2 /* ArumUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9487443E264F748600CFCDB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94874450264F748700CFCDB2 /* LaunchScreen.storyboard in Resources */,
+				9487444D264F748700CFCDB2 /* Assets.xcassets in Resources */,
+				9487444B264F748600CFCDB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94874454264F748700CFCDB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9487445F264F748700CFCDB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9487443C264F748600CFCDB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94874448264F748600CFCDB2 /* ViewController.swift in Sources */,
+				94874444264F748600CFCDB2 /* AppDelegate.swift in Sources */,
+				94874446264F748600CFCDB2 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94874452264F748700CFCDB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9487445D264F748700CFCDB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94874466264F748700CFCDB2 /* ArumUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94874458264F748700CFCDB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9487443F264F748600CFCDB2 /* Arum */;
+			targetProxy = 94874457264F748700CFCDB2 /* PBXContainerItemProxy */;
+		};
+		94874463264F748700CFCDB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9487443F264F748600CFCDB2 /* Arum */;
+			targetProxy = 94874462264F748700CFCDB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94874449264F748600CFCDB2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9487444A264F748600CFCDB2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9487444F264F748700CFCDB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94874468264F748700CFCDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94874469264F748700CFCDB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9487446B264F748700CFCDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = Arum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.Arum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9487446C264F748700CFCDB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = Arum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.Arum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9487446E264F748700CFCDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = ArumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.ArumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arum.app/Arum";
+			};
+			name = Debug;
+		};
+		9487446F264F748700CFCDB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = ArumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.ArumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arum.app/Arum";
+			};
+			name = Release;
+		};
+		94874471264F748700CFCDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = ArumUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.ArumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Arum;
+			};
+			name = Debug;
+		};
+		94874472264F748700CFCDB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68DP6P68DW;
+				INFOPLIST_FILE = ArumUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.ArumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Arum;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9487443B264F748600CFCDB2 /* Build configuration list for PBXProject "Arum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94874468264F748700CFCDB2 /* Debug */,
+				94874469264F748700CFCDB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9487446A264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "Arum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9487446B264F748700CFCDB2 /* Debug */,
+				9487446C264F748700CFCDB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9487446D264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "ArumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9487446E264F748700CFCDB2 /* Debug */,
+				9487446F264F748700CFCDB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94874470264F748700CFCDB2 /* Build configuration list for PBXNativeTarget "ArumUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94874471264F748700CFCDB2 /* Debug */,
+				94874472264F748700CFCDB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94874438264F748600CFCDB2 /* Project object */;
+}
