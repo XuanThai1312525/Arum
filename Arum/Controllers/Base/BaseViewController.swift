@@ -6,13 +6,13 @@
 //  Copyright © 2020 LinhNM7. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 import UIKit
 
 typealias backButtonActionHandler = ()->()
 class BaseVC: UIViewController {
     
-    // MARK: - Init & deinit
+    // MARK: - @objc @objc @objc Init & deinit
     required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -59,11 +59,15 @@ class BaseVC: UIViewController {
 
 class BaseViewController: UIViewController {
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.notifyLanguageChanged), name: CGLNotificationName.changeLanguage.value, object: nil)
-        self.navigationBarWithBackTitle(title: "" )
+        setupNavigationBar()
+        setupUI()
+        setupTap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,13 +76,14 @@ class BaseViewController: UIViewController {
 
     }
     
-    lazy var back: UIBarButtonItem? = {
+    lazy var back: UIButton = {
         let backButton = UIButton()
-        backButton.setImage(UIImage(named: "backIcon"), for: .normal)
+        backButton.setImage(R.image.ic_back(), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: UIControl.Event.touchUpInside)
-        backButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        backButton.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
         backButton.contentHorizontalAlignment = .left
-        return UIBarButtonItem(customView: backButton)
+        backButton.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+        return backButton
 
     }()
     
@@ -91,15 +96,23 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func navigationBarWithBackTitle(title: String, prefersLargeTitles: Bool = false) {
+    func navigationBarWithBackTitle(title: String, backTitle: String,backTitleColor: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1),backTitleFont: UIFont = UIFont.appleSDGothicNeo.regular.font(size: 21), prefersLargeTitles: Bool = false) {
         self.navigationItem.title = title
-        
+//
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
         } else {
             // Fallback on earlier versions
         }
-        self.navigationItem.leftBarButtonItem = back
+        
+        let backButton = UIBarButtonItem(customView: back)
+        
+        let backButtonTitleAttibute = NSAttributedString(string: backTitle, attributes: [
+            NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1),
+            NSAttributedString.Key.font: backTitleFont
+        ])
+        back.setAttributedTitle(backButtonTitleAttibute, for: .normal)
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     @objc func notifyLanguageChanged(_ notify: Notification) {
@@ -107,7 +120,23 @@ class BaseViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        guard let navVC = self.navigationController, let _ =  self.back else { return }
+        guard let navVC = self.navigationController else { return }
         navVC.popViewController(animated: true)
+    }
+}
+
+
+extension BaseViewController {
+    @objc func setupNavigationBar() {
+    }
+    
+    /// For general ui setup
+    @objc func setupUI() {
+        
+    }
+    
+    ///For tap on button
+    @objc func setupTap() {
+        
     }
 }

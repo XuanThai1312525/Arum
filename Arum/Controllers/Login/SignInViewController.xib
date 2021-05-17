@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareOTFR.ttf">
+            <string>NanumSquareOTFR00</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Arum" customModuleProvider="target">
+            <connections>
+                <outlet property="emailUnderLineTextField" destination="shk-Y4-h5K" id="pKr-Bi-A4W"/>
+                <outlet property="loginButton" destination="FK6-QL-Me4" id="5oS-aA-DgJ"/>
+                <outlet property="passwordUnderLineTextField" destination="pUf-Jw-s1c" id="aA1-j2-7bP"/>
+                <outlet property="signUpButton" destination="MNF-CZ-IET" id="Iqg-wx-yDt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-sv-OeQ">
+                    <rect key="frame" x="23" y="44" width="368" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fa-Vf-nnv">
+                            <rect key="frame" x="0.0" y="0.0" width="368" height="818"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_login_top" translatesAutoresizingMaskIntoConstraints="NO" id="OT1-Ec-Xhu">
+                                    <rect key="frame" x="142.5" y="87" width="83" height="33.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="OT1-Ec-Xhu" secondAttribute="height" multiplier="85:34" id="v8m-r6-GlK"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-eb-7ps">
+                                    <rect key="frame" x="0.0" y="198.5" width="368" height="121"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shk-Y4-h5K" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="368" height="60.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
+                                                    <color key="value" name="#b6b6b6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                    <color key="value" name="#4e4e4e"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
+                                                    <color key="value" name="#b6b6b6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="inactiveLineColor">
+                                                    <color key="value" name="#4e4e4e"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Jw-s1c" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="60.5" width="368" height="60.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
+                                                    <color key="value" name="#b6b6b6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                    <color key="value" name="#4e4e4e"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
+                                                    <color key="value" name="#b6b6b6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="inactiveLineColor">
+                                                    <color key="value" name="#4e4e4e"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                    <color key="value" name="color-error-text"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gh-7E-3QZ">
+                                    <rect key="frame" x="0.0" y="337.5" width="368" height="28"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-EQ-Taa">
+                                            <rect key="frame" x="0.0" y="0.0" width="27.5" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fjL-EQ-Taa" secondAttribute="height" id="I5F-Lx-o1x"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" backgroundImage="ic_uncheck_autologin"/>
+                                            <state key="selected" backgroundImage="ic_checked_autologin"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrX-XO-KjA">
+                                            <rect key="frame" x="34.5" y="0.0" width="333.5" height="28"/>
+                                            <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="CrX-XO-KjA" secondAttribute="bottom" id="96p-PS-oAM"/>
+                                        <constraint firstItem="CrX-XO-KjA" firstAttribute="leading" secondItem="fjL-EQ-Taa" secondAttribute="trailing" constant="7" id="HXR-Wp-iyQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="CrX-XO-KjA" secondAttribute="trailing" id="Jiw-jO-bl6"/>
+                                        <constraint firstAttribute="bottom" secondItem="fjL-EQ-Taa" secondAttribute="bottom" id="TOC-9x-cZ5"/>
+                                        <constraint firstItem="CrX-XO-KjA" firstAttribute="top" secondItem="5Gh-7E-3QZ" secondAttribute="top" id="TpU-hs-Fwh"/>
+                                        <constraint firstItem="fjL-EQ-Taa" firstAttribute="top" secondItem="5Gh-7E-3QZ" secondAttribute="top" id="aXE-R3-6cx"/>
+                                        <constraint firstItem="fjL-EQ-Taa" firstAttribute="leading" secondItem="5Gh-7E-3QZ" secondAttribute="leading" id="iSe-o6-TiE"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-qo-u6K">
+                                    <rect key="frame" x="57" y="473.5" width="254" height="48.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="435-Ib-0DU">
+                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="48.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="435-Ib-0DU" secondAttribute="height" id="58G-B7-L13"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="ic_fb"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6B-6v-dRF">
+                                            <rect key="frame" x="68.5" y="0.0" width="48.5" height="48.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="K6B-6v-dRF" secondAttribute="height" multiplier="1:1" id="S1a-eW-Ub6"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="ic_naver"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guy-Un-gGA">
+                                            <rect key="frame" x="137" y="0.0" width="48.5" height="48.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="guy-Un-gGA" secondAttribute="height" multiplier="1:1" id="QYh-BJ-FmC"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="ic_kakao"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VR-np-MhL">
+                                            <rect key="frame" x="205.5" y="0.0" width="48.5" height="48.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="4VR-np-MhL" secondAttribute="height" multiplier="1:1" id="6bL-cO-oKF"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="ic_apple"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-QL-Me4">
+                                    <rect key="frame" x="0.0" y="386.5" width="368" height="55"/>
+                                    <color key="backgroundColor" red="0.28627450980392155" green="0.77647058823529413" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
+                                    <state key="normal" title="로그인">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-CZ-IET" customClass="AppButton" customModule="Arum" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="554" width="368" height="55"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
+                                    <state key="normal" title="회원가입">
+                                        <color key="titleColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.086274509799999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="#c5c5c5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="MNF-CZ-IET" firstAttribute="height" secondItem="FK6-QL-Me4" secondAttribute="height" id="8jr-hZ-154"/>
+                                <constraint firstItem="MNF-CZ-IET" firstAttribute="top" secondItem="CeD-qo-u6K" secondAttribute="bottom" constant="32" id="Hds-N2-dT3"/>
+                                <constraint firstItem="qxh-eb-7ps" firstAttribute="leading" secondItem="9Fa-Vf-nnv" secondAttribute="leading" id="MaA-4G-dtN"/>
+                                <constraint firstItem="OT1-Ec-Xhu" firstAttribute="width" secondItem="9Fa-Vf-nnv" secondAttribute="width" multiplier="85:375" id="Mpy-Mz-U0L"/>
+                                <constraint firstItem="CeD-qo-u6K" firstAttribute="top" secondItem="FK6-QL-Me4" secondAttribute="bottom" constant="32" id="QJ7-JS-hXi"/>
+                                <constraint firstAttribute="trailing" secondItem="qxh-eb-7ps" secondAttribute="trailing" id="SMz-ML-NHl"/>
+                                <constraint firstAttribute="trailing" secondItem="MNF-CZ-IET" secondAttribute="trailing" id="UbR-gk-LXB"/>
+                                <constraint firstAttribute="trailing" secondItem="5Gh-7E-3QZ" secondAttribute="trailing" id="Uoc-zT-kOR"/>
+                                <constraint firstItem="5Gh-7E-3QZ" firstAttribute="top" secondItem="qxh-eb-7ps" secondAttribute="bottom" constant="18" id="XSP-rb-fyc"/>
+                                <constraint firstItem="qxh-eb-7ps" firstAttribute="top" secondItem="OT1-Ec-Xhu" secondAttribute="bottom" constant="78" id="bAP-Sc-cG0"/>
+                                <constraint firstItem="OT1-Ec-Xhu" firstAttribute="centerX" secondItem="9Fa-Vf-nnv" secondAttribute="centerX" id="cgP-AE-agG"/>
+                                <constraint firstItem="5Gh-7E-3QZ" firstAttribute="leading" secondItem="9Fa-Vf-nnv" secondAttribute="leading" id="fkj-KO-MHe"/>
+                                <constraint firstItem="FK6-QL-Me4" firstAttribute="top" secondItem="5Gh-7E-3QZ" secondAttribute="bottom" constant="21" id="hj8-jc-APb"/>
+                                <constraint firstAttribute="trailing" secondItem="FK6-QL-Me4" secondAttribute="trailing" id="jYm-au-iac"/>
+                                <constraint firstItem="OT1-Ec-Xhu" firstAttribute="top" secondItem="9Fa-Vf-nnv" secondAttribute="top" constant="87" id="ntN-je-FaX"/>
+                                <constraint firstItem="MNF-CZ-IET" firstAttribute="leading" secondItem="9Fa-Vf-nnv" secondAttribute="leading" id="rOY-pU-tU0"/>
+                                <constraint firstItem="FK6-QL-Me4" firstAttribute="leading" secondItem="9Fa-Vf-nnv" secondAttribute="leading" id="tCh-C8-cwl"/>
+                                <constraint firstItem="CeD-qo-u6K" firstAttribute="centerX" secondItem="9Fa-Vf-nnv" secondAttribute="centerX" id="z62-bF-3Kx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="9Fa-Vf-nnv" firstAttribute="width" secondItem="Bf5-sv-OeQ" secondAttribute="width" id="Ais-SQ-hVb"/>
+                        <constraint firstAttribute="trailing" secondItem="9Fa-Vf-nnv" secondAttribute="trailing" id="PHE-w7-yn5"/>
+                        <constraint firstAttribute="bottom" secondItem="9Fa-Vf-nnv" secondAttribute="bottom" priority="900" id="Qm5-wg-4e2"/>
+                        <constraint firstItem="9Fa-Vf-nnv" firstAttribute="top" secondItem="Bf5-sv-OeQ" secondAttribute="top" id="hKb-pC-Fb1"/>
+                        <constraint firstItem="9Fa-Vf-nnv" firstAttribute="leading" secondItem="Bf5-sv-OeQ" secondAttribute="leading" id="ryE-0L-QF3"/>
+                        <constraint firstItem="9Fa-Vf-nnv" firstAttribute="height" secondItem="Bf5-sv-OeQ" secondAttribute="height" id="ulT-Bz-TqU"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bf5-sv-OeQ" secondAttribute="bottom" id="82K-FQ-dhu"/>
+                <constraint firstItem="5Gh-7E-3QZ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="25:812" id="Hb4-an-GNp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bf5-sv-OeQ" secondAttribute="trailing" constant="23" id="dEN-DO-tzY"/>
+                <constraint firstItem="Bf5-sv-OeQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="23" id="nfU-fD-Vz2"/>
+                <constraint firstItem="CeD-qo-u6K" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="44:812" id="nkc-ez-ikb"/>
+                <constraint firstItem="qxh-eb-7ps" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="110:812" id="ojC-Xe-rFV"/>
+                <constraint firstItem="FK6-QL-Me4" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="50:812" id="xtz-LG-fXw"/>
+                <constraint firstItem="Bf5-sv-OeQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zZL-Ur-Lgr"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="71.651785714285708"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="MNF-CZ-IET">
+            <size key="intrinsicContentSize" width="66" height="32"/>
+        </designable>
+        <designable name="pUf-Jw-s1c">
+            <size key="intrinsicContentSize" width="222.5" height="34"/>
+        </designable>
+        <designable name="shk-Y4-h5K">
+            <size key="intrinsicContentSize" width="149" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="ic_apple" width="29.666666030883789" height="29.666666030883789"/>
+        <image name="ic_checked_autologin" width="8" height="7.6666665077209473"/>
+        <image name="ic_fb" width="29.666666030883789" height="29.666666030883789"/>
+        <image name="ic_kakao" width="29.666666030883789" height="29.666666030883789"/>
+        <image name="ic_login_top" width="56.666667938232422" height="22.333333969116211"/>
+        <image name="ic_naver" width="29.666666030883789" height="29.666666030883789"/>
+        <image name="ic_uncheck_autologin" width="8" height="7.6666665077209473"/>
+        <namedColor name="#4e4e4e">
+            <color red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#b6b6b6">
+            <color red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#c5c5c5">
+            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-error-text">
+            <color red="0.87800002098083496" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
