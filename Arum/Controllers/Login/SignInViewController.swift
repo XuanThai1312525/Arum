@@ -6,38 +6,39 @@
 //  Copyright © 2020 LinhNM7. All rights reserved.
 //
 
-import UIKit
+import RxCocoa
+import RxSwift
 
 class SignInViewController: HideNavigationBarViewController {
+    //MARK: Outlets
     @IBOutlet weak var loginButton: AppButton!
     @IBOutlet weak var signUpButton: AppButton!
     @IBOutlet weak var emailUnderLineTextField: UnderLineTextField!
     @IBOutlet weak var passwordUnderLineTextField: UnderLineTextField!
+    @IBOutlet weak var fbLoginButton: UIButton!
+    @IBOutlet weak var naverLoginButton: UIButton!
+    @IBOutlet weak var kakaoLoginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
     
+    //MARK: Properties
+    lazy var socialAuthUtil = SocialAuthUtil()
+    let viewModel = SignInViewModel()
+    
+    //MARK: Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        configs()
+        
+        setupUI()
     }
     
-    private func configs() {
+    override func setupUI() {
         
         emailUnderLineTextField.isPlaceHolderAnimation = false
         emailUnderLineTextField.isBottomLine = true
         
         passwordUnderLineTextField.isPlaceHolderAnimation = false
         passwordUnderLineTextField.isBottomLine = true
-//        passwordUnderLineTextField.font = 
         
-//        let emailAppearance = TextInputViewAppear(descriptionText: "메일주소를 입력해 주세요.".localizedCapitalized, validText: nil, isShowValidText: true, invalidText: "메일주소를 입력해", invalidColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), validColor: #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3058823529, alpha: 1))
-//        emailInputView.appearance(emailAppearance)
-//        
-//        let passwordAppearance = TextInputViewAppear(descriptionText: "비밀번호를 입력해 주세요.".localizedCapitalized, validText:nil,  isShowValidText: true, invalidText: "메일주소를 입력해", invalidColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), validColor: #colorLiteral(red: 0.3058823529, green: 0.3058823529, blue: 0.3058823529, alpha: 1))
-//        passwordInputView.appearance(passwordAppearance)
-//        
-//        emailInputView.bindingUI(isValid: false)
-//        passwordInputView.bindingUI(isValid: false)
-
     }
     
     override func setupTap() {
@@ -46,7 +47,26 @@ class SignInViewController: HideNavigationBarViewController {
         loginButton.rx.tap.subscribe { (_) in
             self.navigationController?.pushViewController( AuthenticationViewController(nib: R.nib.authenticationViewController), animated: true)
         }.disposed(by: disposeBag)
+    }
+    
+    var output: SignInViewModel.Output?
+    
+    override func setupViewModel() {
+        super.setupViewModel()
+        
+        let socialTrigger = Observable<SocialAuthType>.merge(fbLoginButton.rx.tap.asObservable().map{.fb},
+                                                             appleLoginButton.rx.tap.asObservable().map{.apple},
+                                                             kakaoLoginButton.rx.tap.asObservable().map{.kakao},
+                                                             naverLoginButton.rx.tap.asObservable().map{.naver})
+        let input = SignInViewModel.Input(loginSocial:socialTrigger )
+        
+        output = viewModel.transform(input: input)
+        
+        
+        
         
     }
     
 }
+
+

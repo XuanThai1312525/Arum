@@ -68,6 +68,7 @@ class BaseViewController: UIViewController {
         setupNavigationBar()
         setupUI()
         setupTap()
+        setupViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,5 +139,8 @@ extension BaseViewController {
     ///For tap on button
     @objc func setupTap() {
         
+    }
+    
+    @objc func setupViewModel() {
     }
 }

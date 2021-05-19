@@ -8,6 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		118B89FD0032150A0997E93C /* Pods_ArumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36656317B44BADD45ECDB15 /* Pods_ArumTests.framework */; };
+		6911D4B82655985C00FA79B5 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4B72655985C00FA79B5 /* OptionalExtension.swift */; };
+		6911D4B92655985C00FA79B5 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4B72655985C00FA79B5 /* OptionalExtension.swift */; };
+		6911D4BA2655985C00FA79B5 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4B72655985C00FA79B5 /* OptionalExtension.swift */; };
+		6911D4BF2655A00F00FA79B5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4BE2655A00F00FA79B5 /* BaseViewModel.swift */; };
+		6911D4C02655A00F00FA79B5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4BE2655A00F00FA79B5 /* BaseViewModel.swift */; };
+		6911D4C12655A00F00FA79B5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4BE2655A00F00FA79B5 /* BaseViewModel.swift */; };
+		6911D4C72655A18100FA79B5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */; };
+		6911D4C82655A18100FA79B5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */; };
+		6911D4C92655A18100FA79B5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */; };
+		6911D4CA2655A18100FA79B5 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C62655A18100FA79B5 /* ErrorTracker.swift */; };
+		6911D4CB2655A18100FA79B5 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C62655A18100FA79B5 /* ErrorTracker.swift */; };
+		6911D4CC2655A18100FA79B5 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4C62655A18100FA79B5 /* ErrorTracker.swift */; };
+		6911D4D52655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
+		6911D4D62655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
+		6911D4D72655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
+		6940531426545E5000692059 /* Naver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940531326545E5000692059 /* Naver+Extension.swift */; };
+		6986905B265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
+		6986905C265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
+		6986905D265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
+		6990D94C265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
+		6990D94D265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
+		6990D94E265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
+		6990D957265419B900F17B16 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D956265419B800F17B16 /* SignInViewModel.swift */; };
+		6990D958265419B900F17B16 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D956265419B800F17B16 /* SignInViewModel.swift */; };
+		6990D959265419B900F17B16 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D956265419B800F17B16 /* SignInViewModel.swift */; };
 		6EA006E541EC3DB4F627BC99 /* Pods_Arum_ArumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96109F32EA9728EB309B0D03 /* Pods_Arum_ArumUITests.framework */; };
 		740719622651A0BE0014D6A4 /* VerticalAlignmentTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740719512651A0BE0014D6A4 /* VerticalAlignmentTextLayer.swift */; };
 		740719642651A0BE0014D6A4 /* UIAnimatableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740719542651A0BE0014D6A4 /* UIAnimatableLabel.swift */; };
@@ -147,6 +172,16 @@
 
 /* Begin PBXFileReference section */
 		400C1D18507D15FA813F5903 /* Pods-Arum-ArumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arum-ArumUITests.release.xcconfig"; path = "Target Support Files/Pods-Arum-ArumUITests/Pods-Arum-ArumUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6911D4B72655985C00FA79B5 /* OptionalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
+		6911D4BE2655A00F00FA79B5 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		6911D4C62655A18100FA79B5 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		6911D4D42655A23800FA79B5 /* RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtension.swift; sourceTree = "<group>"; };
+		6940531326545E5000692059 /* Naver+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Naver+Extension.swift"; sourceTree = "<group>"; };
+		6986905A265574FE00261CEB /* SocialAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuth.swift; sourceTree = "<group>"; };
+		6990D94B265417F400F17B16 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		6990D956265419B800F17B16 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		69E99C092655106E00AEE8DC /* Arum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Arum.entitlements; sourceTree = "<group>"; };
 		740719512651A0BE0014D6A4 /* VerticalAlignmentTextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentTextLayer.swift; sourceTree = "<group>"; };
 		740719542651A0BE0014D6A4 /* UIAnimatableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAnimatableLabel.swift; sourceTree = "<group>"; };
 		740719562651A0BE0014D6A4 /* UnderLineTextFieldFocusStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderLineTextFieldFocusStatus.swift; sourceTree = "<group>"; };
@@ -304,6 +339,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6911D4D32655A22B00FA79B5 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				6911D4D42655A23800FA79B5 /* RxExtension.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		6990D94A265417DE00F17B16 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6990D94B265417F400F17B16 /* ViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6990D955265419A800F17B16 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6990D956265419B800F17B16 /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6F0F1C7CA468B4884D5674A9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +478,7 @@
 		94874442264F748600CFCDB2 /* Arum */ = {
 			isa = PBXGroup;
 			children = (
+				69E99C092655106E00AEE8DC /* Arum.entitlements */,
 				74EE0A672651148E00CC7C51 /* Generated */,
 				9487448C264F752100CFCDB2 /* Base */,
 				94874451264F748700CFCDB2 /* Info.plist */,
@@ -454,6 +514,7 @@
 		9487448C264F752100CFCDB2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				6990D94A265417DE00F17B16 /* ViewModel */,
 				94874494264F755600CFCDB2 /* Resource */,
 				94874490264F753400CFCDB2 /* Storyboard */,
 				94874443264F748600CFCDB2 /* AppDelegate.swift */,
@@ -638,6 +699,7 @@
 		948744D5264F758200CFCDB2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				6990D955265419A800F17B16 /* ViewModel */,
 				948744D6264F758200CFCDB2 /* SignInViewController.xib */,
 				948744D7264F758200CFCDB2 /* SignInViewController.swift */,
 			);
@@ -650,6 +712,7 @@
 				948744DD264F758200CFCDB2 /* BaseViewController.swift */,
 				948744DE264F758200CFCDB2 /* BaseNavigationVC.swift */,
 				74D45C982651765E00C7E996 /* HideNavigationBarViewController.swift */,
+				6911D4BE2655A00F00FA79B5 /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -817,6 +880,8 @@
 		9487450F264F758400CFCDB2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */,
+				6911D4C62655A18100FA79B5 /* ErrorTracker.swift */,
 				94874510264F758400CFCDB2 /* DataManager.swift */,
 				94874511264F758400CFCDB2 /* LocalizationManager.swift */,
 				94874512264F758400CFCDB2 /* FileManagerUtils.swift */,
@@ -824,6 +889,7 @@
 				94874514264F758400CFCDB2 /* GeneralUtils.swift */,
 				94874516264F758400CFCDB2 /* SystenInfo.swift */,
 				74EE0A48265110D100CC7C51 /* UserSession.swift */,
+				6986905A265574FE00261CEB /* SocialAuth.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -831,6 +897,7 @@
 		94874517264F758400CFCDB2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6911D4D32655A22B00FA79B5 /* Rx */,
 				94874518264F758400CFCDB2 /* Other */,
 				94874520264F758400CFCDB2 /* Controller */,
 				94874524264F758400CFCDB2 /* Numeric */,
@@ -848,6 +915,8 @@
 				9487451B264F758400CFCDB2 /* Date+Extension.swift */,
 				9487451C264F758400CFCDB2 /* UserDefault+Extension.swift */,
 				9487451D264F758400CFCDB2 /* SequenceExtension.swift */,
+				6940531326545E5000692059 /* Naver+Extension.swift */,
+				6911D4B72655985C00FA79B5 /* OptionalExtension.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1193,6 +1262,7 @@
 				94874585264F758400CFCDB2 /* DataManager.swift in Sources */,
 				94874570264F758400CFCDB2 /* ESTabBarItemMoreContentView.swift in Sources */,
 				94874572264F758400CFCDB2 /* ESTabBarItemContentView.swift in Sources */,
+				6940531426545E5000692059 /* Naver+Extension.swift in Sources */,
 				7407196C2651A0BE0014D6A4 /* UnderLineTextField.swift in Sources */,
 				94874586264F758400CFCDB2 /* LocalizationManager.swift in Sources */,
 				740719642651A0BE0014D6A4 /* UIAnimatableLabel.swift in Sources */,
@@ -1209,6 +1279,7 @@
 				740719682651A0BE0014D6A4 /* UnderLineTextFieldContentStatus.swift in Sources */,
 				9487458B264F758400CFCDB2 /* SystenInfo.swift in Sources */,
 				94874590264F758400CFCDB2 /* SequenceExtension.swift in Sources */,
+				6911D4D52655A23800FA79B5 /* RxExtension.swift in Sources */,
 				94874571264F758400CFCDB2 /* ESTabBarController.swift in Sources */,
 				94874546264F758400CFCDB2 /* APIExtension.swift in Sources */,
 				94874566264F758400CFCDB2 /* Typealias.swift in Sources */,
@@ -1228,18 +1299,22 @@
 				74EE0A49265110D100CC7C51 /* UserSession.swift in Sources */,
 				94874593264F758400CFCDB2 /* UIApplication+Extension.swift in Sources */,
 				740719622651A0BE0014D6A4 /* VerticalAlignmentTextLayer.swift in Sources */,
+				6990D957265419B900F17B16 /* SignInViewModel.swift in Sources */,
 				948745A5264F758400CFCDB2 /* UICollectionViewCell+Extension.swift in Sources */,
 				94874580264F758400CFCDB2 /* TapActionView.swift in Sources */,
+				6911D4B82655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				9487458D264F758400CFCDB2 /* UIColor+Extension.swift in Sources */,
 				94874541264F758400CFCDB2 /* APIUIIndicator.swift in Sources */,
 				94874582264F758400CFCDB2 /* RoundedView.swift in Sources */,
 				9487454C264F758400CFCDB2 /* RecordingPermission.swift in Sources */,
+				6911D4CA2655A18100FA79B5 /* ErrorTracker.swift in Sources */,
 				74D45C992651765E00C7E996 /* HideNavigationBarViewController.swift in Sources */,
 				9487453B264F758400CFCDB2 /* APIError.swift in Sources */,
 				948745A6264F758400CFCDB2 /* AttributeString+Extension.swift in Sources */,
 				94874565264F758400CFCDB2 /* Constants.swift in Sources */,
 				9487459F264F758400CFCDB2 /* MKMapViewExtensions.swift in Sources */,
 				740719692651A0BE0014D6A4 /* UnderLineTextFieldValidateType.swift in Sources */,
+				6986905B265574FE00261CEB /* SocialAuth.swift in Sources */,
 				9487459C264F758400CFCDB2 /* UICollectionReusableView+Extension.swift in Sources */,
 				9487456C264F758400CFCDB2 /* BaseTextView.swift in Sources */,
 				948745A1264F758400CFCDB2 /* UITextView+Extension.swift in Sources */,
@@ -1247,6 +1322,7 @@
 				9487459B264F758400CFCDB2 /* UIImage+Extension.swift in Sources */,
 				94874576264F758400CFCDB2 /* ESTabBarItemContainer.swift in Sources */,
 				9487454B264F758400CFCDB2 /* CameraPermission.swift in Sources */,
+				6990D94C265417F400F17B16 /* ViewModelType.swift in Sources */,
 				9487457D264F758400CFCDB2 /* AppButton.swift in Sources */,
 				9487454D264F758400CFCDB2 /* PhotoPermission.swift in Sources */,
 				94874595264F758400CFCDB2 /* UIViewController+Extension.swift in Sources */,
@@ -1258,6 +1334,7 @@
 				9487456F264F758400CFCDB2 /* BaseCollectionView.swift in Sources */,
 				94874599264F758400CFCDB2 /* UIButton+Extension.swift in Sources */,
 				9487456E264F758400CFCDB2 /* ColorImageView.swift in Sources */,
+				6911D4C72655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
 				948745A3264F758400CFCDB2 /* UITextField+Extension.swift in Sources */,
 				94874543264F758400CFCDB2 /* APIMainEnviroment.swift in Sources */,
 				740719672651A0BE0014D6A4 /* UnderLineTextFieldErrors.swift in Sources */,
@@ -1275,6 +1352,7 @@
 				94874574264F758400CFCDB2 /* ESTabBarItemBadgeView.swift in Sources */,
 				7448DD722652CC0300A7022F /* AuthenticationViewController.swift in Sources */,
 				94874547264F758400CFCDB2 /* TabbarContentView.swift in Sources */,
+				6911D4BF2655A00F00FA79B5 /* BaseViewModel.swift in Sources */,
 				94874540264F758400CFCDB2 /* APIEnviromentProtocol.swift in Sources */,
 				94874573264F758400CFCDB2 /* ESTabBarItem.swift in Sources */,
 				94874567264F758400CFCDB2 /* EnumType.swift in Sources */,
@@ -1285,8 +1363,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6990D958265419B900F17B16 /* SignInViewModel.swift in Sources */,
 				9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */,
+				6986905C265574FE00261CEB /* SocialAuth.swift in Sources */,
+				6911D4C02655A00F00FA79B5 /* BaseViewModel.swift in Sources */,
+				6911D4CB2655A18100FA79B5 /* ErrorTracker.swift in Sources */,
+				6911D4C82655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
+				6911D4B92655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7D265114F400CC7C51 /* R.generated.swift in Sources */,
+				6990D94D265417F400F17B16 /* ViewModelType.swift in Sources */,
+				6911D4D62655A23800FA79B5 /* RxExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1294,8 +1380,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6990D959265419B900F17B16 /* SignInViewModel.swift in Sources */,
 				94874466264F748700CFCDB2 /* ArumUITests.swift in Sources */,
+				6986905D265574FE00261CEB /* SocialAuth.swift in Sources */,
+				6911D4C12655A00F00FA79B5 /* BaseViewModel.swift in Sources */,
+				6911D4CC2655A18100FA79B5 /* ErrorTracker.swift in Sources */,
+				6911D4C92655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
+				6911D4BA2655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7E265114F400CC7C51 /* R.generated.swift in Sources */,
+				6990D94E265417F400F17B16 /* ViewModelType.swift in Sources */,
+				6911D4D72655A23800FA79B5 /* RxExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1448,16 +1542,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68DP6P68DW;
+				CODE_SIGN_ENTITLEMENTS = Arum/Arum.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6HG343YJUX;
 				INFOPLIST_FILE = Arum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.Arum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.ArumApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_provisioning;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1469,16 +1566,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68DP6P68DW;
+				CODE_SIGN_ENTITLEMENTS = Arum/Arum.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6HG343YJUX;
 				INFOPLIST_FILE = Arum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.app.Arum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.ArumApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_provisioning;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

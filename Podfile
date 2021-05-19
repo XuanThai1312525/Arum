@@ -17,6 +17,18 @@ target 'Arum' do
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Kingfisher'
   pod 'R.swift'
+  
+  #Kakao
+  pod 'KakaoSDKCommon'  # Common module that contains essential element
+  pod 'KakaoSDKAuth'  # Authentication
+  pod 'KakaoSDKUser'  # Kakao Login, User
+  
+  #Naver
+  pod 'naveridlogin-sdk-ios'
+  
+  #FB
+  pod 'FBSDKLoginKit'
+  
   # Pods for Arum
 
   target 'ArumTests' do
