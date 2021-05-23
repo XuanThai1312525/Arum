@@ -170,9 +170,9 @@ class KakaoAuth: SocialAuth {
                             print("me() success.")
                             self.resultPublish.onNext(KakaoAuthResult(accessToken: oauthToken.accessToken, refreshToken: oauthToken.refreshToken, email: (user.kakaoAccount?.email).emptyOnNil, phoneNumber: (user.kakaoAccount?.phoneNumber).emptyOnNil))
                             self.resultPublish.onCompleted()
+                        } else {
+                            self.resultPublish.onError(error!)
                         }
-                        
-                        self.resultPublish.onError(error!)
                     }
                 } else {
                     self.resultPublish.onError(error!)

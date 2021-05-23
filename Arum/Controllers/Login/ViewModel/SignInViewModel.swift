@@ -15,7 +15,7 @@ class SignInViewModel: BaseViewModel {
     }
     
     struct Output {
-        
+        var activityIndicator: Observable<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -25,15 +25,15 @@ class SignInViewModel: BaseViewModel {
                     return Observable<Any>.empty()
                 }
                 return self.socialAuthUtil.requestAuth(type: type)
+                    .trackError(self._errorTracker)
+                    .trackActivity(self._activityIndicator)
             }
-            .trackError(errorTracker)
-            .trackActivity(activityIndicator)
-            .subscribe(onNext: { (result) in
-                print(result)
-            }).disposed(by: disposeBag)
-
-        
-        
-        return Output()
+            
+            .subscribe { (event) in
+                print(event )
+                //Process event here
+            }
+            .disposed(by: disposeBag)
+        return Output(activityIndicator: activityIndicator)
     }
 }

@@ -49,8 +49,6 @@ class SignInViewController: HideNavigationBarViewController {
         }.disposed(by: disposeBag)
     }
     
-    var output: SignInViewModel.Output?
-    
     override func setupViewModel() {
         super.setupViewModel()
         
@@ -60,7 +58,11 @@ class SignInViewController: HideNavigationBarViewController {
                                                              naverLoginButton.rx.tap.asObservable().map{.naver})
         let input = SignInViewModel.Input(loginSocial:socialTrigger )
         
-        output = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
+        
+        output.activityIndicator
+            .bind(to:activityIndicatorEntireScreenBinder)
+            .disposed(by: disposeBag)
         
         
         

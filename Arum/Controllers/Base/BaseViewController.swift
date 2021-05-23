@@ -7,7 +7,8 @@
 //
 
 import RxSwift
-import UIKit
+import RxCocoa
+import MBProgressHUD
 
 typealias backButtonActionHandler = ()->()
 class BaseVC: UIViewController {
@@ -39,7 +40,7 @@ class BaseVC: UIViewController {
             handleWhenViewIsBeingDismissedOrPopped()
         }
     }
-
+    
     // MARK: - Setup
     private func baseConfig() {
         edgesForExtendedLayout = []
@@ -51,7 +52,7 @@ class BaseVC: UIViewController {
         cancelAllAPIRequests()
     }
     
-
+    
 }
 
 
@@ -74,7 +75,7 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-
+        
     }
     
     lazy var back: UIButton = {
@@ -85,7 +86,7 @@ class BaseViewController: UIViewController {
         backButton.contentHorizontalAlignment = .left
         backButton.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         return backButton
-
+        
     }()
     
     var hideBackButton: Bool = false {
@@ -99,7 +100,7 @@ class BaseViewController: UIViewController {
     
     func navigationBarWithBackTitle(title: String, backTitle: String,backTitleColor: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1),backTitleFont: UIFont = UIFont.appleSDGothicNeo.regular.font(size: 21), prefersLargeTitles: Bool = false) {
         self.navigationItem.title = title
-//
+        //
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
         } else {
@@ -117,7 +118,7 @@ class BaseViewController: UIViewController {
     }
     
     @objc func notifyLanguageChanged(_ notify: Notification) {
-
+        
     }
     
     @objc func backButtonTapped() {
@@ -127,6 +128,49 @@ class BaseViewController: UIViewController {
 }
 
 
+
+//MARK: Binding
+extension BaseViewController {
+    var alertBinding: Binder<String> {
+        return Binder(self, binding: { (vc, message) in
+            let alert = UIAlertController(title: "",
+                                          message: message,
+                                          preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK",
+                                       style: UIAlertAction.Style.cancel,
+                                       handler: nil)
+            alert.addAction(action)
+            vc.present(alert, animated: true, completion: nil)
+        })
+    }
+    
+    var alertBindingPopOnCompleted: Binder<String> {
+        return Binder(self, binding: { (vc, message) in
+            let alert = UIAlertController(title: "",
+                                          message: message,
+                                          preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK",
+                                       style: UIAlertAction.Style.cancel) { [weak self](action) in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(action)
+            vc.present(alert, animated: true, completion: nil)
+        })
+    }
+    
+    var activityIndicatorEntireScreenBinder: Binder<Bool> {
+        return Binder(self, binding: { (vc, isLoadingEntireView) in
+            if isLoadingEntireView {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+            } else {
+                MBProgressHUD.hide(for: self.view, animated: true)
+            }
+            
+        })
+    }
+}
+
+//MARK: Life cycles
 extension BaseViewController {
     @objc func setupNavigationBar() {
     }
@@ -144,3 +188,4 @@ extension BaseViewController {
     @objc func setupViewModel() {
     }
 }
+
