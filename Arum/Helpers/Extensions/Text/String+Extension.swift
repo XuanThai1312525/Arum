@@ -116,7 +116,7 @@ extension String {
     
     var isPhoneNumber: Bool {
         if self.contains("-") || self.contains("*") || self.contains("+") {
-            let precidate = NSPredicate(format: "SELF MATCHES %@", "^((\\+)|(00))[0-9]{6,14}$")
+            let precidate = NSPredicate(format: "SELF MATCHES %@", "^[0-9]{10,11}$")
             return precidate.evaluate(with: self)
         }
         let precidate = NSPredicate(format: "SELF MATCHES %@", "([0-9]){10,11}$")

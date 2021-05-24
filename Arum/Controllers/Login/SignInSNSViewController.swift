@@ -12,14 +12,20 @@ class SignInSNSViewController: UIViewController {
     
     @IBOutlet weak var webview: WKWebView!
     
-    var url: URL?
+    var url: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        webview.load(URLRequest(url: url))
+        loadWeb()
     }
     
-    func loadWeb
+    func loadWeb() {
+        guard let url = url, let webUrl = URL(string: url) else {
+            return
+        }
+        
+        webview.load(URLRequest(url: webUrl))
+        
+    }
 
 }

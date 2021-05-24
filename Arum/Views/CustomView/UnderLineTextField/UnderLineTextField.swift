@@ -73,6 +73,14 @@ open class UnderLineTextField: UITextField {
         }
     }
     
+    public var errorText: String? {
+        didSet {
+            errorLabel.text = errorText
+        }
+    }
+    
+    public var onValidate: ((String)->Bool)?
+    
     /// placeholder label font.
     /// default is textfield's font
     open var placeholderFont: UIFont? {
@@ -252,7 +260,7 @@ open class UnderLineTextField: UITextField {
                                                    toItem: self,
                                                    attribute: .bottom,
                                                    multiplier: 1,
-                                                   constant: 0))
+                                                   constant:errorHeight+2))
         neededConstraint.append(NSLayoutConstraint(item: label,
                                                    attribute: .trailing,
                                                    relatedBy: .equal,
@@ -519,17 +527,17 @@ extension UnderLineTextField {
     }
     
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight - 7, left: 0, bottom: 0, right: 0)
+        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight, left: 0, bottom: 0, right: 0)
         return bounds.inset(by: padding)
     }
     
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight - 7, left: 0, bottom: 0, right: 0)
+        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight, left: 0, bottom: 0, right: 0)
         return bounds.inset(by: padding)
     }
     
     open override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight - 7, left: 0, bottom: 0, right: 0)
+        let padding = UIEdgeInsets(top: placeholderHeight - lineHeight, left: 0, bottom: 0, right: 0)
         return bounds.inset(by: padding)
     }
 
@@ -655,6 +663,12 @@ extension UnderLineTextField {
 
     public func validate() throws {
         do {
+            if let onValidate = onValidate {
+                let result = onValidate(self.text.emptyOnNil)
+                if !result {
+                    throw UnderLineTextFieldErrors.error(message: errorText)
+                }
+            }
             try (delegate as? UnderLineTextFieldDelegate)?
                 .textFieldValidate(underLineTextField: self)
              status = .normal
@@ -675,6 +689,18 @@ extension UnderLineTextField {
             focusStatus = .inactive
         }
     }
+    
+    public func forceError(errorText: String) {
+        status = .error
+        errorLabel.text = errorText
+        
+        if isFirstResponder {
+            focusStatus = .active
+        } else {
+            focusStatus = .inactive
+        }
+    }
+    
 }
 
 //=================

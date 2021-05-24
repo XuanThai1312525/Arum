@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class Constants {
     enum Enviroment {
@@ -24,7 +25,7 @@ extension Constants {
     static var BASE_URL: String {
         switch Constants.enviroment {
         case .develop:
-            return ""
+            return "https://aleum.kr"
         default:
             return "https://aleum.kr"
         }
@@ -49,14 +50,24 @@ extension Constants {
 
 //MARK: Authentication
 extension Constants {
-    enum Kakao {
-        static let KAKAO_NATIVE_APP_KEY = "3e8d672c34ffeef7293e13f755b42be6"
+    enum SNS_URL {
+        static let KAKAO = "https://aleum.kr/login/kakao"
+        static let FB = "https://aleum.kr/login/fabook"
+        static let APPLE = "https://aleum.kr/login/apple"
+        static let NAVER = "https://aleum.kr/login/naver"
     }
-    
-    enum Naver {
-        static let URL_SCHEMA = "com.arumInc.app.naver" //URL Scheme entered when registering the application This is the URL Scheme to receive a callback after the OAuth 2.0 login process is completed.
-        static let CONSUMER_KEY = "3vgVAF53f1VomT7tFho1" //    Client ID issued after application registration
-        static let CONSUMER_SECRET = "ajpamZwLiM" //Client secret issued after application registration
-        static let SERVICE_NAME = "Arum" //Client secret issued after application registration
+}
+
+//MARK: API PATHS
+extension Constants {
+    enum APIPaths {
+        enum authentication {
+            static let login = "api/users/login"
+        }
     }
+}
+
+//MARK: User Info
+extension Constants {
+    static let USER_INFO_KEY = "USER_INFO_KEY"
 }

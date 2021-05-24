@@ -131,6 +131,20 @@ class BaseViewController: UIViewController {
 
 //MARK: Binding
 extension BaseViewController {
+    var errorBinding: Binder<Error> {
+        return Binder(self, binding: { (vc, error) in
+            var message = ""
+            if let localizedFailureReason = error.localizedFailureReason {
+                message = localizedFailureReason
+            }
+            
+            if message.isEmpty {
+                message = "エラーが発生しました"
+            }
+            self.alertBinding.onNext(message)
+        })
+    }
+    
     var alertBinding: Binder<String> {
         return Binder(self, binding: { (vc, message) in
             let alert = UIAlertController(title: "",
