@@ -1,22 +1,10 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.3)
   - Differentiator (4.0.1)
   - IQKeyboardManagerSwift (6.5.6)
-  - KakaoSDKAuth (2.5.2):
-    - KakaoSDKCommon (= 2.5.2)
-  - KakaoSDKCommon (2.5.2):
-    - KakaoSDKCommon/Common (= 2.5.2)
-    - KakaoSDKCommon/Network (= 2.5.2)
-  - KakaoSDKCommon/Common (2.5.2)
-  - KakaoSDKCommon/Network (2.5.2):
-    - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.2)
-  - KakaoSDKUser (2.5.2):
-    - KakaoSDKAuth (= 2.5.2)
   - KeychainAccess (4.2.2)
-  - Kingfisher (6.2.1)
+  - Kingfisher (6.3.0)
   - MBProgressHUD (1.2.0)
-  - naveridlogin-sdk-ios (4.1.3)
   - PromiseKit (6.13.1):
     - PromiseKit/CorePromise (= 6.13.1)
     - PromiseKit/Foundation (= 6.13.1)
@@ -29,11 +17,6 @@ PODS:
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
-  - RxAlamofire (5.7.1):
-    - RxAlamofire/Core (= 5.7.1)
-  - RxAlamofire/Core (5.7.1):
-    - Alamofire (~> 5.4)
-    - RxSwift (~> 5.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -44,23 +27,6 @@ PODS:
   - RxGesture (3.0.2):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
-  - RxKakaoSDKAuth (2.5.2):
-    - KakaoSDKAuth (= 2.5.2)
-    - RxKakaoSDKCommon (= 2.5.2)
-  - RxKakaoSDKCommon (2.5.2):
-    - RxKakaoSDKCommon/Common (= 2.5.2)
-    - RxKakaoSDKCommon/Network (= 2.5.2)
-  - RxKakaoSDKCommon/Common (2.5.2):
-    - KakaoSDKCommon/Common (= 2.5.2)
-    - RxCocoa
-    - RxSwift
-  - RxKakaoSDKCommon/Network (2.5.2):
-    - KakaoSDKCommon/Network (= 2.5.2)
-    - RxAlamofire (~> 5.2)
-    - RxKakaoSDKCommon/Common (= 2.5.2)
-  - RxKakaoSDKUser (2.5.2):
-    - KakaoSDKUser (= 2.5.2)
-    - RxKakaoSDKAuth (= 2.5.2)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
@@ -80,15 +46,11 @@ DEPENDENCIES:
   - KeychainAccess
   - Kingfisher
   - MBProgressHUD (~> 1.2.0)
-  - naveridlogin-sdk-ios
   - PromiseKit
   - R.swift
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxGesture
-  - RxKakaoSDKAuth
-  - RxKakaoSDKCommon
-  - RxKakaoSDKUser
   - RxSwift (~> 5)
   - RxSwiftExt (~> 5)
   - SwiftyJSON
@@ -98,54 +60,38 @@ SPEC REPOS:
     - Alamofire
     - Differentiator
     - IQKeyboardManagerSwift
-    - KakaoSDKAuth
-    - KakaoSDKCommon
-    - KakaoSDKUser
     - KeychainAccess
     - Kingfisher
     - MBProgressHUD
-    - naveridlogin-sdk-ios
     - PromiseKit
     - R.swift
     - R.swift.Library
-    - RxAlamofire
     - RxCocoa
     - RxDataSources
     - RxGesture
-    - RxKakaoSDKAuth
-    - RxKakaoSDKCommon
-    - RxKakaoSDKUser
     - RxRelay
     - RxSwift
     - RxSwiftExt
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  KakaoSDKAuth: 81715662c03e4c8c1a140f293e9fd6fd68b2e9dd
-  KakaoSDKCommon: 887e22f7aa4647bd0a7d1397512fc5f6211b83d6
-  KakaoSDKUser: b79c1a18da69681de7c9d3fa59e83c37b711ce7e
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
-  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
-  RxAlamofire: 8e144c62dcc01d68dcb366bfc542eb6dd46bab78
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
-  RxKakaoSDKAuth: ff88a3a8418bc12609abab38661e902e6c1b4ce4
-  RxKakaoSDKCommon: 206bc6b6db17e3310e1aaf8c366be2a6a5a4e140
-  RxKakaoSDKUser: 4a6c2ff554de96e83dddc36a6d3eb729699c175f
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 513443e78a0fc361361a691c10c699d64e2029ff
+PODFILE CHECKSUM: 464f50309ac671d87f6b92f5f7c4771a7afef70e
 
 COCOAPODS: 1.10.1

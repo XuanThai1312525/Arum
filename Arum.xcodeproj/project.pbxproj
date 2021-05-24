@@ -23,10 +23,12 @@
 		6911D4D52655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
 		6911D4D62655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
 		6911D4D72655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
-		6940531426545E5000692059 /* Naver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940531326545E5000692059 /* Naver+Extension.swift */; };
-		6986905B265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
-		6986905C265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
-		6986905D265574FE00261CEB /* SocialAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6986905A265574FE00261CEB /* SocialAuth.swift */; };
+		691D56D0265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
+		691D56D1265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
+		691D56D2265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
+		691D56D3265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
+		691D56D4265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
+		691D56D5265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
 		6990D94C265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
 		6990D94D265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
 		6990D94E265417F400F17B16 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D94B265417F400F17B16 /* ViewModelType.swift */; };
@@ -177,8 +179,8 @@
 		6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		6911D4C62655A18100FA79B5 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		6911D4D42655A23800FA79B5 /* RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtension.swift; sourceTree = "<group>"; };
-		6940531326545E5000692059 /* Naver+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Naver+Extension.swift"; sourceTree = "<group>"; };
-		6986905A265574FE00261CEB /* SocialAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuth.swift; sourceTree = "<group>"; };
+		691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSNSViewController.swift; sourceTree = "<group>"; };
+		691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInSNSViewController.xib; sourceTree = "<group>"; };
 		6990D94B265417F400F17B16 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		6990D956265419B800F17B16 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		69E99C092655106E00AEE8DC /* Arum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Arum.entitlements; sourceTree = "<group>"; };
@@ -702,6 +704,8 @@
 				6990D955265419A800F17B16 /* ViewModel */,
 				948744D6264F758200CFCDB2 /* SignInViewController.xib */,
 				948744D7264F758200CFCDB2 /* SignInViewController.swift */,
+				691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */,
+				691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -889,7 +893,6 @@
 				94874514264F758400CFCDB2 /* GeneralUtils.swift */,
 				94874516264F758400CFCDB2 /* SystenInfo.swift */,
 				74EE0A48265110D100CC7C51 /* UserSession.swift */,
-				6986905A265574FE00261CEB /* SocialAuth.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -915,7 +918,6 @@
 				9487451B264F758400CFCDB2 /* Date+Extension.swift */,
 				9487451C264F758400CFCDB2 /* UserDefault+Extension.swift */,
 				9487451D264F758400CFCDB2 /* SequenceExtension.swift */,
-				6940531326545E5000692059 /* Naver+Extension.swift */,
 				6911D4B72655985C00FA79B5 /* OptionalExtension.swift */,
 			);
 			path = Other;
@@ -1099,6 +1101,7 @@
 				74FDFCAC2652DAB900B61A04 /* AppleGothic.ttf in Resources */,
 				94874568264F758400CFCDB2 /* Colors.xcassets in Resources */,
 				74D45C9F2651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
+				691D56D3265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D45CA02651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
+				691D56D4265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D45CA12651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
+				691D56D5265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,7 +1267,6 @@
 				94874585264F758400CFCDB2 /* DataManager.swift in Sources */,
 				94874570264F758400CFCDB2 /* ESTabBarItemMoreContentView.swift in Sources */,
 				94874572264F758400CFCDB2 /* ESTabBarItemContentView.swift in Sources */,
-				6940531426545E5000692059 /* Naver+Extension.swift in Sources */,
 				7407196C2651A0BE0014D6A4 /* UnderLineTextField.swift in Sources */,
 				94874586264F758400CFCDB2 /* LocalizationManager.swift in Sources */,
 				740719642651A0BE0014D6A4 /* UIAnimatableLabel.swift in Sources */,
@@ -1314,7 +1318,6 @@
 				94874565264F758400CFCDB2 /* Constants.swift in Sources */,
 				9487459F264F758400CFCDB2 /* MKMapViewExtensions.swift in Sources */,
 				740719692651A0BE0014D6A4 /* UnderLineTextFieldValidateType.swift in Sources */,
-				6986905B265574FE00261CEB /* SocialAuth.swift in Sources */,
 				9487459C264F758400CFCDB2 /* UICollectionReusableView+Extension.swift in Sources */,
 				9487456C264F758400CFCDB2 /* BaseTextView.swift in Sources */,
 				948745A1264F758400CFCDB2 /* UITextView+Extension.swift in Sources */,
@@ -1356,6 +1359,7 @@
 				94874540264F758400CFCDB2 /* APIEnviromentProtocol.swift in Sources */,
 				94874573264F758400CFCDB2 /* ESTabBarItem.swift in Sources */,
 				94874567264F758400CFCDB2 /* EnumType.swift in Sources */,
+				691D56D0265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1365,12 +1369,12 @@
 			files = (
 				6990D958265419B900F17B16 /* SignInViewModel.swift in Sources */,
 				9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */,
-				6986905C265574FE00261CEB /* SocialAuth.swift in Sources */,
 				6911D4C02655A00F00FA79B5 /* BaseViewModel.swift in Sources */,
 				6911D4CB2655A18100FA79B5 /* ErrorTracker.swift in Sources */,
 				6911D4C82655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
 				6911D4B92655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7D265114F400CC7C51 /* R.generated.swift in Sources */,
+				691D56D1265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 				6990D94D265417F400F17B16 /* ViewModelType.swift in Sources */,
 				6911D4D62655A23800FA79B5 /* RxExtension.swift in Sources */,
 			);
@@ -1382,12 +1386,12 @@
 			files = (
 				6990D959265419B900F17B16 /* SignInViewModel.swift in Sources */,
 				94874466264F748700CFCDB2 /* ArumUITests.swift in Sources */,
-				6986905D265574FE00261CEB /* SocialAuth.swift in Sources */,
 				6911D4C12655A00F00FA79B5 /* BaseViewModel.swift in Sources */,
 				6911D4CC2655A18100FA79B5 /* ErrorTracker.swift in Sources */,
 				6911D4C92655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
 				6911D4BA2655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7E265114F400CC7C51 /* R.generated.swift in Sources */,
+				691D56D2265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 				6990D94E265417F400F17B16 /* ViewModelType.swift in Sources */,
 				6911D4D72655A23800FA79B5 /* RxExtension.swift in Sources */,
 			);

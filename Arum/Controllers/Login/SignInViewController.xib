@@ -46,10 +46,10 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-eb-7ps">
-                                    <rect key="frame" x="0.0" y="198.5" width="368" height="109.5"/>
+                                    <rect key="frame" x="0.0" y="198.5" width="368" height="121"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shk-Y4-h5K" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="368" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="368" height="60.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -78,7 +78,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Jw-s1c" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="54.5" width="368" height="55"/>
+                                            <rect key="frame" x="0.0" y="60.5" width="368" height="60.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
@@ -108,10 +108,10 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gh-7E-3QZ">
-                                    <rect key="frame" x="0.0" y="326" width="368" height="27.5"/>
+                                    <rect key="frame" x="0.0" y="337.5" width="368" height="28"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-EQ-Taa">
-                                            <rect key="frame" x="0.0" y="0.0" width="27.5" height="27.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="27.5" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="fjL-EQ-Taa" secondAttribute="height" id="I5F-Lx-o1x"/>
                                             </constraints>
@@ -119,7 +119,7 @@
                                             <state key="selected" backgroundImage="ic_checked_autologin"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrX-XO-KjA">
-                                            <rect key="frame" x="34.5" y="0.0" width="333.5" height="27.5"/>
+                                            <rect key="frame" x="34.5" y="0.0" width="333.5" height="28"/>
                                             <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-qo-u6K">
-                                    <rect key="frame" x="57" y="461.5" width="254" height="48.5"/>
+                                    <rect key="frame" x="57" y="473.5" width="254" height="48.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="435-Ib-0DU">
                                             <rect key="frame" x="0.0" y="0.0" width="48.5" height="48.5"/>
@@ -170,7 +170,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-QL-Me4">
-                                    <rect key="frame" x="0.0" y="374.5" width="368" height="55"/>
+                                    <rect key="frame" x="0.0" y="386.5" width="368" height="55"/>
                                     <color key="backgroundColor" red="0.28627450980392155" green="0.77647058823529413" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="로그인">
@@ -183,7 +183,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-CZ-IET" customClass="AppButton" customModule="Arum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="542" width="368" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="554" width="368" height="55"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="회원가입">
@@ -255,10 +255,10 @@
             <size key="intrinsicContentSize" width="63" height="33"/>
         </designable>
         <designable name="pUf-Jw-s1c">
-            <size key="intrinsicContentSize" width="4" height="11.5"/>
+            <size key="intrinsicContentSize" width="222.5" height="34"/>
         </designable>
         <designable name="shk-Y4-h5K">
-            <size key="intrinsicContentSize" width="4" height="11.5"/>
+            <size key="intrinsicContentSize" width="149" height="34"/>
         </designable>
     </designables>
     <resources>

@@ -21,7 +21,6 @@ class SignInViewController: HideNavigationBarViewController {
     @IBOutlet weak var appleLoginButton: UIButton!
     
     //MARK: Properties
-    lazy var socialAuthUtil = SocialAuthUtil()
     let viewModel = SignInViewModel()
     
     //MARK: Lifecycles
@@ -51,21 +50,6 @@ class SignInViewController: HideNavigationBarViewController {
     
     override func setupViewModel() {
         super.setupViewModel()
-        
-        let socialTrigger = Observable<SocialAuthType>.merge(fbLoginButton.rx.tap.asObservable().map{.fb},
-                                                             appleLoginButton.rx.tap.asObservable().map{.apple},
-                                                             kakaoLoginButton.rx.tap.asObservable().map{.kakao},
-                                                             naverLoginButton.rx.tap.asObservable().map{.naver})
-        let input = SignInViewModel.Input(loginSocial:socialTrigger )
-        
-        let output = viewModel.transform(input: input)
-        
-        output.activityIndicator
-            .bind(to:activityIndicatorEntireScreenBinder)
-            .disposed(by: disposeBag)
-        
-        
-        
         
     }
     
