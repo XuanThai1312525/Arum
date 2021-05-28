@@ -7,11 +7,13 @@
 
 import UIKit
 import WebKit
-
+import WKWebViewJavascriptBridge
+    
 final class ARWebContentViewController: BaseViewController {
 
     var contentWebView: WKWebView!
-
+    var bridge: WKWebViewJavascriptBridge!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +39,12 @@ final class ARWebContentViewController: BaseViewController {
         contentWebView.scrollView.showsVerticalScrollIndicator = false
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
+        
+        bridge = WKWebViewJavascriptBridge(webView: contentWebView)
+    }
+    
+    private func listenWebview() {
+        
     }
 }
 
