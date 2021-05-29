@@ -78,6 +78,7 @@
 		74EE0A7E265114F400CC7C51 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EE0A7B265114F400CC7C51 /* R.generated.swift */; };
 		74FDFCAC2652DAB900B61A04 /* AppleGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74FDFCAB2652DAB900B61A04 /* AppleGothic.ttf */; };
 		865683C8E60CE6A190593C56 /* Pods_Arum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE13B49BC6F1780002AE476 /* Pods_Arum.framework */; };
+		94232884266269BB00692E19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94232883266269BB00692E19 /* GoogleService-Info.plist */; };
 		944D0AC7264F7BC500AE03CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AC6264F7BC500AE03CC /* UIView+Extension.swift */; };
 		944D0ADB264F7E0F00AE03CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D0ADA264F7E0F00AE03CC /* Main.storyboard */; };
 		944D0AE4264F93F100AE03CC /* ARWebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */; };
@@ -229,6 +230,7 @@
 		74EE0A7B265114F400CC7C51 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		74FDFCAB2652DAB900B61A04 /* AppleGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleGothic.ttf; sourceTree = "<group>"; };
 		8EF66B21AE3493054D8FE776 /* Pods-Arum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arum.release.xcconfig"; path = "Target Support Files/Pods-Arum/Pods-Arum.release.xcconfig"; sourceTree = "<group>"; };
+		94232883266269BB00692E19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		944D0AC6264F7BC500AE03CC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		944D0ADA264F7E0F00AE03CC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWebContentViewController.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				69E99C092655106E00AEE8DC /* Arum.entitlements */,
+				94232883266269BB00692E19 /* GoogleService-Info.plist */,
 				74EE0A672651148E00CC7C51 /* Generated */,
 				9487448C264F752100CFCDB2 /* Base */,
 				94874451264F748700CFCDB2 /* Info.plist */,
@@ -1160,6 +1163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94232884266269BB00692E19 /* GoogleService-Info.plist in Resources */,
 				7407196A2651A0BE0014D6A4 /* Extera.xcassets in Resources */,
 				9487455F264F758400CFCDB2 /* SignInViewController.xib in Resources */,
 				94874578264F758400CFCDB2 /* TextInputView.xib in Resources */,
@@ -1644,7 +1648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.ArumApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.aleum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_provisioning;
 				SWIFT_VERSION = 5.0;
@@ -1668,7 +1672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arumInc.ArumApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.aleum.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Dev_provisioning;
 				SWIFT_VERSION = 5.0;
