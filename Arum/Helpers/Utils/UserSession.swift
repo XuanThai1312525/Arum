@@ -8,10 +8,10 @@
 import RxCocoa
 
 class UserSession {
-    public static let shared = UserSession()
-    public let roleSubject = BehaviorRelay<RoleAccess>(value: .login)
+    static let roleSubject = BehaviorRelay<RoleAccess>(value: RoleAccess.role(userInfo: userInfo) )
+    static var userInfo = getUserInfo()
     
-    func getUserInfo() -> UserInfo? {
+    private static func getUserInfo() -> UserInfo? {
         guard let data = UserDefaults.standard.data(forKey: "USER_INFO_KEY") else {
             return nil
         }
@@ -23,11 +23,13 @@ class UserSession {
         
     }
     
-    func saveUserInfo(_ userInfo: UserInfo) {
+    static func saveUserInfo(_ userInfo: UserInfo) {
         let encoder = JSONEncoder()
         let data = try? encoder.encode(userInfo)
         UserDefaults.standard.setValue(data, forKey: Constants.USER_INFO_KEY)
         UserDefaults.standard.synchronize()
+        
+        self.userInfo = userInfo
     }
 }
 
@@ -35,10 +37,28 @@ struct UserInfo : Codable {
     var phoneNumber: String = ""
     var name: String = ""
     var deviceId: String = ""
+    var isAutomaticLogin: Bool = false
 }
 
 
 enum RoleAccess {
     case logged
+    case needAuthentication
+    case needToCheckDeviceID
     case login
+    
+    static func role(userInfo: UserInfo?) -> RoleAccess {
+        guard let userInfo = userInfo else {
+            return .login
+        }
+        
+        guard !userInfo.deviceId.isEmpty else {
+            return .login
+        }
+        
+        guard userInfo.isAutomaticLogin else {
+            return .login
+        }
+        return  .needToCheckDeviceID
+    }
 }

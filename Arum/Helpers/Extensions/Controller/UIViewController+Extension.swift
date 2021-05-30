@@ -195,6 +195,14 @@ extension UIViewController {
         }
         return navi.viewControllers[index - 1]
     }
+    
+    func hideNavigationBar() {
+        navigationController?.navigationBar.barTintColor =  UIColor(white: 1, alpha: 0)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.backgroundColor = UIColor(white: 1, alpha: 0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.isTranslucent = true
+    }
 }
 
 extension UINavigationController {
@@ -214,4 +222,6 @@ extension UINavigationController {
 extension UIStoryboard {
     static let main = UIStoryboard(name: "Main", bundle: nil)
 }
+
+
 

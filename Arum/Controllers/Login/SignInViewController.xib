@@ -46,8 +46,8 @@
                                         <constraint firstAttribute="width" secondItem="OT1-Ec-Xhu" secondAttribute="height" multiplier="85:34" id="v8m-r6-GlK"/>
                                     </constraints>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-eb-7ps">
-                                    <rect key="frame" x="0.0" y="195" width="329" height="109.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-eb-7ps">
+                                    <rect key="frame" x="0.0" y="195" width="329" height="110.5"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shk-Y4-h5K" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="329" height="54.5"/>
@@ -68,7 +68,7 @@
                                                     <color key="value" name="#4e4e4e"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
-                                                    <color key="value" name="color-error-text"/>
+                                                    <color key="value" name="#b6b6b6"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
                                                     <color key="value" name="color-error-text"/>
@@ -76,12 +76,24 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
                                                     <color key="value" name="color-error-text"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="inactiveLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="warningLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="errorLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Jw-s1c" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="54.5" width="329" height="55"/>
+                                            <rect key="frame" x="0.0" y="55.5" width="329" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
                                                     <color key="value" name="#b6b6b6"/>
@@ -96,7 +108,7 @@
                                                     <color key="value" name="#4e4e4e"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
-                                                    <color key="value" name="color-error-text"/>
+                                                    <color key="value" name="#b6b6b6"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
                                                     <color key="value" name="color-error-text"/>
@@ -104,12 +116,24 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
                                                     <color key="value" name="color-error-text"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="inactiveLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="warningLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="errorLineWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gh-7E-3QZ">
-                                    <rect key="frame" x="0.0" y="322.5" width="329" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="323.5" width="329" height="16.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-EQ-Taa">
                                             <rect key="frame" x="0.0" y="0.0" width="17" height="16.5"/>
@@ -138,7 +162,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-qo-u6K">
-                                    <rect key="frame" x="75.5" y="425.5" width="178" height="29.5"/>
+                                    <rect key="frame" x="75.5" y="426.5" width="178" height="29.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="435-Ib-0DU">
                                             <rect key="frame" x="0.0" y="0.0" width="29.5" height="29.5"/>
@@ -171,7 +195,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-QL-Me4">
-                                    <rect key="frame" x="0.0" y="360" width="329" height="33.5"/>
+                                    <rect key="frame" x="0.0" y="361" width="329" height="33.5"/>
                                     <color key="backgroundColor" red="0.28627450980392155" green="0.77647058823529413" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="로그인">
@@ -184,7 +208,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-CZ-IET" customClass="AppButton" customModule="Arum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="487" width="329" height="33.5"/>
+                                    <rect key="frame" x="0.0" y="488" width="329" height="33.5"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="회원가입">
@@ -253,7 +277,7 @@
     </objects>
     <designables>
         <designable name="MNF-CZ-IET">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="63" height="33"/>
         </designable>
         <designable name="pUf-Jw-s1c">
             <size key="intrinsicContentSize" width="4" height="18.5"/>

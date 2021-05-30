@@ -17,11 +17,7 @@ class HideNavigationBarViewController: BaseViewController {
     
     override func setupNavigationBar() {
         super.setupNavigationBar()
-        navigationController?.navigationBar.barTintColor =  UIColor(white: 1, alpha: 0)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.backgroundColor = UIColor(white: 1, alpha: 0)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.isTranslucent = true
+        hideNavigationBar()
     }
     
     

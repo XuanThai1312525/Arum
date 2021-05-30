@@ -20,7 +20,7 @@ extension AppDelegate {
 //MARK: Authentication Session
 extension AppDelegate {
     func handleSession() {
-        UserSession.shared.roleSubject
+        UserSession.roleSubject
             .share()
             .subscribe(onNext: { [weak self] role in
                 guard let self = self else {
@@ -41,32 +41,28 @@ extension AppDelegate {
             })
             .disposed(by: bag)
     }
-    
+//    목회자 / 01040862424
     func setupRootView(window: UIWindow, role: RoleAccess) {
-        guard let window = AppDelegate.shared.window else {
-            return
+        let vc: UIViewController
+        switch(UserSession.roleSubject.value) {
+            case .login:
+                vc = SignInViewController(nib: R.nib.signInViewController)
+            case .needToCheckDeviceID:
+                vc = LoadingViewController()
+                break
+            case .needAuthentication:
+                vc = AuthenticationViewController(nib: R.nib.authenticationViewController)
+                break
+            case .logged:
+                vc = R.storyboard.main.arWebContentViewController()!
+                break
         }
         
-        let rootViewController = BaseNavigationVC(rootViewController:  SignInViewController(nib: R.nib.signInViewController))
-        
-        //        switch(role) {
-        //            case .logged:
-        //                rootViewController = R.storyboard.baseTabbar.instantiateInitialViewController()
-        //            case .login:
-        //                rootViewController = R.storyboard.startViewController.startViewController()
-        //
-        //        }
-        
-        //Every case missing handle above will be fall in login
-        //        if rootViewController == nil {
-        //            let vc = R.storyboard.startViewController.startViewController()
-        //            rootViewController = vc
-        //        }
-        //
-        
-        
+        let rootViewController = BaseNavigationVC(rootViewController:  vc)
         window.rootViewController = rootViewController
     }
+    
+    
 }
 
 extension AppDelegate {

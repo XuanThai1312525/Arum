@@ -8,11 +8,13 @@
 
 import UIKit
 import QuartzCore
+import RxSwift
+import RxCocoa
 
 /// Simple UITextfield Subclass with state
 @IBDesignable
 open class UnderLineTextField: UITextField {
-    
+    public var validateTrigger = PublishSubject<String>()
     private var isLayoutCalled = false
     //============
     // MARK: - inits
@@ -72,14 +74,6 @@ open class UnderLineTextField: UITextField {
             setNeedsDisplay()
         }
     }
-    
-    public var errorText: String? {
-        didSet {
-            errorLabel.text = errorText
-        }
-    }
-    
-    public var onValidate: ((String)->Bool)?
     
     /// placeholder label font.
     /// default is textfield's font
@@ -660,35 +654,6 @@ extension UnderLineTextField {
                                                 context: nil)
         return boundingRect.size.height
     }
-
-    public func validate() throws {
-        do {
-            if let onValidate = onValidate {
-                let result = onValidate(self.text.emptyOnNil)
-                if !result {
-                    throw UnderLineTextFieldErrors.error(message: errorText)
-                }
-            }
-            try (delegate as? UnderLineTextFieldDelegate)?
-                .textFieldValidate(underLineTextField: self)
-             status = .normal
-        } catch UnderLineTextFieldErrors.error(let message) {
-            status = .error
-            errorLabel.text = message
-            throw UnderLineTextFieldErrors.warning(message: message)
-        } catch UnderLineTextFieldErrors.warning(let message) {
-            status = .warning
-            errorLabel.text = message
-            throw UnderLineTextFieldErrors.warning(message: message)
-        } catch {
-            throw error
-        }
-        if isFirstResponder {
-            focusStatus = .active
-        } else {
-            focusStatus = .inactive
-        }
-    }
     
     public func forceError(errorText: String) {
         status = .error
@@ -701,6 +666,15 @@ extension UnderLineTextField {
         }
     }
     
+    
+    public func resetState() {
+        status = .normal
+        if isFirstResponder {
+            focusStatus = .active
+        } else {
+            focusStatus = .inactive
+        }
+    }
 }
 
 //=================
@@ -713,13 +687,12 @@ extension UnderLineTextField {
             return
         }
         text = ""
-        (delegate as? UnderLineTextFieldDelegate)?.textFieldTextChanged(underLineTextField: self)
     }
     /// textfield become first responder
     private func formTextFieldDidBeginEditing() {
         layoutIfNeeded()
         if validationType.contains(.always) {
-            try? validate()
+            validateTrigger.onNext(self.text.emptyOnNil)
         } else {
             focusStatus = .active
         }
@@ -730,26 +703,52 @@ extension UnderLineTextField {
         if validationType.contains(.afterEdit) ||
             validationType.contains(.onFly) ||
             validationType.contains(.always) {
-            try? validate()
+            validateTrigger.onNext(self.text.emptyOnNil)
         } else {
             focusStatus = .inactive
         }
     }
     /// textfield value changed
     private func formTextFieldValueChanged() {
-        (delegate as? UnderLineTextFieldDelegate)?
-            .textFieldTextChanged(underLineTextField: self)
         decideContentStatus(fromText: text)
         guard let text = text, !text.isEmpty else {
             if validationType.contains(.onFly) ||
                 validationType.contains(.always) {
-                try? validate()
+                validateTrigger.onNext(self.text.emptyOnNil)
             }
             return
         }
         if validationType.contains(.onFly) ||
             validationType.contains(.always) {
-            try? validate()
+            validateTrigger.onNext(self.text.emptyOnNil)
         }
+    }
+}
+
+extension UnderLineTextField {
+    var errorBinding: Binder<ValidateResult> {
+        return Binder(self, binding: { (view, result:ValidateResult) in
+            
+            do {
+                if !result.isValid {
+                    throw UnderLineTextFieldErrors.error(message: result.errorMessage)
+                } else {
+                    view.status = .normal
+                }
+            } catch UnderLineTextFieldErrors.error(let message) {
+                view.status = .error
+                view.errorLabel.text = message
+            } catch UnderLineTextFieldErrors.warning(let message) {
+                view.status = .warning
+                view.errorLabel.text = message
+            } catch {
+                
+            }
+            if view.isFirstResponder {
+                view.focusStatus = .active
+            } else {
+                view.focusStatus = .inactive
+            }
+        })
     }
 }

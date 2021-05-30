@@ -36,39 +36,25 @@ class SignInViewController: HideNavigationBarViewController {
         
         nameUnderLineTextField.isPlaceHolderAnimation = false
         nameUnderLineTextField.isBottomLine = true
-        nameUnderLineTextField.validationType = .onFly
-        nameUnderLineTextField.errorText = "잘못된 이름"
-        nameUnderLineTextField.onValidate = { text in
-            return !text.isEmpty
-        }
+        nameUnderLineTextField.validationType = .afterEdit
         
         phoneNumberUnderLineTextField.isPlaceHolderAnimation = false
         phoneNumberUnderLineTextField.isBottomLine = true
-        phoneNumberUnderLineTextField.validationType = .onFly
-        phoneNumberUnderLineTextField.errorText = "유효하지 않은 전화 번호"
-        phoneNumberUnderLineTextField.onValidate = { text in
-            return text.isPhoneNumber
-        }
-        
-        //Fake data
-        nameUnderLineTextField.text = "목회자"
-        phoneNumberUnderLineTextField.text = "01040862424"
-        
+        phoneNumberUnderLineTextField.validationType = .afterEdit
     }
     
     override func setupTap() {
         super.setupTap()
-        automaticLoginButton.rx
-            .tap
-            .bind { [unowned self]() in
-                self.automaticLoginButton.isSelected = !self.automaticLoginButton.isSelected
-            }.disposed(by: disposeBag)
     }
     
     override func setupViewModel() {
         super.setupViewModel()
         let snsTrigger = PublishSubject<SNSType>()
-        let loginNormalTrigger = loginButton.rx.tap.map{LoginRequest(mobile: self.phoneNumberUnderLineTextField.text.emptyOnNil , name: self.nameUnderLineTextField.text.emptyOnNil, is_auto_login: self.automaticLoginButton.isSelected, device_id: UUID().uuidString)}
+        let loginNormalTrigger = loginButton.rx.tap.mapToVoid()
+        
+        let isAutoLoginTrigger = automaticLoginButton.rx.tap
+            .map{self.automaticLoginButton.isSelected}
+        
         fbLoginButton.rx
             .tap
             .map{SNSType.fb}
@@ -76,7 +62,8 @@ class SignInViewController: HideNavigationBarViewController {
             .disposed(by: disposeBag)
         
         
-        let input = SignInViewModel.Input(loginWithSNSTrigger: snsTrigger, loginNormalTrigger: loginNormalTrigger)
+        let input = SignInViewModel.Input(loginWithSNSTrigger: snsTrigger, loginNormalTrigger: loginNormalTrigger,nameTrigger: nameUnderLineTextField.rx.text.orEmpty.asObservable(),phoneTrigger: phoneNumberUnderLineTextField.rx.text.orEmpty.asObservable(),isAutoLogin: isAutoLoginTrigger.asObservable())
+        
         let output = viewModel.transform(input: input)
         
         output.activityIndicator
@@ -92,8 +79,21 @@ class SignInViewController: HideNavigationBarViewController {
         output.loginSuccess
             .subscribe(onNext: { [weak self](url) in
                 print("Login Success")
+                self?.phoneNumberUnderLineTextField.resetState()
                 self?.gotoAuthentication()
             })
+            .disposed(by: disposeBag)
+        
+        output.nameValidateResult
+            .bind(to: nameUnderLineTextField.errorBinding)
+            .disposed(by: disposeBag)
+        
+        output.phoneValidateResult
+            .bind(to: phoneNumberUnderLineTextField.errorBinding)
+            .disposed(by: disposeBag)
+        
+        output.isAutoLoginValidResult
+            .bind(to: automaticLoginButton.rx.isSelected)
             .disposed(by: disposeBag)
         
         output.onError

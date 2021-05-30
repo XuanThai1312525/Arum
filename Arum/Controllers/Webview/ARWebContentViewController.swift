@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class ARWebContentViewController: BaseViewController {
+final class ARWebContentViewController: HideNavigationBarViewController {
 
     @IBOutlet weak var contentWebView: WKWebView!
     override func viewDidLoad() {

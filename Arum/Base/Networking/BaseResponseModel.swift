@@ -8,8 +8,11 @@
 import SwiftyJSON
 
 class BaseResponseModel: APIResponseProtocol {
+    var msg: String
+    var success: Bool
     required init(json: JSON) {
-        print(json)
+        self.msg = json["msg"].stringValue
+        self.success = json["success"].boolValue
     }
     
 

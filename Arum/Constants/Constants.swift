@@ -63,6 +63,10 @@ extension Constants {
     enum APIPaths {
         enum authentication {
             static let login = "api/users/login"
+            static let sendOTPCode = "api/verification-codes"
+            static let verifyOTPCode = "api/verification-codes/%@/check-code"
+            static let checkDeviceID = "api/device"
+            
         }
     }
 }

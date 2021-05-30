@@ -918,11 +918,18 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
 
       let bundle = R.hostingBundle
+      let launchScreen = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "LaunchScreen")
       let name = "LaunchScreen"
 
+      func launchScreen(_: Void = ()) -> UIKit.UIViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: launchScreen)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "ic_login_top", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_login_top' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.launchScreen().launchScreen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'launchScreen' could not be loaded from storyboard 'LaunchScreen' as 'UIKit.UIViewController'.") }
       }
 
       fileprivate init() {}

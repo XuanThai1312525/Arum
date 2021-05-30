@@ -12,7 +12,7 @@ import RxCocoa
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let shared = UIApplication.shared.delegate as! AppDelegate
-    var window: UIWindow?
+    var window: UIWindow!
     let bag = DisposeBag()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
