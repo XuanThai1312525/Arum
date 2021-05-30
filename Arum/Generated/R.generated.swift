@@ -577,8 +577,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
+  /// This `R.entitlements` struct is generated, and contains static references to 2 properties.
   struct entitlements {
+    static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
+
     struct comAppleDeveloperApplesignin {
       static let `default` = infoPlistString(path: ["com.apple.developer.applesignin"], key: "Default") ?? "Default"
 
@@ -588,10 +590,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
     /// Resource file `AppleGothic.ttf`.
     static let appleGothicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "AppleGothic", pathExtension: "ttf")
+    /// Resource file `GoogleService-Info.plist`.
+    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
     /// Resource file `NanumSquareOTFR.ttf`.
     static let nanumSquareOTFRTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NanumSquareOTFR", pathExtension: "ttf")
     /// Resource file `NanumSquareRoundEB.ttf`.
@@ -600,6 +604,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "AppleGothic", withExtension: "ttf")`
     static func appleGothicTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.appleGothicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
+    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.googleServiceInfoPlist
       return fileResource.bundle.url(forResource: fileResource)
     }
 

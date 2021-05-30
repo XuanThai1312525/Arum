@@ -6,7 +6,8 @@
 //
 
 import RxSwift
-import RxCocoa 
+import RxCocoa
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

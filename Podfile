@@ -17,7 +17,8 @@ target 'Arum' do
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Kingfisher'
   pod 'R.swift'
-  
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
   # Pods for Arum
 
   target 'ArumTests' do
