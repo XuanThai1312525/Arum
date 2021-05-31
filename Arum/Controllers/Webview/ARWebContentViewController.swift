@@ -18,8 +18,14 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     }
     
     private func configs() {
+        
         guard let url = URL(string: Constants.BASE_URL) else {return}
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        
+        if let cookie = UserSession.getSessionCookie() {
+            urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookie])
+        }
+       
         contentWebView.load(urlRequest)
         contentWebView.scrollView.showsVerticalScrollIndicator = false
     }

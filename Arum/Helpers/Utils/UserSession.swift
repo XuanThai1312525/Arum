@@ -31,6 +31,26 @@ class UserSession {
         
         self.userInfo = userInfo
     }
+    
+    static func setSessionCookie () {
+        if let url = URL.init(string: Constants.BASE_URL + "/" + Constants.APIPaths.authentication.login),
+           let cookies = HTTPCookieStorage.shared.cookies(for: url),
+           let loginCookie = cookies.first(where: {$0.name.elementsEqual("aleum_session")})
+        {
+                UserDefaults.standard.set(loginCookie.properties, forKey: "kCookie")
+                UserDefaults.standard.synchronize()
+        }
+        
+    }
+    
+    static func getSessionCookie () -> HTTPCookie?
+    {
+        guard let properties = UserDefaults.standard.object(forKey: "kCookie") as? [HTTPCookiePropertyKey : Any] else {
+            return nil
+        }
+        let cookie = HTTPCookie(properties: properties)
+        return cookie
+    }
 }
 
 struct UserInfo : Codable {

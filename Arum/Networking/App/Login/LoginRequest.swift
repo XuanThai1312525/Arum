@@ -12,4 +12,5 @@ struct LoginRequest: BaseRequestModel {
     var name: String
     var is_auto_login: Bool
     var device_id: String
+    var device_os: String = "IOS"
 }

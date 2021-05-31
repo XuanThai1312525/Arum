@@ -49,17 +49,18 @@ class SignInViewController: HideNavigationBarViewController {
     
     override func setupViewModel() {
         super.setupViewModel()
-        let snsTrigger = PublishSubject<SNSType>()
+        
         let loginNormalTrigger = loginButton.rx.tap.mapToVoid()
         
         let isAutoLoginTrigger = automaticLoginButton.rx.tap
             .map{self.automaticLoginButton.isSelected}
         
-        fbLoginButton.rx
-            .tap
-            .map{SNSType.fb}
-            .bind(to: snsTrigger)
-            .disposed(by: disposeBag)
+        let snsTrigger = Observable.merge([
+            fbLoginButton.rx.tap.map{SNSType.fb},
+            appleLoginButton.rx.tap.map{SNSType.apple},
+            kakaoLoginButton.rx.tap.map{SNSType.kakao},
+            naverLoginButton.rx.tap.map{SNSType.naver}
+        ])
         
         
         let input = SignInViewModel.Input(loginWithSNSTrigger: snsTrigger, loginNormalTrigger: loginNormalTrigger,nameTrigger: nameUnderLineTextField.rx.text.orEmpty.asObservable(),phoneTrigger: phoneNumberUnderLineTextField.rx.text.orEmpty.asObservable(),isAutoLogin: isAutoLoginTrigger.asObservable())
