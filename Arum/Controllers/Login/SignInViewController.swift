@@ -110,9 +110,8 @@ class SignInViewController: HideNavigationBarViewController {
 //MARK: Navigation
 extension SignInViewController {
     func gotoLoginSNS(url: String) {
-        let vc = SignInSNSViewController(nib: R.nib.signInSNSViewController)
-        vc.url = url
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = SignInSNSViewController(nib: R.nib.signInSNSViewController)
+       loadWebview(urlString: url)
     }
     
     func gotoAuthentication() {
@@ -121,4 +120,17 @@ extension SignInViewController {
     }
 }
 
-
+extension BaseViewController {
+    func loadWebview(urlString: String) {
+        if let nav = navigationController, let vc = nav.viewControllers.last(where: {$0.isKind(of: ARWebContentViewController.self)}) as? ARWebContentViewController {
+            vc.urlString = urlString
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.pop(to: vc)
+            }
+        } else {
+            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "ARWebContentViewController") as! ARWebContentViewController
+            vc.urlString = urlString
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}

@@ -75,9 +75,10 @@ class AuthenticationViewController: BaseViewController {
         self.confirmButton
             .rx
             .tap
-            .subscribe { (event) in
+            .subscribe {[weak self] (event) in
+                guard let _self = self else {return}
                 print("Go To main Screen")
-                
+                _self.loadWebview(urlString: Constants.BASE_URL)
             }
             .disposed(by: disposeBag)
     }
