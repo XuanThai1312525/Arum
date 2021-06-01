@@ -19,6 +19,7 @@ target 'Arum' do
   pod 'R.swift'
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
+  pod 'IQKeyboardManagerSwift'
   # Pods for Arum
 
   target 'ArumTests' do
