@@ -69,7 +69,7 @@ class SignInViewModel: BaseViewModel {
         var lastedLoginRequest: LoginRequest?
         
         let loginInfo = Observable.combineLatest(input.nameTrigger,input.phoneTrigger,isAutoLoginTrigger).map { info -> LoginRequest in
-            var uuid = UUID().uuidString
+            var uuid = UserSession.UUID_TOKEN ?? UUID().uuidString
             if let id = UserSession.userInfo?.deviceId , !id.isEmpty{
                 uuid = id
             }

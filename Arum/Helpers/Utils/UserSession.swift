@@ -8,6 +8,7 @@
 import RxCocoa
 
 class UserSession {
+    static var UUID_TOKEN: String?
     static let roleSubject = BehaviorRelay<RoleAccess>(value: RoleAccess.role(userInfo: userInfo) )
     static var userInfo = getUserInfo()
     

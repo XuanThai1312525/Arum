@@ -35,6 +35,7 @@ extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("firebase_token : ",fcmToken)
+        UserSession.UUID_TOKEN = fcmToken
         UserDefaults.standard.setValue(fcmToken, forKey: "NOTIFICATION_DEVICE_TOKEN")
     }
     
