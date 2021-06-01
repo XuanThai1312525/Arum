@@ -18,4 +18,26 @@ extension UIFont {
     static func bold(size: CGFloat) -> UIFont {
         return UIFont(name: "YuGothic-Bold", size: size) ?? UIFont.boldSystemFont(ofSize: size)
     }
+    
+    public enum appleSDGothicNeo: String {
+        
+        case thin = "AppleSDGothicNeo-Thin"
+        case light = "AppleSDGothicNeo-Light"
+        case regular = "AppleSDGothicNeo-Regular"
+        case medium = "AppleSDGothicNeo-Medium"
+        case semiBold = "AppleSDGothicNeo-SemiBold"
+        case bold = "AppleSDGothicNeo-Bold"
+        
+        public func font(size: CGFloat) -> UIFont {
+            return UIFont(name: self.rawValue, size: size)!
+        }
+    }
+    
+    public enum appleGothic: String {
+        case regular = "AppleGothic"
+        
+        public func font(size: CGFloat) -> UIFont {
+            return UIFont(name: self.rawValue, size: size)!
+        }
+    }
 }

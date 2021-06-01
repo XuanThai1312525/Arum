@@ -8,11 +8,18 @@
 import UIKit
 import WebKit
 import WKWebViewJavascriptBridge
-    
-final class ARWebContentViewController: BaseViewController {
+
+final class ARWebContentViewController: HideNavigationBarViewController {
 
     var contentWebView: WKWebView!
     var bridge: WKWebViewJavascriptBridge!
+    var urlString: String? {
+        didSet {
+            if (isViewLoaded) {
+                request()
+            }
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +32,20 @@ final class ARWebContentViewController: BaseViewController {
         
     }
     
+    private func makeRequest() -> URLRequest? {
+        guard let url = URL(string: urlString ?? Constants.BASE_URL) else {return nil}
+        return URLRequest(url: url)
+    }
+    
+    private func request() {
+        guard var urlRequest = makeRequest() else {return}
+        if let cookie = UserSession.getSessionCookie() {
+            urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookie])
+        }
+        contentWebView.load(urlRequest)
+    }
+    
     private func configs() {
-        guard let url = URL(string: Constants.BASE_URL) else {return}
-        let urlRequest = URLRequest(url: url)
         let contentController = WKUserContentController()
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
@@ -35,16 +53,34 @@ final class ARWebContentViewController: BaseViewController {
         contentWebView = WKWebView(frame: .zero, configuration: config)
         view.addSubview(contentWebView)
         contentWebView.fullscreen()
-        contentWebView.load(urlRequest)
         contentWebView.scrollView.showsVerticalScrollIndicator = false
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
-        
+        request()
         bridge = WKWebViewJavascriptBridge(webView: contentWebView)
     }
     
     private func listenWebview() {
         
+    }
+    
+    private func directToLoginView() {
+        func presentLoginView() {
+            let vc = SignInViewController(nib: R.nib.signInViewController)
+            present(vc, animated: true, completion: nil)
+        }
+        
+        guard let nav = navigationController else {
+            presentLoginView()
+            return
+        }
+        
+        if let vc = nav.viewControllers.last(where: {$0.isKind(of: SignInViewController.self)}) {
+            pop(to: vc)
+        } else {
+            let vc = SignInViewController(nib: R.nib.signInViewController)
+            nav.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -55,6 +91,11 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         let cookieStore = dataStore.httpCookieStore
         cookieStore.getAllCookies { (cookies) in}
         */
+        if let url = webView.url, url.absoluteString == "https://aleum.kr/login?url=%2Fnote" {
+            decisionHandler(.cancel)
+            directToLoginView()
+            return
+        }
         decisionHandler(.allow)
     }
     

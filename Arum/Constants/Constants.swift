@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class Constants {
     enum Enviroment {
@@ -17,13 +18,14 @@ class Constants {
     static var enviroment: Enviroment {
         return .production
     }
+
 }
 
 extension Constants {
     static var BASE_URL: String {
         switch Constants.enviroment {
         case .develop:
-            return ""
+            return "https://aleum.kr"
         default:
             return "https://aleum.kr"
         }
@@ -44,4 +46,32 @@ extension Constants {
     static func fontBold(size: CGFloat) -> UIFont {
         return UIFont.boldSystemFont(ofSize: size)
     }
+}
+
+//MARK: Authentication
+extension Constants {
+    enum SNS_URL {
+        static let KAKAO = "http://aleum.kr/login-sns/kakao"
+        static let FB = "http://aleum.kr/login-sns/facebook"
+        static let APPLE = "http://aleum.kr/login-sns/apple"
+        static let NAVER = "http://aleum.kr/login-sns/naver"
+    }
+}
+
+//MARK: API PATHS
+extension Constants {
+    enum APIPaths {
+        enum authentication {
+            static let login = "api/users/login"
+            static let sendOTPCode = "api/verification-codes"
+            static let verifyOTPCode = "api/verification-codes/%@/check-code"
+            static let checkDeviceID = "api/device"
+            
+        }
+    }
+}
+
+//MARK: User Info
+extension Constants {
+    static let USER_INFO_KEY = "USER_INFO_KEY"
 }

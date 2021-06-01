@@ -34,3 +34,8 @@ enum ValidatePasswordError: Int {
         }
     }
 }
+
+
+enum SNSType {
+    case fb,kakao,naver,apple
+}

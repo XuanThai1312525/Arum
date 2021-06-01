@@ -15,7 +15,7 @@ class APIConfiguration {
 
     // Base url of web service
     static var baseUrl: String {
-        return ""
+        return Constants.BASE_URL
     }
     
     static var userHeaders: HTTPHeaders {

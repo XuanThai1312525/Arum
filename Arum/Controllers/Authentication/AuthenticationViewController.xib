@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareOTFR.ttf">
+            <string>NanumSquareOTFR00</string>
+        </array>
+        <array key="NanumSquareRoundEB.ttf">
+            <string>NanumSquareRoundEB</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthenticationViewController" customModule="Arum" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="gMc-Q7-Pgr" id="fgI-39-zsD"/>
+                <outlet property="confirmButton" destination="Yem-CF-xds" id="c13-wB-wCy"/>
+                <outlet property="nameTextField" destination="4Qd-zE-ab6" id="uWx-NP-tZc"/>
+                <outlet property="otpTextField" destination="obT-sR-W9d" id="uGX-b2-C3S"/>
+                <outlet property="otpTimeOutLabel" destination="61x-gD-GD4" id="6NR-ws-yOI"/>
+                <outlet property="phoneTextField" destination="ssE-Y1-sEu" id="jH3-xA-0OW"/>
+                <outlet property="sendOtpButton" destination="xBx-bg-dWc" id="bfg-eR-Y8s"/>
+                <outlet property="verifyOtpButton" destination="54Q-tB-AAT" id="aoh-UT-M3h"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9c-Zk-gUt">
+                    <rect key="frame" x="0.0" y="44" width="414" height="757.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zc-BJ-mQD">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="757.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFI-uf-cFA">
+                                    <rect key="frame" x="23" y="0.0" width="368" height="181"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 다른 기기에서 로그인 진행 중입니다. 계속 진행을 원하시면 본인인증 절차를 진행해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-9N-IXF">
+                                            <rect key="frame" x="0.0" y="0.0" width="368" height="26"/>
+                                            <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="11"/>
+                                            <color key="textColor" name="#9fa0a0"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a8w-aJ-g08">
+                                            <rect key="frame" x="0.0" y="26" width="368" height="155"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Qd-zE-ab6" userLabel="NameView" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="51.5"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
+                                                            <color key="value" name="#b6b6b6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="inactiveLineColor">
+                                                            <color key="value" name="#4e4e4e"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                            <color key="value" name="#4e4e4e"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                            <color key="value" name="color-error-text"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                            <color key="value" name="color-error-text"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
+                                                            <color key="value" name="#b6b6b6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
+                                                            <color key="value" name="#b6b6b6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="inactiveLineWidth">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="warningLineWidth">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="errorLineWidth">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z52-e5-aSd" userLabel="PhoneView">
+                                                    <rect key="frame" x="0.0" y="51.5" width="368" height="52"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ssE-Y1-sEu" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="52"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="inactiveLineColor">
+                                                                    <color key="value" name="#4e4e4e"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                                    <color key="value" name="#4e4e4e"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                                    <color key="value" name="color-error-text"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                                    <color key="value" name="color-error-text"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="errorLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="inactiveLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="warningLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBx-bg-dWc">
+                                                            <rect key="frame" x="292" y="13" width="76" height="26"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="12"/>
+                                                            <state key="normal" title="인증요청">
+                                                                <color key="titleColor" name="color-4dbd94"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" name="color-4dbd94"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="xBx-bg-dWc" firstAttribute="centerY" secondItem="ssE-Y1-sEu" secondAttribute="centerY" id="Q9h-z4-HoT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ssE-Y1-sEu" secondAttribute="trailing" id="Swc-oa-G8p"/>
+                                                        <constraint firstItem="ssE-Y1-sEu" firstAttribute="leading" secondItem="Z52-e5-aSd" secondAttribute="leading" id="elL-6b-co2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xBx-bg-dWc" secondAttribute="trailing" id="ji8-e9-HTi"/>
+                                                        <constraint firstItem="ssE-Y1-sEu" firstAttribute="top" secondItem="Z52-e5-aSd" secondAttribute="top" id="n4r-Vd-HOZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ssE-Y1-sEu" secondAttribute="bottom" id="sJU-pn-1Ka"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pna-LA-Lf3" userLabel="OTPView">
+                                                    <rect key="frame" x="0.0" y="103.5" width="368" height="51.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호를 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obT-sR-W9d" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="51.5"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="inactiveLineColor">
+                                                                    <color key="value" name="#4e4e4e"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
+                                                                    <color key="value" name="#4e4e4e"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                                                    <color key="value" name="color-error-text"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                                                    <color key="value" name="color-error-text"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="errorPlaceholderColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
+                                                                    <color key="value" name="#b6b6b6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="warningLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="inactiveLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="activeLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="errorLineWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54Q-tB-AAT">
+                                                            <rect key="frame" x="292" y="12.5" width="76" height="26"/>
+                                                            <color key="backgroundColor" name="color-4dbd94"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="12"/>
+                                                            <state key="normal" title="확인">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61x-gD-GD4">
+                                                            <rect key="frame" x="248" y="18.5" width="25" height="14.5"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                            <color key="textColor" name="color-4dbd94"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="obT-sR-W9d" secondAttribute="bottom" id="24h-qh-Ao4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="54Q-tB-AAT" secondAttribute="trailing" id="AuV-T5-4Aj"/>
+                                                        <constraint firstItem="54Q-tB-AAT" firstAttribute="leading" secondItem="61x-gD-GD4" secondAttribute="trailing" constant="19" id="SZe-oj-WzV"/>
+                                                        <constraint firstItem="54Q-tB-AAT" firstAttribute="centerY" secondItem="obT-sR-W9d" secondAttribute="centerY" id="XoE-vP-Ui5"/>
+                                                        <constraint firstItem="obT-sR-W9d" firstAttribute="leading" secondItem="pna-LA-Lf3" secondAttribute="leading" id="Y5W-cC-aVU"/>
+                                                        <constraint firstItem="61x-gD-GD4" firstAttribute="centerY" secondItem="54Q-tB-AAT" secondAttribute="centerY" id="r0d-GT-kqm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="obT-sR-W9d" secondAttribute="trailing" id="xJn-kY-bpM"/>
+                                                        <constraint firstItem="obT-sR-W9d" firstAttribute="top" secondItem="pna-LA-Lf3" secondAttribute="top" id="xa1-Yf-Tr5"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="54Q-tB-AAT" firstAttribute="width" secondItem="xBx-bg-dWc" secondAttribute="width" id="6T9-uk-pXa"/>
+                                                <constraint firstItem="54Q-tB-AAT" firstAttribute="height" secondItem="xBx-bg-dWc" secondAttribute="height" id="FXI-1y-kJB"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="a8w-aJ-g08" firstAttribute="top" secondItem="u8y-9N-IXF" secondAttribute="bottom" id="4E3-0R-79U"/>
+                                        <constraint firstItem="a8w-aJ-g08" firstAttribute="leading" secondItem="qFI-uf-cFA" secondAttribute="leading" id="Ixt-Ne-L6p"/>
+                                        <constraint firstAttribute="trailing" secondItem="u8y-9N-IXF" secondAttribute="trailing" id="KXz-YL-YHd"/>
+                                        <constraint firstItem="u8y-9N-IXF" firstAttribute="leading" secondItem="qFI-uf-cFA" secondAttribute="leading" id="MkV-r5-IwO"/>
+                                        <constraint firstItem="u8y-9N-IXF" firstAttribute="top" secondItem="qFI-uf-cFA" secondAttribute="top" id="Mty-Lo-uhQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="a8w-aJ-g08" secondAttribute="trailing" id="SR7-Iz-twV"/>
+                                        <constraint firstAttribute="bottom" secondItem="a8w-aJ-g08" secondAttribute="bottom" id="dfv-3N-jTO"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="qFI-uf-cFA" firstAttribute="top" secondItem="8zc-BJ-mQD" secondAttribute="top" id="EvP-62-c6F"/>
+                                <constraint firstAttribute="trailing" secondItem="qFI-uf-cFA" secondAttribute="trailing" constant="23" id="WXP-Xh-LVl"/>
+                                <constraint firstItem="qFI-uf-cFA" firstAttribute="leading" secondItem="8zc-BJ-mQD" secondAttribute="leading" constant="23" id="XkU-nW-Xs6"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qFI-uf-cFA" secondAttribute="bottom" id="nkc-pf-fSV"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8zc-BJ-mQD" secondAttribute="bottom" id="3Nc-l4-NZY"/>
+                        <constraint firstItem="8zc-BJ-mQD" firstAttribute="top" secondItem="v9c-Zk-gUt" secondAttribute="top" id="4r5-U7-K9S"/>
+                        <constraint firstAttribute="trailing" secondItem="8zc-BJ-mQD" secondAttribute="trailing" id="cUM-IL-uPq"/>
+                        <constraint firstItem="8zc-BJ-mQD" firstAttribute="height" secondItem="v9c-Zk-gUt" secondAttribute="height" id="cfk-3t-tgp"/>
+                        <constraint firstItem="8zc-BJ-mQD" firstAttribute="leading" secondItem="v9c-Zk-gUt" secondAttribute="leading" id="w9x-jI-9x4"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57L-kN-x1Z">
+                    <rect key="frame" x="0.0" y="801.5" width="414" height="60.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CyM-o3-eVk">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMc-Q7-Pgr">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="60.5"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="18"/>
+                                    <state key="normal" title="취 소">
+                                        <color key="titleColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.086274509799999996" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" name="color-cfcfcf"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yem-CF-xds">
+                                    <rect key="frame" x="207" y="0.0" width="207" height="60.5"/>
+                                    <color key="backgroundColor" red="0.28627450980000002" green="0.77647058820000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="18"/>
+                                    <state key="normal" title="확 인">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="CyM-o3-eVk" secondAttribute="trailing" id="2bM-Rm-kdi"/>
+                        <constraint firstItem="CyM-o3-eVk" firstAttribute="leading" secondItem="57L-kN-x1Z" secondAttribute="leading" id="3G4-iz-Axr"/>
+                        <constraint firstItem="CyM-o3-eVk" firstAttribute="top" secondItem="57L-kN-x1Z" secondAttribute="top" id="LlW-2N-yJx"/>
+                        <constraint firstAttribute="bottom" secondItem="CyM-o3-eVk" secondAttribute="bottom" id="VAZ-Xv-G7m"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="v9c-Zk-gUt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MeX-gU-EdP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="v9c-Zk-gUt" secondAttribute="trailing" id="NCy-Do-JR2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="57L-kN-x1Z" secondAttribute="trailing" id="RFt-wh-GIa"/>
+                <constraint firstItem="57L-kN-x1Z" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="55:812" id="RHa-1T-Qej"/>
+                <constraint firstItem="a8w-aJ-g08" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="150:812" id="T9e-GZ-Vno"/>
+                <constraint firstItem="57L-kN-x1Z" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ala-YR-qgb"/>
+                <constraint firstItem="xBx-bg-dWc" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="69:375" id="ewX-ON-0mu"/>
+                <constraint firstItem="57L-kN-x1Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rKO-nZ-Dmj"/>
+                <constraint firstItem="57L-kN-x1Z" firstAttribute="top" secondItem="v9c-Zk-gUt" secondAttribute="bottom" id="sQP-ai-LAC"/>
+                <constraint firstItem="v9c-Zk-gUt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uRE-Ua-DxR"/>
+                <constraint firstItem="8zc-BJ-mQD" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="vft-5W-GZc"/>
+            </constraints>
+            <point key="canvasLocation" x="-317.39130434782612" y="72.991071428571431"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="4Qd-zE-ab6">
+            <size key="intrinsicContentSize" width="4" height="17.5"/>
+        </designable>
+        <designable name="obT-sR-W9d">
+            <size key="intrinsicContentSize" width="4" height="17.5"/>
+        </designable>
+        <designable name="ssE-Y1-sEu">
+            <size key="intrinsicContentSize" width="4" height="17.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="#4e4e4e">
+            <color red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#9fa0a0">
+            <color red="0.62352941176470589" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="#b6b6b6">
+            <color red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-4dbd94">
+            <color red="0.30196078431372547" green="0.74117647058823533" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-cfcfcf">
+            <color red="0.81176470588235294" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-error-text">
+            <color red="0.87800002098083496" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
