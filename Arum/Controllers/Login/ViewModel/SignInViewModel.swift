@@ -14,6 +14,7 @@ class SignInViewModel: BaseViewModel {
     struct Input {
         var loginWithSNSTrigger: Observable<SNSType>
         var loginNormalTrigger: Observable<Void>
+        var signUpTrigger: Observable<Void>
         var nameTrigger: Observable<String>
         var phoneTrigger: Observable<String>
         var isAutoLogin: Observable<Bool>
@@ -27,6 +28,7 @@ class SignInViewModel: BaseViewModel {
         var nameValidateResult: Observable<ValidateResult>
         var phoneValidateResult: Observable<ValidateResult>
         var isAutoLoginValidResult: Observable<Bool>
+        var onSignUp: Observable<String>
     }
     func transform(input: Input) -> Output {
         let logInSNS = input.loginWithSNSTrigger.map { (type) -> String in
@@ -113,7 +115,9 @@ class SignInViewModel: BaseViewModel {
             .filter{$0.success}
             .map{_ in true}
         
-        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS, loginSuccess: loginSuccess, onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable())
+        let onSignUp = input.signUpTrigger.map{Constants.SIGN_UP_URL}.asObservable()
+        
+        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS, loginSuccess: loginSuccess, onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable(),onSignUp: onSignUp)
     }
 }
 

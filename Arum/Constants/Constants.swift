@@ -31,6 +31,8 @@ extension Constants {
         }
     }
     
+    static var SIGN_UP_URL = BASE_URL+"/join/home"
+    
     //MARK: -  URL Login Modules
     struct LoginModule {
         static let login = ""
@@ -66,7 +68,6 @@ extension Constants {
             static let sendOTPCode = "api/verification-codes"
             static let verifyOTPCode = "api/verification-codes/%@/check-code"
             static let checkDeviceID = "api/device"
-            
         }
     }
 }

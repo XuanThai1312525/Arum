@@ -63,7 +63,7 @@ class SignInViewController: HideNavigationBarViewController {
         ])
         
         
-        let input = SignInViewModel.Input(loginWithSNSTrigger: snsTrigger, loginNormalTrigger: loginNormalTrigger,nameTrigger: nameUnderLineTextField.rx.text.orEmpty.asObservable(),phoneTrigger: phoneNumberUnderLineTextField.rx.text.orEmpty.asObservable(),isAutoLogin: isAutoLoginTrigger.asObservable())
+        let input = SignInViewModel.Input(loginWithSNSTrigger: snsTrigger, loginNormalTrigger: loginNormalTrigger, signUpTrigger: signUpButton.rx.tap.asObservable(),nameTrigger: nameUnderLineTextField.rx.text.orEmpty.asObservable(),phoneTrigger: phoneNumberUnderLineTextField.rx.text.orEmpty.asObservable(),isAutoLogin: isAutoLoginTrigger.asObservable())
         
         let output = viewModel.transform(input: input)
         
@@ -102,7 +102,11 @@ class SignInViewController: HideNavigationBarViewController {
                 self?.phoneNumberUnderLineTextField.forceError(errorText: "로그인 정보가 정확하지 않습니다.")
             })
             .disposed(by: disposeBag)
-        
+        output.onSignUp
+            .subscribe(onNext: { [weak self](url) in
+                self?.gotoSignUp(url: url)
+            })
+            .disposed(by: disposeBag)
     }
     
 }
@@ -111,6 +115,10 @@ class SignInViewController: HideNavigationBarViewController {
 extension SignInViewController {
     func gotoLoginSNS(url: String) {
 //        let vc = SignInSNSViewController(nib: R.nib.signInSNSViewController)
+       loadWebview(urlString: url)
+    }
+    
+    func gotoSignUp(url: String) {
        loadWebview(urlString: url)
     }
     
