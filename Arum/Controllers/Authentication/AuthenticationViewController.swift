@@ -59,6 +59,8 @@ class AuthenticationViewController: BaseViewController {
         otpTextField.isBottomLine = true
         otpTextField.validationType = .afterEdit
         
+        setEnableConfirmButton(false)
+        
     }
     
     override func setupTap() {
@@ -75,9 +77,10 @@ class AuthenticationViewController: BaseViewController {
         self.confirmButton
             .rx
             .tap
-            .subscribe { (event) in
+            .subscribe {[weak self] (event) in
+                guard let _self = self else {return}
                 print("Go To main Screen")
-                
+                _self.loadWebview(urlString: Constants.BASE_URL)
             }
             .disposed(by: disposeBag)
     }
@@ -108,7 +111,7 @@ class AuthenticationViewController: BaseViewController {
                 self.otpTimeOutLabel.isHidden = false
                 self.sendOtpButton.isEnabled = false
                 self.verifyOtpButton.isEnabled = true
-                self.confirmButton.isEnabled = false
+                self.setEnableConfirmButton(false)
                 
                 let time = 60*3
                 Observable<Int>
@@ -135,7 +138,7 @@ class AuthenticationViewController: BaseViewController {
                 guard let self = self else {
                     return
                 }
-                self.confirmButton.isEnabled = true
+                self.setEnableConfirmButton(true)
             }
             .bind(to: alertBinding)
             .disposed(by: disposeBag)
@@ -150,4 +153,18 @@ class AuthenticationViewController: BaseViewController {
         
     }
 
+    
+    func setEnableConfirmButton(_ isEnable: Bool) {
+        if (isEnable) {
+            self.confirmButton.isEnabled = true
+            self.confirmButton.backgroundColor = #colorLiteral(red: 0.3019607843, green: 0.7411764706, blue: 0.5803921569, alpha: 1)
+            self.confirmButton.setTitleColor(UIColor.white, for: .normal)
+            self.confirmButton.borderWidth = 0
+        } else {
+            self.confirmButton.isEnabled = false
+            self.confirmButton.backgroundColor = UIColor.white
+            self.confirmButton.borderWidth = 1
+            self.confirmButton.setTitleColor( #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1) , for: .normal)
+        }
+    }
 }
