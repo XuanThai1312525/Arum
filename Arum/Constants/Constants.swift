@@ -53,10 +53,10 @@ extension Constants {
 //MARK: Authentication
 extension Constants {
     enum SNS_URL {
-        static let KAKAO = "http://aleum.kr/login-sns/kakao"
-        static let FB = "http://aleum.kr/login-sns/facebook"
-        static let APPLE = "http://aleum.kr/login-sns/apple"
-        static let NAVER = "http://aleum.kr/login-sns/naver"
+        static let KAKAO = "http://aleum.kr/login-sns/kakao?fcm=\(UserSession.UUID_TOKEN ?? "")&device_os=IOS"
+        static let FB = "http://aleum.kr/login-sns/facebook?fcm=\(UserSession.UUID_TOKEN ?? "")&device_os=IOS"
+        static let APPLE = "http://aleum.kr/login-sns/apple?fcm=\(UserSession.UUID_TOKEN ?? "")&device_os=IOS"
+        static let NAVER = "http://aleum.kr/login-sns/naver?fcm=\(UserSession.UUID_TOKEN ?? "")&device_os=IOS"
     }
 }
 

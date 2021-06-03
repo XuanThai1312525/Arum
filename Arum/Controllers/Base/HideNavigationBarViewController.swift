@@ -20,6 +20,4 @@ class HideNavigationBarViewController: BaseViewController {
         hideNavigationBar()
     }
     
-    
-
 }
