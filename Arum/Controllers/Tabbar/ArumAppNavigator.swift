@@ -7,20 +7,68 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
-class ArumAppNavigator {
+final class ArumAppNavigator {
+    static let shared: ArumAppNavigator = ArumAppNavigator()
     var window: UIWindow?
     var mainNavi: UINavigationController!
     let navigationQueue = DispatchQueue(label: "ai.earable.navigator.navigate")
+    private var bag = DisposeBag()
+    
+    private init() {}
     
     func startup(_ win: UIWindow?) {
         window = win
-        mainNavi = (win?.rootViewController as? UINavigationController)!
+        handleSession(with: window)
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = .clear
         navigationBarAppearace.barTintColor = .clear
         mainNavi.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    func handleSession(with window: UIWindow?) {
+        UserSession.roleSubject
+            .share()
+            .subscribe(onNext: { [weak self] role in
+                guard let self = self else {
+                    return
+                }
+                
+                if let window = AppDelegate.shared.window {
+                    let options: UIView.AnimationOptions = .transitionFlipFromLeft
+                    UIView.transition(with: window, duration: 0.3, options: options, animations: {
+                        self.setupRootView(window: window, role: role)
+                    })
+                } else {
+                    AppDelegate.shared.window = UIWindow(frame: UIScreen.main.bounds)
+                    let window = AppDelegate.shared.window!
+                    self.setupRootView(window: window, role: role)
+                    window.makeKeyAndVisible()
+                }
+            })
+            .disposed(by: bag)
+    }
+//    목회자 / 01040862424
+    func setupRootView(window: UIWindow?, role: RoleAccess) {
+        let vc: UIViewController
+        switch(UserSession.roleSubject.value) {
+            case .login:
+                vc = SignInViewController(nib: R.nib.signInViewController)
+            case .needToCheckDeviceID:
+                vc = LoadingViewController()
+                break
+            case .needAuthentication:
+                vc = AuthenticationViewController(nib: R.nib.authenticationViewController)
+                break
+            case .logged:
+                vc = R.storyboard.main.arWebContentViewController()!
+                break
+        }
+        
+        mainNavi = BaseNavigationVC(rootViewController:  vc)
+        window?.rootViewController = mainNavi
     }
 }
 
