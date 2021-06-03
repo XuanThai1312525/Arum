@@ -80,6 +80,7 @@ class AuthenticationViewModel: BaseViewModel {
                 }
             })
             .filter{$0.success}
+            .share()
         
         let verifyOtpInfo = Observable.combineLatest(sendOtpResult,input.otpTrigger).map{($0.0.code_id,VerifyOTPRequest.init(code: $0.1))}
         
