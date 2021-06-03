@@ -100,6 +100,7 @@
 		944D0AC7264F7BC500AE03CC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AC6264F7BC500AE03CC /* UIView+Extension.swift */; };
 		944D0ADB264F7E0F00AE03CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D0ADA264F7E0F00AE03CC /* Main.storyboard */; };
 		944D0AE4264F93F100AE03CC /* ARWebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */; };
+		945FA9852669171400003B50 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945FA9842669171300003B50 /* Toast.swift */; };
 		94874444264F748600CFCDB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874443264F748600CFCDB2 /* AppDelegate.swift */; };
 		94874450264F748700CFCDB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */; };
 		9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9487445A264F748700CFCDB2 /* ArumTests.swift */; };
@@ -266,6 +267,7 @@
 		944D0AC6264F7BC500AE03CC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		944D0ADA264F7E0F00AE03CC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWebContentViewController.swift; sourceTree = "<group>"; };
+		945FA9842669171300003B50 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		94874440264F748600CFCDB2 /* Arum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94874443264F748600CFCDB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9487444F264F748700CFCDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 		94874509264F758400CFCDB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				945FA9842669171300003B50 /* Toast.swift */,
 				9487450A264F758400CFCDB2 /* TapActionView.swift */,
 				9487450B264F758400CFCDB2 /* CustomNibView.swift */,
 				9487450C264F758400CFCDB2 /* RoundedView.swift */,
@@ -1518,6 +1521,7 @@
 				9487453F264F758400CFCDB2 /* APIDispatcherProtocol.swift in Sources */,
 				9406792426688F0200AE7C9C /* ArumAppNavigator.swift in Sources */,
 				9487458E264F758400CFCDB2 /* Date+Extension.swift in Sources */,
+				945FA9852669171400003B50 /* Toast.swift in Sources */,
 				94874597264F758400CFCDB2 /* UIImageView+Extension.swift in Sources */,
 				9487453C264F758400CFCDB2 /* APIResponse.swift in Sources */,
 				9487456A264F758400CFCDB2 /* KeyboardHandlerScrollView.swift in Sources */,
