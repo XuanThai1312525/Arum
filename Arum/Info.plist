@@ -52,5 +52,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Aleum need permission to access</string>
 </dict>
 </plist>

@@ -8,6 +8,7 @@
 
 import RxCocoa
 import RxSwift
+import CoreLocation
 
 class SignInViewController: HideNavigationBarViewController {
     
@@ -24,12 +25,10 @@ class SignInViewController: HideNavigationBarViewController {
     
     //MARK: Properties
     let viewModel = SignInViewModel()
-    
+    let locationManager = CLLocationManager()
     //MARK: Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
     }
     
     override func setupUI() {
@@ -41,6 +40,8 @@ class SignInViewController: HideNavigationBarViewController {
         phoneNumberUnderLineTextField.isPlaceHolderAnimation = false
         phoneNumberUnderLineTextField.isBottomLine = true
         phoneNumberUnderLineTextField.validationType = .afterEdit
+        
+        locationManager.requestAlwaysAuthorization()
     }
     
     override func setupTap() {

@@ -19,8 +19,6 @@ class LoadingViewModel: BaseViewModel {
     }
     func transform(input: Input) -> Output {
         
-        
-        
         let checkingSuccess = input.checkDeviceTrigger
             .flatMapLatest {(info) in
                 return APIService.checkDeviceID(request: CheckingDeviceRequest(device_id: (UserSession.userInfo?.deviceId).emptyOnNil))

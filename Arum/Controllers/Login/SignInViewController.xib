@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -47,10 +47,10 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-eb-7ps">
-                                    <rect key="frame" x="0.0" y="195" width="329" height="110.5"/>
+                                    <rect key="frame" x="0.0" y="195" width="329" height="90"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shk-Y4-h5K" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="329" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="329" height="44.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -91,9 +91,9 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Jw-s1c" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="55.5" width="329" height="55"/>
+                                            <rect key="frame" x="0.0" y="45.5" width="329" height="44.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="activePlaceholderTextColor">
                                                     <color key="value" name="#b6b6b6"/>
@@ -133,7 +133,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gh-7E-3QZ">
-                                    <rect key="frame" x="0.0" y="323.5" width="329" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="303" width="329" height="20.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-EQ-Taa">
                                             <rect key="frame" x="0.0" y="0.0" width="20.5" height="20.5"/>
@@ -162,7 +162,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-qo-u6K">
-                                    <rect key="frame" x="62" y="438" width="205" height="36"/>
+                                    <rect key="frame" x="62" y="418" width="205" height="36"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="435-Ib-0DU">
                                             <rect key="frame" x="0.0" y="0.0" width="36.5" height="36"/>
@@ -195,7 +195,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-QL-Me4">
-                                    <rect key="frame" x="0.0" y="365" width="329" height="41"/>
+                                    <rect key="frame" x="0.0" y="344.5" width="329" height="41.5"/>
                                     <color key="backgroundColor" red="0.28627450980392155" green="0.77647058823529413" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="로그인">
@@ -208,7 +208,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-CZ-IET" customClass="AppButton" customModule="Arum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="506" width="329" height="41"/>
+                                    <rect key="frame" x="0.0" y="486" width="329" height="41"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="NanumSquareOTFR00" family="NanumSquareOTFR00" pointSize="18"/>
                                     <state key="normal" title="회원가입">
@@ -277,13 +277,13 @@
     </objects>
     <designables>
         <designable name="MNF-CZ-IET">
-            <size key="intrinsicContentSize" width="66" height="32"/>
+            <size key="intrinsicContentSize" width="63" height="33"/>
         </designable>
         <designable name="pUf-Jw-s1c">
-            <size key="intrinsicContentSize" width="4" height="18.5"/>
+            <size key="intrinsicContentSize" width="222.5" height="34"/>
         </designable>
         <designable name="shk-Y4-h5K">
-            <size key="intrinsicContentSize" width="4" height="18.5"/>
+            <size key="intrinsicContentSize" width="149" height="34"/>
         </designable>
     </designables>
     <resources>

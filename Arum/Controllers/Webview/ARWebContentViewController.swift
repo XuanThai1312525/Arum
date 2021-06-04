@@ -92,6 +92,7 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         let cookieStore = dataStore.httpCookieStore
         cookieStore.getAllCookies { (cookies) in}
         */
+        print("======>\(webView.url)")
         if let url = webView.url, url.absoluteString == "https://aleum.kr/login?url=%2Fnote" {
             decisionHandler(.cancel)
             directToLoginView()
