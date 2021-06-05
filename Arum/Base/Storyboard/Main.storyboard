@@ -12,7 +12,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Arum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -39,6 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SU6-Ta-wdQ"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="802.89855072463774" y="43.526785714285715"/>
         </scene>
@@ -49,10 +49,36 @@
                     <view key="view" contentMode="scaleToFill" id="Rbh-oJ-Fcn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBX-Mk-Kx8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LjV-ql-yOn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5X-9U-5jq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dnt-z8-YE1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eBX-Mk-Kx8" firstAttribute="leading" secondItem="dnt-z8-YE1" secondAttribute="leading" id="0Vf-cJ-qZm"/>
+                            <constraint firstItem="eBX-Mk-Kx8" firstAttribute="top" secondItem="Rbh-oJ-Fcn" secondAttribute="top" id="0cC-sK-zMT"/>
+                            <constraint firstItem="dnt-z8-YE1" firstAttribute="trailing" secondItem="eBX-Mk-Kx8" secondAttribute="trailing" id="1u7-iE-E8i"/>
+                            <constraint firstItem="o5X-9U-5jq" firstAttribute="top" secondItem="eBX-Mk-Kx8" secondAttribute="bottom" id="2Hj-FR-3GF"/>
+                            <constraint firstItem="dnt-z8-YE1" firstAttribute="trailing" secondItem="o5X-9U-5jq" secondAttribute="trailing" id="Jdv-cY-mTW"/>
+                            <constraint firstItem="o5X-9U-5jq" firstAttribute="leading" secondItem="dnt-z8-YE1" secondAttribute="leading" id="iY2-aE-YuD"/>
+                            <constraint firstItem="dnt-z8-YE1" firstAttribute="bottom" secondItem="o5X-9U-5jq" secondAttribute="bottom" id="rpT-CX-Z3a"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="viN-ER-2R6"/>
+                    <connections>
+                        <outlet property="containerWebview" destination="o5X-9U-5jq" id="H4B-F1-TTt"/>
+                        <outlet property="topView" destination="eBX-Mk-Kx8" id="XJT-xF-q0d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xIS-uV-fi2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

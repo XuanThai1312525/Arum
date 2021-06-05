@@ -22,10 +22,14 @@ final class ArumAppNavigator {
         window = win
         handleSession(with: window)
         
-        let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = .clear
-        navigationBarAppearace.barTintColor = .clear
-        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
+//        let navigationBarAppearace = UINavigationBar.appearance()
+//        navigationBarAppearace.tintColor = .clear
+//        navigationBarAppearace.barTintColor = .clear
+//        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    func setHideBackButton(shouldShow: Bool, animated: Bool = false) {
+        mainNavi.navigationItem.setHidesBackButton(true, animated: animated)
     }
     
     func handleSession(with window: UIWindow?) {

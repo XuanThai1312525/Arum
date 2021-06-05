@@ -58,5 +58,9 @@
 	<string>Aleum need permission to access</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Aleum need permission to access</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Aleum need permission to access</string>
 </dict>
 </plist>

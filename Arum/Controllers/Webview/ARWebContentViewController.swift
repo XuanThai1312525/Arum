@@ -11,8 +11,12 @@ import WKWebViewJavascriptBridge
 
 final class ARWebContentViewController: HideNavigationBarViewController {
 
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var containerWebview: UIView!
+    
     var contentWebView: WKWebView!
     var bridge: WKWebViewJavascriptBridge!
+    var popupWebView: WKWebView?
     var urlString: String? {
         didSet {
             if (isViewLoaded) {
@@ -42,7 +46,6 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         if let cookie = UserSession.getSessionCookie() {
             urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookie])
         }
-        view.makeToast(urlRequest.url?.absoluteString)
         contentWebView.load(urlRequest)
     }
     
@@ -50,9 +53,10 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         let contentController = WKUserContentController()
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
-
+        config.preferences.javaScriptCanOpenWindowsAutomatically = true
         contentWebView = WKWebView(frame: .zero, configuration: config)
-        view.addSubview(contentWebView)
+        contentWebView.uiDelegate = self
+        containerWebview.addSubview(contentWebView)
         contentWebView.fullscreen()
         contentWebView.scrollView.showsVerticalScrollIndicator = false
         contentWebView.navigationDelegate = self
@@ -92,11 +96,20 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         let cookieStore = dataStore.httpCookieStore
         cookieStore.getAllCookies { (cookies) in}
         */
-        print("======>\(webView.url)")
-        if let url = webView.url, url.absoluteString == "https://aleum.kr/login?url=%2Fnote" {
+    
+        
+        guard let url = webView.url else { return }
+        let absoluteString =  url.absoluteString
+        if absoluteString == "https://aleum.kr/login?url=%2Fnote" {
             decisionHandler(.cancel)
             directToLoginView()
             return
+        }
+        
+        if absoluteString.contains("login-sns") || absoluteString.contains("facebook.com") {
+            navigator.setHideBackButton(shouldShow: false)
+        } else {
+            navigator.setHideBackButton(shouldShow: true)
         }
         decisionHandler(.allow)
     }
@@ -106,13 +119,28 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        webView.evaluateJavaScript("document.body.style.webkitTouchCallout='none';", completionHandler: nil)
-        webView.evaluateJavaScript("document.body.style.KhtmlUserSelect='none'") { (result, error) in
-        }
+        print("====> \(webView.evaluateJavaScript("document.body.style.backgroundColor = '#4287f5';", completionHandler: nil))")
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
     }
     
+}
+
+extension ARWebContentViewController: WKUIDelegate {
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        popupWebView = WKWebView(frame: view.frame, configuration: configuration)
+        popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        popupWebView!.navigationDelegate = self
+        popupWebView!.uiDelegate = self
+        view.addSubview(popupWebView!)
+        return popupWebView
+    }
+    
+    func webViewDidClose(_ webView: WKWebView) {
+        if let popupWebView = popupWebView, popupWebView.isDescendant(of: view) {
+            popupWebView.removeFromSuperview()
+        }
+    }
 }
 
