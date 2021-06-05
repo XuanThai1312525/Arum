@@ -96,7 +96,7 @@ class SignInViewController: HideNavigationBarViewController {
         
         output.onNeedLogin
             .subscribe(onNext: { [weak self](_) in
-                self?.gotoAuthentication()
+                self?.gotoLogin()
             })
             .disposed(by: disposeBag)
         
@@ -137,7 +137,8 @@ extension SignInViewController {
     }
     
     func gotoLogin() {
-        
+        let vc = SignInViewController(nib: R.nib.signInViewController)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func gotoAuthentication() {

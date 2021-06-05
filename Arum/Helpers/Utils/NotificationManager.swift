@@ -61,7 +61,8 @@ class NotificationManager: NSObject {
 //
             
             let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "ARWebContentViewController") as! ARWebContentViewController
-            vc.urlString = "https://aleum.kr"
+            vc.urlString = Constants.BASE_URL
+            
             nav.pushViewController(vc, animated: true)
             
             //Please don't open click action force. because cannot touch go back
