@@ -55,9 +55,6 @@ class BaseVC: UIViewController {
     
 }
 
-
-
-
 class BaseViewController: UIViewController, HasAppProperties {
     
     let disposeBag = DisposeBag()

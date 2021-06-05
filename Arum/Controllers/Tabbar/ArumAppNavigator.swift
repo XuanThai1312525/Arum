@@ -236,5 +236,48 @@ extension ArumAppNavigator {
             break
         }
     }
+    
+    
+    func presentVC(_ context: NavigationContext, type: UIModalPresentationStyle = .fullScreen) {
+        context.prepareData?(context)
+        navigateViewController(context.type(.present(type)))
+    }
+    
+    func showVC(_ context: NavigationContext) {
+        context.prepareData?(context)
+        navigateViewController(context.type(.push))
+    }
+    
+    func pop(_ context: NavigationContext) {
+        popToVC(context.toVC(context.fromVC?.previousViewController))
+    }
+        
+    func pop<T: UIViewController>(_ context: NavigationContext, to VCType: T.Type) {
+        popToVC(context.toVC(context.fromVC?.navigationController?.last(where: VCType)))
+    }
+    
+    func popToVC(_ context: NavigationContext) {
+        context.prepareData?(context)
+        navigateViewController(context.type(.pop))
+    }
+    
+    func directToLoginView(context: NavigationContext) {
+        func presentLoginView(context: NavigationContext) {
+            let vc = SignInViewController(nib: R.nib.signInViewController)
+            presentVC(context.toVC(vc).type(.present(.currentContext)))
+        }
+        
+        guard let nav = mainNavi else {
+            presentLoginView(context: context)
+            return
+        }
+        
+        if let _ = nav.viewControllers.last(where: {$0.isKind(of: SignInViewController.self)}) {
+            pop(context, to: SignInViewController.self)
+        } else {
+            let vc = SignInViewController(nib: R.nib.signInViewController)
+            nav.pushViewController(vc, animated: true)
+        }
+    }
 }
 

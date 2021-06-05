@@ -63,30 +63,20 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentWebView.allowsLinkPreview = false
         request()
         bridge = WKWebViewJavascriptBridge(webView: contentWebView)
+        listenWebview()
     }
     
     private func listenWebview() {
-        
-    }
-    
-    private func directToLoginView() {
-        func presentLoginView() {
-            let vc = SignInViewController(nib: R.nib.signInViewController)
-            present(vc, animated: true, completion: nil)
-        }
-        
-        guard let nav = navigationController else {
-            presentLoginView()
-            return
-        }
-        
-        if let vc = nav.viewControllers.last(where: {$0.isKind(of: SignInViewController.self)}) {
-            pop(to: vc)
-        } else {
-            let vc = SignInViewController(nib: R.nib.signInViewController)
-            nav.pushViewController(vc, animated: true)
+        bridge.register(handlerName: "getAppInfo") { (_, callback) in
+            let data = [
+                "os": "iOS",
+                "token": UserSession.UUID_TOKEN,
+                "version":"1.0.1"
+            ]
+            callback?(data)
         }
     }
+
 }
 
 extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandler {
@@ -102,7 +92,7 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         let absoluteString =  url.absoluteString
         if absoluteString == "https://aleum.kr/login?url=%2Fnote" {
             decisionHandler(.cancel)
-            directToLoginView()
+            navigator.directToLoginView(context: NavigationContext().fromVC(self))
             return
         }
         
@@ -133,8 +123,16 @@ extension ARWebContentViewController: WKUIDelegate {
         popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         popupWebView!.navigationDelegate = self
         popupWebView!.uiDelegate = self
+        popupWebView?.scrollView.showsVerticalScrollIndicator = false
+        popupWebView?.backgroundColor = .white
+        popupWebView?.scrollView.backgroundColor = .white
+        popupWebView?.isOpaque = false
         view.addSubview(popupWebView!)
         return popupWebView
+//        let vc = R.storyboard.main.arWebContentViewController()!
+//        vc.urlString = webView.url?.absoluteString
+//        navigator.presentVC(NavigationContext().fromVC(self).toVC(vc))
+//        return nil
     }
     
     func webViewDidClose(_ webView: WKWebView) {
