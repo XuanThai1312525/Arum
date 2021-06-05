@@ -151,6 +151,17 @@ class AuthenticationViewController: BaseViewController {
             .bind(to: activityIndicatorEntireScreenBinder)
             .disposed(by: disposeBag)
         
+        output.authenticationSuccess
+            .bind { [weak self](_) in
+                if let vc = self?.navigationController?.viewControllers.last(where: {$0.isKind(of: ARWebContentViewController.self)}) as? ARWebContentViewController {
+                    vc.urlString = Constants.BASE_URL
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self?.pop(to: vc)
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+        
     }
 
     

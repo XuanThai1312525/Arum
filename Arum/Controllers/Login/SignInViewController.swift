@@ -78,10 +78,24 @@ class SignInViewController: HideNavigationBarViewController {
             })
             .disposed(by: disposeBag)
         
-        output.loginSuccess
+        output.needToAuthen
+            .subscribe(onNext: { [weak self](_) in
+                print("Login Success")
+                self?.phoneNumberUnderLineTextField.resetState()
+                self?.gotoAuthentication()
+            })
+            .disposed(by: disposeBag)
+        
+        output.onLogginSuccess
             .subscribe(onNext: { [weak self](url) in
                 print("Login Success")
                 self?.phoneNumberUnderLineTextField.resetState()
+                self?.gotoAuthentication()
+            })
+            .disposed(by: disposeBag)
+        
+        output.onNeedLogin
+            .subscribe(onNext: { [weak self](_) in
                 self?.gotoAuthentication()
             })
             .disposed(by: disposeBag)
@@ -115,12 +129,15 @@ class SignInViewController: HideNavigationBarViewController {
 //MARK: Navigation
 extension SignInViewController {
     func gotoLoginSNS(url: String) {
-//        let vc = SignInSNSViewController(nib: R.nib.signInSNSViewController)
        loadWebview(urlString: url)
     }
     
     func gotoSignUp(url: String) {
        loadWebview(urlString: url)
+    }
+    
+    func gotoLogin() {
+        
     }
     
     func gotoAuthentication() {

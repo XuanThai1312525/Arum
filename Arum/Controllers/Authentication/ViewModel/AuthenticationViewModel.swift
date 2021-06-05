@@ -25,7 +25,7 @@ class AuthenticationViewModel: BaseViewModel {
         var onError: Observable<Error>
         var sendOtpSuccess: Observable<Bool>
         var verifyOtpSuccess: Observable<String>
-//        var codeValidateResult: Observable<ValidateResult>
+        var authenticationSuccess: Observable<Void>
     }
     func transform(input: Input) -> Output {
         
@@ -102,14 +102,12 @@ class AuthenticationViewModel: BaseViewModel {
             })
             .filter{$0.success}
             .map{_ in "인증 완료되었습니다"}
+            .share()
         
-        input.confirmTrigger
-            .bind { (event) in
-                UserSession.roleSubject.accept(.logged)
-            }.disposed(by: disposeBag)
+        let authenticationSuccess = input.confirmTrigger.withLatestFrom(verifyOtpSuccess).mapToVoid()
         
         
-        return Output(activityIndicator: activityIndicator,nameValidateResult: nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1), otpValidateResult: otpValidateResult.skip(1),onError: errorTracker, sendOtpSuccess: sendOtpResult.map{_ in true}, verifyOtpSuccess:  verifyOtpSuccess)
+        return Output(activityIndicator: activityIndicator,nameValidateResult: nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1), otpValidateResult: otpValidateResult.skip(1),onError: errorTracker, sendOtpSuccess: sendOtpResult.map{_ in true}, verifyOtpSuccess:  verifyOtpSuccess, authenticationSuccess: authenticationSuccess)
         
     }
 }

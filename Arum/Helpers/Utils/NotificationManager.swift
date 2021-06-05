@@ -27,7 +27,7 @@ class NotificationManager: NSObject {
             NotificationManager.userInfo = userInfo
         }
         
-        if UserSession.roleSubject.value == .logged , let userInfo = NotificationManager.userInfo{
+        if let userInfo = NotificationManager.userInfo{
             handleNotification(userInfo: userInfo)
             NotificationManager.userInfo = nil
         }
