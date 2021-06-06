@@ -78,7 +78,7 @@ class SignInViewController: HideNavigationBarViewController {
             })
             .disposed(by: disposeBag)
         
-        output.needToAuthen
+        output.onNeedAuthentication
             .subscribe(onNext: { [weak self](_) in
                 print("Login Success")
                 self?.phoneNumberUnderLineTextField.resetState()
@@ -86,17 +86,9 @@ class SignInViewController: HideNavigationBarViewController {
             })
             .disposed(by: disposeBag)
         
-        output.onLogginSuccess
+        output.onNeedPopBackToMain
             .subscribe(onNext: { [weak self](url) in
-                print("Login Success")
-                self?.phoneNumberUnderLineTextField.resetState()
-                self?.gotoAuthentication()
-            })
-            .disposed(by: disposeBag)
-        
-        output.onNeedLogin
-            .subscribe(onNext: { [weak self](_) in
-                self?.gotoLogin()
+                self?.goBackToLogin(url: url)
             })
             .disposed(by: disposeBag)
         
@@ -136,15 +128,15 @@ extension SignInViewController {
        loadWebview(urlString: url)
     }
     
-    func gotoLogin() {
-        let vc = SignInViewController(nib: R.nib.signInViewController)
-        self.navigationController?.pushViewController(vc, animated: true)
+    func goBackToLogin(url: String) {
+       loadWebview(urlString: url)
     }
     
     func gotoAuthentication() {
         let vc = AuthenticationViewController(nib: R.nib.authenticationViewController)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension BaseViewController {
@@ -159,5 +151,6 @@ extension BaseViewController {
             vc.urlString = urlString
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
 }

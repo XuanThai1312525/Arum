@@ -9,6 +9,7 @@ import RxCocoa
 
 class UserSession {
     static var UUID_TOKEN: String?
+    static let roleSubject = BehaviorRelay<RoleAccess>(value: RoleAccess.role(userInfo: userInfo) )
     static var userInfo = getUserInfo()
     
     private static func getUserInfo() -> UserInfo? {
@@ -30,13 +31,6 @@ class UserSession {
         UserDefaults.standard.synchronize()
         
         self.userInfo = userInfo
-    }
-    
-    static func clearUserInfo() {
-        UserDefaults.standard.setValue(nil, forKey: Constants.USER_INFO_KEY)
-        UserDefaults.standard.synchronize()
-        
-        self.userInfo = nil
     }
     
     static func setSessionCookie () {
@@ -65,4 +59,27 @@ struct UserInfo : Codable {
     var name: String = ""
     var deviceId: String = ""
     var isAutomaticLogin: Bool = false
+}
+
+
+enum RoleAccess {
+    case logged
+    case needLoginOnly
+    case needToCheckDeviceID
+    case needLoginAndAuthen
+    
+    static func role(userInfo: UserInfo?) -> RoleAccess {
+        guard let userInfo = userInfo else {
+            return .needLoginAndAuthen
+        }
+        
+        guard !userInfo.deviceId.isEmpty else {
+            return .needLoginAndAuthen
+        }
+        
+        guard userInfo.isAutomaticLogin else {
+            return .needLoginAndAuthen
+        }
+        return  .needToCheckDeviceID
+    }
 }
