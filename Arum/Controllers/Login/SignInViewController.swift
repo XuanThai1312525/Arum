@@ -115,7 +115,6 @@ class SignInViewController: HideNavigationBarViewController {
 //MARK: Navigation
 extension SignInViewController {
     func gotoLoginSNS(url: String) {
-//        let vc = SignInSNSViewController(nib: R.nib.signInSNSViewController)
        loadWebview(urlString: url)
     }
     

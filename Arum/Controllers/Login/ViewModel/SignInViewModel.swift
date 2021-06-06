@@ -111,8 +111,11 @@ class SignInViewModel: BaseViewModel {
                         UserSession.setSessionCookie()
                     }
                     
-                    if (UserSession.roleSubject.value == .needLoginOnly) {
+                    switch UserSession.roleSubject.value {
+                    case .needLoginOnly, .logged:
                         UserSession.roleSubject.accept(.logged)
+                    default:
+                        break
                     }
                 }
             })

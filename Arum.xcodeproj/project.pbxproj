@@ -23,12 +23,6 @@
 		6911D4D52655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
 		6911D4D62655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
 		6911D4D72655A23800FA79B5 /* RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911D4D42655A23800FA79B5 /* RxExtension.swift */; };
-		691D56D0265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
-		691D56D1265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
-		691D56D2265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */; };
-		691D56D3265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
-		691D56D4265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
-		691D56D5265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */; };
 		6963CAE2265C07D000D0845D /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963CAE1265C07D000D0845D /* LoginResponse.swift */; };
 		6963CAE3265C07D000D0845D /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963CAE1265C07D000D0845D /* LoginResponse.swift */; };
 		6963CAE4265C07D000D0845D /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963CAE1265C07D000D0845D /* LoginResponse.swift */; };
@@ -217,8 +211,6 @@
 		6911D4C52655A18100FA79B5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		6911D4C62655A18100FA79B5 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		6911D4D42655A23800FA79B5 /* RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtension.swift; sourceTree = "<group>"; };
-		691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSNSViewController.swift; sourceTree = "<group>"; };
-		691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInSNSViewController.xib; sourceTree = "<group>"; };
 		6963CAE1265C07D000D0845D /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		6963CB6E265C1DCE00D0845D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		6963CB77265C1E5D00D0845D /* BaseRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestModel.swift; sourceTree = "<group>"; };
@@ -854,8 +846,6 @@
 				6990D955265419A800F17B16 /* ViewModel */,
 				948744D6264F758200CFCDB2 /* SignInViewController.xib */,
 				948744D7264F758200CFCDB2 /* SignInViewController.swift */,
-				691D56CE265B66E4002F9EA8 /* SignInSNSViewController.swift */,
-				691D56CF265B66E4002F9EA8 /* SignInSNSViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1256,7 +1246,6 @@
 				74FDFCAC2652DAB900B61A04 /* AppleGothic.ttf in Resources */,
 				94874568264F758400CFCDB2 /* Colors.xcassets in Resources */,
 				74D45C9F2651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
-				691D56D3265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,7 +1254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D45CA02651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
-				691D56D4265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1274,7 +1262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D45CA12651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
-				691D56D5265B66E4002F9EA8 /* SignInSNSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,7 +1522,6 @@
 				94874540264F758400CFCDB2 /* APIEnviromentProtocol.swift in Sources */,
 				94874573264F758400CFCDB2 /* ESTabBarItem.swift in Sources */,
 				94874567264F758400CFCDB2 /* EnumType.swift in Sources */,
-				691D56D0265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1556,7 +1542,6 @@
 				6911D4C82655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
 				6911D4B92655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7D265114F400CC7C51 /* R.generated.swift in Sources */,
-				691D56D1265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 				6990D94D265417F400F17B16 /* ViewModelType.swift in Sources */,
 				6963CBC3265C21D500D0845D /* BaseResponseModel.swift in Sources */,
 				6963CAE3265C07D000D0845D /* LoginResponse.swift in Sources */,
@@ -1581,7 +1566,6 @@
 				6911D4C92655A18100FA79B5 /* ActivityIndicator.swift in Sources */,
 				6911D4BA2655985C00FA79B5 /* OptionalExtension.swift in Sources */,
 				74EE0A7E265114F400CC7C51 /* R.generated.swift in Sources */,
-				691D56D2265B66E4002F9EA8 /* SignInSNSViewController.swift in Sources */,
 				6990D94E265417F400F17B16 /* ViewModelType.swift in Sources */,
 				6963CBC4265C21D500D0845D /* BaseResponseModel.swift in Sources */,
 				6963CAE4265C07D000D0845D /* LoginResponse.swift in Sources */,
