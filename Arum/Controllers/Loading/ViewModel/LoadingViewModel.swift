@@ -25,21 +25,21 @@ class LoadingViewModel: BaseViewModel {
                     .trackActivity(self._activityIndicator)
                     .trackError(self._errorTracker)
             }
-            .do(onNext: { [weak self](response) in
+            .do(onNext: { (response) in
                 let code = response.code.uppercased()
                 if code.elementsEqual("R000") {
                     UserSession.roleSubject.accept(.logged)
                 } else if code.elementsEqual("R001") {
-                    UserSession.roleSubject.accept(.needAuthentication)
+                    UserSession.roleSubject.accept(.needLoginOnly)
                 } else {
-                    UserSession.roleSubject.accept(.login)
+                    UserSession.roleSubject.accept(.needLoginAndAuthen)
                 }
             })
             .mapToVoid()
 
         let errorTracking = errorTracker
             .do { (error) in
-                UserSession.roleSubject.accept(.login)
+                UserSession.roleSubject.accept(.needLoginAndAuthen)
             }
         
         return Output(activityIndicator: activityIndicator,errorTracking: errorTracking, checkingSuccess: checkingSuccess)

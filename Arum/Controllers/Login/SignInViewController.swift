@@ -78,8 +78,8 @@ class SignInViewController: HideNavigationBarViewController {
             })
             .disposed(by: disposeBag)
         
-        output.loginSuccess
-            .subscribe(onNext: { [weak self](url) in
+        output.onNeedAuthentication
+            .subscribe(onNext: { [weak self](_) in
                 print("Login Success")
                 self?.phoneNumberUnderLineTextField.resetState()
                 self?.gotoAuthentication()
@@ -127,6 +127,7 @@ extension SignInViewController {
         let vc = AuthenticationViewController(nib: R.nib.authenticationViewController)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension BaseViewController {

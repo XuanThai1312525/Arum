@@ -58,13 +58,10 @@ final class ArumAppNavigator {
     func setupRootView(window: UIWindow?, role: RoleAccess) {
         let vc: UIViewController
         switch(UserSession.roleSubject.value) {
-            case .login:
+            case .needLoginAndAuthen, .needLoginOnly:
                 vc = SignInViewController(nib: R.nib.signInViewController)
             case .needToCheckDeviceID:
                 vc = LoadingViewController()
-                break
-            case .needAuthentication:
-                vc = AuthenticationViewController(nib: R.nib.authenticationViewController)
                 break
             case .logged:
                 vc = R.storyboard.main.arWebContentViewController()!

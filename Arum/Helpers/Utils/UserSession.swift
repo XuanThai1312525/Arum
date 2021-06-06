@@ -64,21 +64,21 @@ struct UserInfo : Codable {
 
 enum RoleAccess {
     case logged
-    case needAuthentication
+    case needLoginOnly
     case needToCheckDeviceID
-    case login
+    case needLoginAndAuthen
     
     static func role(userInfo: UserInfo?) -> RoleAccess {
         guard let userInfo = userInfo else {
-            return .login
+            return .needLoginAndAuthen
         }
         
         guard !userInfo.deviceId.isEmpty else {
-            return .login
+            return .needLoginAndAuthen
         }
         
         guard userInfo.isAutomaticLogin else {
-            return .login
+            return .needLoginAndAuthen
         }
         return  .needToCheckDeviceID
     }

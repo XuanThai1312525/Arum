@@ -23,12 +23,12 @@ class SignInViewModel: BaseViewModel {
     struct Output {
         var activityIndicator: Observable<Bool>
         var logInSNS: Observable<String>
-        var loginSuccess: Observable<Bool>
         var onError: Observable<Error>
         var nameValidateResult: Observable<ValidateResult>
         var phoneValidateResult: Observable<ValidateResult>
         var isAutoLoginValidResult: Observable<Bool>
         var onSignUp: Observable<String>
+        var onNeedAuthentication: Observable<Bool>
     }
     func transform(input: Input) -> Output {
         let logInSNS = input.loginWithSNSTrigger.map { (type) -> String in
@@ -91,7 +91,7 @@ class SignInViewModel: BaseViewModel {
             }.disposed(by: disposeBag)
         
         
-        let loginSuccess = loginTrigger.filter{$0}.mapToVoid().withLatestFrom(loginInfo)
+        let loginResult = loginTrigger.filter{$0}.mapToVoid().withLatestFrom(loginInfo)
             .flatMapLatest {(info) in
                 
                 return APIService.login(request: info)
@@ -110,14 +110,21 @@ class SignInViewModel: BaseViewModel {
                         UserSession.saveUserInfo(info)
                         UserSession.setSessionCookie()
                     }
+                    
+                    if (UserSession.roleSubject.value == .needLoginOnly) {
+                        UserSession.roleSubject.accept(.logged)
+                    }
                 }
             })
             .filter{$0.success}
             .map{_ in true}
+            .share()
+        
+        let onNeedAuthentication = loginResult.filter{_ in UserSession.roleSubject.value == RoleAccess.needLoginAndAuthen}
         
         let onSignUp = input.signUpTrigger.map{Constants.SIGN_UP_URL}.asObservable()
         
-        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS, loginSuccess: loginSuccess, onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable(),onSignUp: onSignUp)
+        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS,  onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable(),onSignUp: onSignUp, onNeedAuthentication: onNeedAuthentication)
     }
 }
 
