@@ -29,6 +29,7 @@ class SignInViewModel: BaseViewModel {
         var isAutoLoginValidResult: Observable<Bool>
         var onSignUp: Observable<String>
         var onNeedAuthentication: Observable<Bool>
+        var onNeedPopBackToMain: Observable<String>
     }
     func transform(input: Input) -> Output {
         let logInSNS = input.loginWithSNSTrigger.map { (type) -> String in
@@ -111,11 +112,8 @@ class SignInViewModel: BaseViewModel {
                         UserSession.setSessionCookie()
                     }
                     
-                    switch UserSession.roleSubject.value {
-                    case .needLoginOnly, .logged:
+                    if UserSession.roleSubject.value == .needLoginOnly {
                         UserSession.roleSubject.accept(.logged)
-                    default:
-                        break
                     }
                 }
             })
@@ -124,10 +122,11 @@ class SignInViewModel: BaseViewModel {
             .share()
         
         let onNeedAuthentication = loginResult.filter{_ in UserSession.roleSubject.value == RoleAccess.needLoginAndAuthen}
+        let onNeedPopBackToMain = loginResult.filter{_ in UserSession.roleSubject.value == RoleAccess.logged}.map{_ in Constants.BASE_URL}
         
         let onSignUp = input.signUpTrigger.map{Constants.SIGN_UP_URL}.asObservable()
         
-        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS,  onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable(),onSignUp: onSignUp, onNeedAuthentication: onNeedAuthentication)
+        return Output(activityIndicator: activityIndicator, logInSNS: logInSNS,  onError: errorTracker,nameValidateResult:nameValidateResult.skip(1),phoneValidateResult: phoneValidateResult.skip(1),isAutoLoginValidResult: isAutoLoginTrigger.skip(1).asObservable(),onSignUp: onSignUp, onNeedAuthentication: onNeedAuthentication, onNeedPopBackToMain: onNeedPopBackToMain)
     }
 }
 
