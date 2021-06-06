@@ -16,7 +16,7 @@ target 'Arum' do
   pod 'RxDataSources', '~> 4.0'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Kingfisher'
-  pod 'WKWebViewJavascriptBridge'
+  pod 'WebViewJavascriptBridge'
   pod 'R.swift'
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'

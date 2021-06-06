@@ -139,7 +139,7 @@ PODS:
     - RxCocoa (~> 5.0)
     - RxSwiftExt/Core
   - SwiftyJSON (5.0.1)
-  - WKWebViewJavascriptBridge (1.2.1)
+  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -157,7 +157,7 @@ DEPENDENCIES:
   - RxSwift (~> 5)
   - RxSwiftExt (~> 5)
   - SwiftyJSON
-  - WKWebViewJavascriptBridge
+  - WebViewJavascriptBridge
 
 SPEC REPOS:
   trunk:
@@ -188,7 +188,7 @@ SPEC REPOS:
     - RxSwift
     - RxSwiftExt
     - SwiftyJSON
-    - WKWebViewJavascriptBridge
+    - WebViewJavascriptBridge
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -218,8 +218,8 @@ SPEC CHECKSUMS:
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: 3c05e7384cf1a8efa78414ddc0b1b2e4828441d7
+PODFILE CHECKSUM: e92e61dd9a599dac6325ffa1fa8b9d6ddca2000b
 
 COCOAPODS: 1.10.1

@@ -99,6 +99,7 @@
 		944D0ADB264F7E0F00AE03CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D0ADA264F7E0F00AE03CC /* Main.storyboard */; };
 		944D0AE4264F93F100AE03CC /* ARWebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */; };
 		945FA9852669171400003B50 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945FA9842669171300003B50 /* Toast.swift */; };
+		945FAC3E266C916800003B50 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945FAC3D266C916800003B50 /* DeviceInfo.swift */; };
 		94874444264F748600CFCDB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874443264F748600CFCDB2 /* AppDelegate.swift */; };
 		94874450264F748700CFCDB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */; };
 		9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9487445A264F748700CFCDB2 /* ArumTests.swift */; };
@@ -264,6 +265,7 @@
 		944D0ADA264F7E0F00AE03CC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWebContentViewController.swift; sourceTree = "<group>"; };
 		945FA9842669171300003B50 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		945FAC3D266C916800003B50 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		94874440264F748600CFCDB2 /* Arum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94874443264F748600CFCDB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9487444F264F748700CFCDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1023,6 +1025,7 @@
 				94874516264F758400CFCDB2 /* SystenInfo.swift */,
 				74EE0A48265110D100CC7C51 /* UserSession.swift */,
 				69DC6C2B26655FB700710DA4 /* NotificationManager.swift */,
+				945FAC3D266C916800003B50 /* DeviceInfo.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1394,6 +1397,7 @@
 				94874548264F758400CFCDB2 /* SystemBoots.swift in Sources */,
 				697BBBF6265D71BA00D8CD72 /* VerifyOTPResponse.swift in Sources */,
 				740719662651A0BE0014D6A4 /* UnderLineTextFieldStatus.swift in Sources */,
+				945FAC3E266C916800003B50 /* DeviceInfo.swift in Sources */,
 				69FBEC19265E9BB400453A30 /* CheckingDeviceResponse.swift in Sources */,
 				6963CC15265D47C100D0845D /* UnderLineTextFieldDelegate.swift in Sources */,
 				9487456B264F758400CFCDB2 /* BaseTableView.swift in Sources */,

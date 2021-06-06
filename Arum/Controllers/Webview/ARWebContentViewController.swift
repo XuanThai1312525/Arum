@@ -7,15 +7,16 @@
 
 import UIKit
 import WebKit
-import WKWebViewJavascriptBridge
+import WebViewJavascriptBridge
 
 final class ARWebContentViewController: HideNavigationBarViewController {
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerWebview: UIView!
+    @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
     
     var contentWebView: WKWebView!
-    var bridge: WKWebViewJavascriptBridge!
+    var bridge: WebViewJavascriptBridge!
     var popupWebView: WKWebView?
     var urlString: String? {
         didSet {
@@ -29,6 +30,14 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         super.viewDidLoad()
 
         configs()
+    }
+    
+    override func setupUI() {
+        if (SystemInfo.hasTopNotch) {
+            topHeightConstraint.constant = 44
+        } else {
+            topHeightConstraint.constant = 20
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,11 +58,26 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentWebView.load(urlRequest)
     }
     
+    private func buttonClickEventTriggeredScriptToAddToDocument() -> String {
+        "document.addEventListener('click', function(){ window.webkit.messageHandlers.showLogin.postMessage('click clack!'); })"
+    }
+    
     private func configs() {
-        let contentController = WKUserContentController()
+//        let contentController = WKUserContentController()
+//        let js:String = buttonClickEventTriggeredScriptToAddToDocument()
+//        let userScript:WKUserScript =  WKUserScript(source: js,
+//                                                 injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
+//                                                 forMainFrameOnly: false)
+//        contentController.addUserScript(userScript)
+//        contentController.add(self, name: "showLogin")
         let config = WKWebViewConfiguration()
-        config.userContentController = contentController
-        config.preferences.javaScriptCanOpenWindowsAutomatically = true
+//        config.userContentController = contentController
+        
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        preferences.javaScriptCanOpenWindowsAutomatically = true
+        
+        config.preferences = preferences
         contentWebView = WKWebView(frame: .zero, configuration: config)
         contentWebView.uiDelegate = self
         containerWebview.addSubview(contentWebView)
@@ -62,19 +86,30 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
         request()
-        bridge = WKWebViewJavascriptBridge(webView: contentWebView)
+        bridge = WebViewJavascriptBridge(contentWebView)
+        bridge.setWebViewDelegate(self)
         listenWebview()
     }
     
     private func listenWebview() {
-        bridge.register(handlerName: "getAppInfo") { (_, callback) in
-            let data = [
+        
+        bridge.registerHandler("showLogin") { (data, callback) in
+            callback?(data)
+            DispatchQueue.main.async {
+                self.navigator.directToLoginView(context: NavigationContext().fromVC(self))
+            }
+        }
+        
+        bridge.registerHandler("getAppInfo") { (data, callback) in
+            let dataName = [
                 "os": "iOS",
-                "token": UserSession.UUID_TOKEN,
+                "token": UserSession.UUID_TOKEN ?? "",
                 "version":"1.0.1"
             ]
-            callback?(data)
+
+            callback?(dataName)
         }
+        
     }
 
 }
@@ -90,9 +125,8 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         
         guard let url = webView.url else { return }
         let absoluteString =  url.absoluteString
-        if absoluteString == "https://aleum.kr/login?url=%2Fnote" {
+        if absoluteString.contains("https://aleum.kr/login?url=") {
             decisionHandler(.cancel)
-            navigator.directToLoginView(context: NavigationContext().fromVC(self))
             return
         }
         
@@ -109,10 +143,10 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("====> \(webView.evaluateJavaScript("document.body.style.backgroundColor = '#4287f5';", completionHandler: nil))")
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("====> \(message)")
     }
     
 }
@@ -129,16 +163,27 @@ extension ARWebContentViewController: WKUIDelegate {
         popupWebView?.isOpaque = false
         view.addSubview(popupWebView!)
         return popupWebView
-//        let vc = R.storyboard.main.arWebContentViewController()!
-//        vc.urlString = webView.url?.absoluteString
-//        navigator.presentVC(NavigationContext().fromVC(self).toVC(vc))
-//        return nil
+
     }
     
     func webViewDidClose(_ webView: WKWebView) {
         if let popupWebView = popupWebView, popupWebView.isDescendant(of: view) {
             popupWebView.removeFromSuperview()
         }
+    }
+    
+    func webView(_ webView: WKWebView,
+                 runJavaScriptAlertPanelWithMessage message: String,
+                 initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping () -> Void) {
+//        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//        let title = NSLocalizedString("확인", comment: "확인")
+//        let ok = UIAlertAction(title: title, style: .default) { (_: UIAlertAction) -> Void in
+//            // alert.dismiss(animated: true, completion: nil)
+//        }
+//        alert.addAction(ok)
+//        present(alert, animated: true)
+        completionHandler()
     }
 }
 

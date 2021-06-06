@@ -77,6 +77,7 @@
                     <navigationItem key="navigationItem" id="viN-ER-2R6"/>
                     <connections>
                         <outlet property="containerWebview" destination="o5X-9U-5jq" id="H4B-F1-TTt"/>
+                        <outlet property="topHeightConstraint" destination="LjV-ql-yOn" id="wYM-aL-7KU"/>
                         <outlet property="topView" destination="eBX-Mk-Kx8" id="XJT-xF-q0d"/>
                     </connections>
                 </viewController>
