@@ -23,6 +23,7 @@ class SignInViewController: HideNavigationBarViewController {
     @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var automaticLoginButton: UIButton!
     
+    
     //MARK: Properties
     let viewModel = SignInViewModel()
     let locationManager = CLLocationManager()
@@ -42,6 +43,16 @@ class SignInViewController: HideNavigationBarViewController {
         phoneNumberUnderLineTextField.validationType = .afterEdit
         
         locationManager.requestAlwaysAuthorization()
+        
+         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if(UserSession.roleSubject.value == .logged) {
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+        
     }
     
     override func setupTap() {
