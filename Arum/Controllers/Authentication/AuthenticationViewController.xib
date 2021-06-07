@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -43,7 +43,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="757.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFI-uf-cFA">
-                                    <rect key="frame" x="23" y="0.0" width="368" height="181"/>
+                                    <rect key="frame" x="23" y="0.0" width="368" height="191.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 다른 기기에서 로그인 진행 중입니다. 계속 진행을 원하시면 본인인증 절차를 진행해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-9N-IXF">
                                             <rect key="frame" x="0.0" y="0.0" width="368" height="26"/>
@@ -52,10 +52,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a8w-aJ-g08">
-                                            <rect key="frame" x="0.0" y="26" width="368" height="155"/>
+                                            <rect key="frame" x="0.0" y="26" width="368" height="165.5"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Qd-zE-ab6" userLabel="NameView" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="51.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="55"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -96,13 +96,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z52-e5-aSd" userLabel="PhoneView">
-                                                    <rect key="frame" x="0.0" y="51.5" width="368" height="52"/>
+                                                    <rect key="frame" x="0.0" y="55" width="368" height="55.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="휴대폰번호를(-없이)입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ssE-Y1-sEu" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="52"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="55.5"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
                                                                     <color key="value" name="#b6b6b6"/>
@@ -140,7 +140,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBx-bg-dWc">
-                                                            <rect key="frame" x="292" y="13" width="76" height="26"/>
+                                                            <rect key="frame" x="292" y="15" width="76" height="26"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="12"/>
                                                             <state key="normal" title="인증요청">
@@ -167,13 +167,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pna-LA-Lf3" userLabel="OTPView">
-                                                    <rect key="frame" x="0.0" y="103.5" width="368" height="51.5"/>
+                                                    <rect key="frame" x="0.0" y="110.5" width="368" height="55"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호를 입력해 주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obT-sR-W9d" customClass="UnderLineTextField" customModule="Arum" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="51.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="368" height="55"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="inactivePlaceholderTextColor">
                                                                     <color key="value" name="#b6b6b6"/>
@@ -211,7 +211,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54Q-tB-AAT">
-                                                            <rect key="frame" x="292" y="12.5" width="76" height="26"/>
+                                                            <rect key="frame" x="292" y="14.5" width="76" height="26"/>
                                                             <color key="backgroundColor" name="color-4dbd94"/>
                                                             <fontDescription key="fontDescription" name="NanumSquareRoundEB" family="NanumSquareRound" pointSize="12"/>
                                                             <state key="normal" title="확인">
@@ -227,7 +227,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61x-gD-GD4">
-                                                            <rect key="frame" x="248" y="18.5" width="25" height="14.5"/>
+                                                            <rect key="frame" x="248" y="20" width="25" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" name="color-4dbd94"/>
                                                             <nil key="highlightedColor"/>
@@ -351,13 +351,13 @@
     </objects>
     <designables>
         <designable name="4Qd-zE-ab6">
-            <size key="intrinsicContentSize" width="4" height="17.5"/>
+            <size key="intrinsicContentSize" width="139" height="34"/>
         </designable>
         <designable name="obT-sR-W9d">
-            <size key="intrinsicContentSize" width="4" height="17.5"/>
+            <size key="intrinsicContentSize" width="161.5" height="34"/>
         </designable>
         <designable name="ssE-Y1-sEu">
-            <size key="intrinsicContentSize" width="4" height="17.5"/>
+            <size key="intrinsicContentSize" width="206" height="34"/>
         </designable>
     </designables>
     <resources>

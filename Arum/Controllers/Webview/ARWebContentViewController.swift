@@ -34,7 +34,7 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     
     override func setupUI() {
         if (SystemInfo.hasTopNotch) {
-            topHeightConstraint.constant = 44
+            topHeightConstraint.constant = 34
         } else {
             topHeightConstraint.constant = 20
         }
@@ -83,6 +83,8 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         containerWebview.addSubview(contentWebView)
         contentWebView.fullscreen()
         contentWebView.scrollView.showsVerticalScrollIndicator = false
+        contentWebView.scrollView.contentInsetAdjustmentBehavior = .never
+        contentWebView.scrollView.bounces = false
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
         request()
@@ -102,9 +104,9 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         
         bridge.registerHandler("getAppInfo") { (data, callback) in
             let dataName = [
-                "os": "iOS",
+                "os": "IOS",
                 "token": UserSession.UUID_TOKEN ?? "",
-                "version":"1.0.1"
+                "version": Bundle.main.getAppVersion()
             ]
 
             callback?(dataName)
@@ -126,14 +128,15 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
         guard let url = webView.url else { return }
         let absoluteString =  url.absoluteString
         if absoluteString.contains("https://aleum.kr/login?url=") {
+            navigator.directToLoginView(context: NavigationContext().fromVC(self))
             decisionHandler(.cancel)
             return
         }
         
         if absoluteString.contains("login-sns") || absoluteString.contains("facebook.com") {
-            navigator.setHideBackButton(shouldShow: false)
+            self.navigationItem.setHidesBackButton(false, animated: false)
         } else {
-            navigator.setHideBackButton(shouldShow: true)
+            self.navigationItem.setHidesBackButton(true, animated: false)
         }
         decisionHandler(.allow)
     }

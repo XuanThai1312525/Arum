@@ -41,3 +41,12 @@ class DeviceInfo {
     private init() {}
  
 }
+
+extension Bundle {
+    func getAppVersion() -> String {
+        guard let v = object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
+            return ""
+        }
+        return v
+    }
+}

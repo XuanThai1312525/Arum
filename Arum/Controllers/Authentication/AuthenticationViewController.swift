@@ -80,7 +80,7 @@ class AuthenticationViewController: BaseViewController {
             .subscribe {[weak self] (event) in
                 guard let _self = self else {return}
                 print("Go To main Screen")
-                _self.loadWebview(urlString: Constants.BASE_URL)
+                _self.navigator.loadWebview(urlString: Constants.BASE_URL, context: NavigationContext().fromVC(_self))
             }
             .disposed(by: disposeBag)
     }

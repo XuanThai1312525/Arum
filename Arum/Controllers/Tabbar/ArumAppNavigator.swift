@@ -26,10 +26,13 @@ final class ArumAppNavigator {
 //        navigationBarAppearace.tintColor = .clear
 //        navigationBarAppearace.barTintColor = .clear
 //        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
+        
     }
     
     func setHideBackButton(shouldShow: Bool, animated: Bool = false) {
-        mainNavi.navigationItem.setHidesBackButton(true, animated: animated)
+        DispatchQueue.main.async {
+//            self.mainNavi.navigationItem.setHidesBackButton(shouldShow, animated: animated)
+        }
     }
     
     func handleSession(with window: UIWindow?) {
@@ -70,6 +73,20 @@ final class ArumAppNavigator {
         
         mainNavi = BaseNavigationVC(rootViewController:  vc)
         window?.rootViewController = mainNavi
+    }
+    
+    func loadWebview(urlString: String, context: NavigationContext) {
+        if let vc = mainNavi.viewControllers.last(where: {$0.isKind(of: ARWebContentViewController.self)}) as? ARWebContentViewController {
+            vc.urlString = urlString
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.pop(context, to: ARWebContentViewController.self)
+            }
+        } else {
+            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "ARWebContentViewController") as! ARWebContentViewController
+            vc.urlString = urlString
+            showVC(context.toVC(vc))
+        }
+        
     }
 }
 
