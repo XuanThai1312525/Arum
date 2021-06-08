@@ -58,7 +58,7 @@ enum RoleAccess {
         }
         
         guard userInfo.isAutomaticLogin else {
-            return .needLoginAndAuthen
+            return .needLoginOnly
         }
         return  .needToCheckDeviceID
     }
