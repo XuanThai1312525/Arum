@@ -16,7 +16,7 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
     
     var contentWebView: WKWebView!
-    var bridge: WebViewJavascriptBridge!
+    var bridge: WKWebViewJavascriptBridge!
     var popupWebView: WKWebView?
     var urlString: String? {
         didSet {
@@ -89,7 +89,7 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
         request()
-        bridge = WebViewJavascriptBridge(contentWebView)
+        bridge = WKWebViewJavascriptBridge(for: contentWebView)
         bridge.setWebViewDelegate(self)
         listenWebview()
     }
