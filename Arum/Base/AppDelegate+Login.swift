@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Firebase
-
+import Alamofire
 protocol HasAppProperties {
     var navigator: ArumAppNavigator {get}
 }
@@ -28,4 +28,9 @@ extension AppDelegate {
         return false
     }
     
+    func setupCookies() {
+        if let cookie = UserSession.getSessionCookie() {
+            AF.session.configuration.httpCookieStorage?.setCookie(cookie)
+        }
+    }
 }

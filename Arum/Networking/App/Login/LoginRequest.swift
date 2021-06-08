@@ -10,7 +10,7 @@ import UIKit
 struct LoginRequest: BaseRequestModel {
     var mobile: String
     var name: String
-    var is_auto_login: Bool
+    var is_auto_login: String
     var device_id: String
     var device_os: String = "IOS"
 }

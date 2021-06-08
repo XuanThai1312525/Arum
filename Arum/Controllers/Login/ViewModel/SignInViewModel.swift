@@ -77,7 +77,7 @@ class SignInViewModel: BaseViewModel {
                 uuid = id
             }
             
-            lastedLoginRequest = LoginRequest(mobile:info.1, name: info.0, is_auto_login: info.2, device_id: uuid)
+            lastedLoginRequest = LoginRequest(mobile:info.1, name: info.0, is_auto_login: info.2 ? "Y" : "N", device_id: uuid)
             return lastedLoginRequest!
         }
         
@@ -107,7 +107,7 @@ class SignInViewModel: BaseViewModel {
                     self._errorTracker.onError(NSError.getError(message: loginResponse.msg))
                 } else {
                     if let lastedLoginRequest = lastedLoginRequest {
-                        let info = UserInfo.init(phoneNumber: lastedLoginRequest.mobile, name: lastedLoginRequest.name, deviceId: lastedLoginRequest.device_id, isAutomaticLogin: lastedLoginRequest.is_auto_login)
+                        let info = UserInfo.init(phoneNumber: lastedLoginRequest.mobile, name: lastedLoginRequest.name, deviceId: lastedLoginRequest.device_id, isAutomaticLogin: lastedLoginRequest.is_auto_login.elementsEqual("Y"))
                         UserSession.saveUserInfo(info)
                         UserSession.setSessionCookie()
                     }

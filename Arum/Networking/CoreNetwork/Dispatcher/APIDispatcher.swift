@@ -36,7 +36,9 @@ class APIDispatcher: APIDispatcherProtocol {
         switch request.parameters {
         case .body:
             let urlRequest = prepareBodyFor(request: request)
-            self.dataRequest = session.request(urlRequest).responseJSON(completionHandler: { [weak self] data in
+            self.dataRequest = session.request(urlRequest).cURLDescription { description in
+                print(description)
+            }.responseJSON(completionHandler: { [weak self] data in
                 guard let sSelf = self else { return }
                 completed?(APIResponse(data, fromRequest: request))
                 APIProcessingManager.instance.removeDispatcherFromList(dispatcher: sSelf)
