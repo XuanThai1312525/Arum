@@ -29,8 +29,11 @@ extension AppDelegate {
     }
     
     func setupCookies() {
-        if let cookie = UserSession.getSessionCookie() {
-            AF.session.configuration.httpCookieStorage?.setCookie(cookie)
+        if let url = URL.init(string: Constants.BASE_URL + "/" + Constants.APIPaths.authentication.login),
+           let cookies = HTTPCookieStorage.shared.cookies(for: url) {
+            cookies.forEach { (cookie) in
+                AF.session.configuration.httpCookieStorage?.setCookie(cookie)
+            }
         }
     }
 }

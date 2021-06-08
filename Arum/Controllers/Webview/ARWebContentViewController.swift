@@ -52,8 +52,9 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     
     private func request() {
         guard var urlRequest = makeRequest() else {return}
-        if let cookie = UserSession.getSessionCookie() {
-            urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [cookie])
+        if let url = URL.init(string: Constants.BASE_URL + "/" + Constants.APIPaths.authentication.login),
+           let cookies = HTTPCookieStorage.shared.cookies(for: url) {
+            urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
         }
         contentWebView.load(urlRequest)
     }

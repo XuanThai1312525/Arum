@@ -109,7 +109,6 @@ class SignInViewModel: BaseViewModel {
                     if let lastedLoginRequest = lastedLoginRequest {
                         let info = UserInfo.init(phoneNumber: lastedLoginRequest.mobile, name: lastedLoginRequest.name, deviceId: lastedLoginRequest.device_id, isAutomaticLogin: lastedLoginRequest.is_auto_login.elementsEqual("Y"))
                         UserSession.saveUserInfo(info)
-                        UserSession.setSessionCookie()
                     }
                     
                     if UserSession.roleSubject.value == .needLoginOnly {
