@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -25,6 +25,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>자신의 프로필 사진을 촬영하여 올릴 때 필요합니다. 알음'이(가)  카메라를(을) 사용할 수 있도록 허용하시겠습니까?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Aleum need permission to access</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>알음'이(가) 사진접근권한을 사용할 수 있도록 허용하시겠습니까?</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AppleGothic.ttf</string>
@@ -52,15 +62,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Aleum need permission to access</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Aleum need permission to access</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Aleum need permission to access</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Aleum need permission to access</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Aleum need permission to access</string>
 </dict>
 </plist>
