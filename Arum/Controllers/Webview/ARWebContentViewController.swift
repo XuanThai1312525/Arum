@@ -189,5 +189,15 @@ extension ARWebContentViewController: WKUIDelegate {
 //        present(alert, animated: true)
         completionHandler()
     }
+    
+    @available(iOS 13.0, *)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
+        if (navigationAction.navigationType == .linkActivated){
+            decisionHandler(.cancel, preferences)
+        } else {
+            decisionHandler(.allow, preferences)
+        }
+    }
+
 }
 
