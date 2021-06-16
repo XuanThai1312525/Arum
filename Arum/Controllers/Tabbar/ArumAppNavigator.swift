@@ -25,7 +25,7 @@ final class ArumAppNavigator {
 //        let navigationBarAppearace = UINavigationBar.appearance()
 //        navigationBarAppearace.tintColor = .clear
 //        navigationBarAppearace.barTintColor = .clear
-//        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
+        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -75,15 +75,17 @@ final class ArumAppNavigator {
         window?.rootViewController = mainNavi
     }
     
-    func loadWebview(urlString: String, context: NavigationContext) {
+    func loadWebview(urlString: String, cookies: [HTTPCookie]? = nil, context: NavigationContext) {
         if let vc = mainNavi.viewControllers.last(where: {$0.isKind(of: ARWebContentViewController.self)}) as? ARWebContentViewController {
             vc.urlString = urlString
+            vc.cookies = cookies
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.pop(context, to: ARWebContentViewController.self)
             }
         } else {
             let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "ARWebContentViewController") as! ARWebContentViewController
             vc.urlString = urlString
+            vc.cookies = cookies
             showVC(context.toVC(vc))
         }
         

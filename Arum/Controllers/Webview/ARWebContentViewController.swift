@@ -25,6 +25,8 @@ final class ARWebContentViewController: HideNavigationBarViewController {
             }
         }
     }
+    
+    var cookies: [HTTPCookie]?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +54,16 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     
     private func request() {
         guard var urlRequest = makeRequest() else {return}
-        if let url = URL.init(string: Constants.BASE_URL + "/" + Constants.APIPaths.authentication.login),
-           let cookies = HTTPCookieStorage.shared.cookies(for: url) {
+        if let cookies = cookies {
             urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
+        } else {
+            var url = URL.init(string: Constants.BASE_URL + "/" + Constants.APIPaths.authentication.login)
+            if let urlString = urlString {
+                url = URL(string: urlString)
+            }
+            if let url = url, let cookies = HTTPCookieStorage.shared.cookies(for: url) {
+                urlRequest.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
+            }
         }
         contentWebView.load(urlRequest)
     }
@@ -88,6 +97,7 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentWebView.scrollView.bounces = false
         contentWebView.navigationDelegate = self
         contentWebView.allowsLinkPreview = false
+        contentWebView.backgroundColor = .clear
         request()
         bridge = WKWebViewJavascriptBridge(for: contentWebView)
         bridge.setWebViewDelegate(self)
@@ -119,14 +129,16 @@ final class ARWebContentViewController: HideNavigationBarViewController {
 
 extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandler {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        /*
-        let dataStore = webView.configuration.websiteDataStore
-        let cookieStore = dataStore.httpCookieStore
-        cookieStore.getAllCookies { (cookies) in}
-        */
-    
+        
+       
+        
         
         guard let url = webView.url else { return }
+//        let dataStore = webView.configuration.websiteDataStore
+//        let cookieStore = dataStore.httpCookieStore
+//        cookieStore.getAllCookies { (cookies) in
+//            print("=====> \(cookies) of \(url.absoluteString) <=====")
+//        }
         let absoluteString =  url.absoluteString
         if absoluteString.contains("https://aleum.kr/login?url=") {
             navigator.directToLoginView(context: NavigationContext().fromVC(self))

@@ -9,9 +9,11 @@
 import RxCocoa
 import RxSwift
 import CoreLocation
+import WebKit
 
 class SignInViewController: HideNavigationBarViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     //MARK: Outlets
     @IBOutlet weak var loginButton: AppButton!
     @IBOutlet weak var signUpButton: AppButton!
@@ -23,7 +25,7 @@ class SignInViewController: HideNavigationBarViewController {
     @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var automaticLoginButton: UIButton!
     
-    
+    private var privateWebview: WKWebView!
     //MARK: Properties
     let viewModel = SignInViewModel()
     let locationManager = CLLocationManager()
@@ -41,10 +43,37 @@ class SignInViewController: HideNavigationBarViewController {
         phoneNumberUnderLineTextField.isPlaceHolderAnimation = false
         phoneNumberUnderLineTextField.isBottomLine = true
         phoneNumberUnderLineTextField.validationType = .afterEdit
-        
         locationManager.requestAlwaysAuthorization()
         
-         
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        preferences.javaScriptCanOpenWindowsAutomatically = true
+        let config = WKWebViewConfiguration()
+//        config.preferences = preferences
+        privateWebview = WKWebView(frame: .zero, configuration: config)
+//        privateWebview.uiDelegate = self
+        view.addSubview(privateWebview)
+        privateWebview.fullscreen()
+        privateWebview.scrollView.showsVerticalScrollIndicator = false
+        privateWebview.scrollView.contentInsetAdjustmentBehavior = .never
+        privateWebview.scrollView.bounces = false
+//        privateWebview.navigationDelegate = self
+        privateWebview.allowsLinkPreview = false
+        privateWebview.backgroundColor = .clear
+        privateWebview.navigationDelegate = self
+//        view.sendSubviewToBack(privateWebview)
+        privateWebview.isHidden = true
+        privateWebview.backgroundColor = .clear
+        privateWebview.isOpaque = false
+        privateWebview.uiDelegate = self
+        appleLoginButton.did(.touchUpInside) {[unowned self] (_, _) in
+            guard let url = URL(string: Constants.SNS_URL.APPLE) else {return}
+            
+            let request = URLRequest(url: url)
+            self.privateWebview.load(request)
+//            self.view.bringSubviewToFront(self.privateWebview)
+            self.privateWebview.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +98,7 @@ class SignInViewController: HideNavigationBarViewController {
         
         let snsTrigger = Observable.merge([
             fbLoginButton.rx.tap.map{SNSType.fb},
-            appleLoginButton.rx.tap.map{SNSType.apple},
+//            appleLoginButton.rx.tap.map{SNSType.apple},
             kakaoLoginButton.rx.tap.map{SNSType.kakao},
             naverLoginButton.rx.tap.map{SNSType.naver}
         ])
@@ -126,6 +155,56 @@ class SignInViewController: HideNavigationBarViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+}
+
+extension SignInViewController: WKNavigationDelegate,  WKUIDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+ 
+        guard let urlString = webView.url?.absoluteString else {
+            decisionHandler(.cancel)
+            return
+        }
+        if urlString.contains("apple.com/auth/authorize") || urlString.contains("aleum.kr/login-sns/apple")  {
+            decisionHandler(.allow)
+            return
+        }
+        decisionHandler(.cancel)
+
+        let dataStore = webView.configuration.websiteDataStore
+        let cookieStore = dataStore.httpCookieStore
+        cookieStore.getAllCookies { (cookies) in
+            self.privateWebview.isHidden = true
+            self.navigator.loadWebview(urlString: urlString, cookies: cookies, context: NavigationContext().fromVC(self))
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        self.privateWebview.isHidden = true
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        
+    }
+    
+    func webView(_ webView: WKWebView,
+                 runJavaScriptAlertPanelWithMessage message: String,
+                 initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping () -> Void) {
+//        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//        let title = NSLocalizedString("확인", comment: "확인")
+//        let ok = UIAlertAction(title: title, style: .default) { (_: UIAlertAction) -> Void in
+//            // alert.dismiss(animated: true, completion: nil)
+//        }
+//        alert.addAction(ok)
+//        present(alert, animated: true)
+        completionHandler()
+    }
+    
     
 }
 
