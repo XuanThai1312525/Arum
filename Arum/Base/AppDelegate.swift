@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HasAppProperties {
     let bag = DisposeBag()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+ 
         setupCookies()
         setupAppEnvironment(application,launchOptions)
         navigator.startup(window)

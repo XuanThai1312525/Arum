@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Aleum</string>
+	<string>알음</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,18 +28,18 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>자신의 프로필 사진을 촬영하여 올릴 때 필요합니다. 알음&apos;이(가)  카메라를(을) 사용할 수 있도록 허용하시겠습니까?</string>
+	<string>자신의 프로필 사진을 촬영하여 올릴 때 필요합니다. 알음'이(가)  카메라를(을) 사용할 수 있도록 허용하시겠습니까?</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>&apos;알음&apos;이(가) 사용자의 위치를 사용하도록 허용하겠니까?
+	<string>'알음'이(가) 사용자의 위치를 사용하도록 허용하겠니까?
 가까운 교회를 검색하여 제공하기 위해 현재 위치를 확인합니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>&apos;알음&apos;이(가) 사용자의 위치를 사용하도록 허용하겠니까?
+	<string>'알음'이(가) 사용자의 위치를 사용하도록 허용하겠니까?
 가까운 교회를 검색하여 제공하기 위해 현재 위치를 확인합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&apos;알음&apos;이(가) 사용자의 위치를 사용하도록 허용하겠니까?
+	<string>'알음'이(가) 사용자의 위치를 사용하도록 허용하겠니까?
 가까운 교회를 검색하여 제공하기 위해 현재 위치를 확인합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>프로필 및 교회,상품안내 이미지 등록을 위하여 필요합니다.  알음&apos;이(가)  사진을() 사용할 수 있도록 허용하시겠습니까?</string>
+	<string>프로필 및 교회,상품안내 이미지 등록을 위하여 필요합니다.  알음'이(가)  사진을() 사용할 수 있도록 허용하시겠습니까?</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AppleGothic.ttf</string>
@@ -49,6 +49,8 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

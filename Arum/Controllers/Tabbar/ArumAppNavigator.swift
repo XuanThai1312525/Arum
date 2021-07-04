@@ -48,11 +48,17 @@ final class ArumAppNavigator {
                     UIView.transition(with: window, duration: 0.3, options: options, animations: {
                         self.setupRootView(window: window, role: role)
                     })
+                    if #available(iOS 13.0, *) {
+                        window.overrideUserInterfaceStyle = .light
+                    }
                 } else {
                     AppDelegate.shared.window = UIWindow(frame: UIScreen.main.bounds)
                     let window = AppDelegate.shared.window!
                     self.setupRootView(window: window, role: role)
                     window.makeKeyAndVisible()
+                    if #available(iOS 13.0, *) {
+                        window.overrideUserInterfaceStyle = .light
+                    }
                 }
             })
             .disposed(by: bag)
