@@ -140,6 +140,9 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
 //            print("=====> \(cookies) of \(url.absoluteString) <=====")
 //        }
         let absoluteString =  url.absoluteString
+        if absoluteString.contains("kakaolink://") {
+            return
+        }
         if absoluteString.contains("https://aleum.kr/login?url=") {
             navigator.directToLoginView(context: NavigationContext().fromVC(self))
             decisionHandler(.cancel)
@@ -163,17 +166,24 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        
+        handleError(error: error)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        
+        handleError(error: error)
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("====> \(message)")
     }
     
+    func handleError(error: Error) {
+        if let failingUrl = error.userInfo[NSURLErrorFailingURLStringErrorKey] as? String {
+            if let url = NSURL(string: failingUrl) {
+                UIApplication.shared.openURL(url as URL)
+            }
+        }
+    }
 }
 
 extension ARWebContentViewController: WKUIDelegate {

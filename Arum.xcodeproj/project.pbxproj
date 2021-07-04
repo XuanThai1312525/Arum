@@ -96,6 +96,7 @@
 		944D0AE4264F93F100AE03CC /* ARWebContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */; };
 		945FA9852669171400003B50 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945FA9842669171300003B50 /* Toast.swift */; };
 		945FAC3E266C916800003B50 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945FAC3D266C916800003B50 /* DeviceInfo.swift */; };
+		9481680B26915D7E00E453DA /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9481680A26915D7E00E453DA /* alarm.wav */; };
 		94874444264F748600CFCDB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94874443264F748600CFCDB2 /* AppDelegate.swift */; };
 		94874450264F748700CFCDB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9487444E264F748700CFCDB2 /* LaunchScreen.storyboard */; };
 		9487445B264F748700CFCDB2 /* ArumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9487445A264F748700CFCDB2 /* ArumTests.swift */; };
@@ -262,6 +263,7 @@
 		944D0AE3264F93F100AE03CC /* ARWebContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWebContentViewController.swift; sourceTree = "<group>"; };
 		945FA9842669171300003B50 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		945FAC3D266C916800003B50 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		9481680A26915D7E00E453DA /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		94874440264F748600CFCDB2 /* Arum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94874443264F748600CFCDB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9487444F264F748700CFCDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 		94874442264F748600CFCDB2 /* Arum */ = {
 			isa = PBXGroup;
 			children = (
+				9481680A26915D7E00E453DA /* alarm.wav */,
 				69E99C092655106E00AEE8DC /* Arum.entitlements */,
 				94232883266269BB00692E19 /* GoogleService-Info.plist */,
 				74EE0A672651148E00CC7C51 /* Generated */,
@@ -1247,6 +1250,7 @@
 				94874569264F758400CFCDB2 /* Assets.xcassets in Resources */,
 				7448DD752652CC0300A7022F /* AuthenticationViewController.xib in Resources */,
 				74FDFCAC2652DAB900B61A04 /* AppleGothic.ttf in Resources */,
+				9481680B26915D7E00E453DA /* alarm.wav in Resources */,
 				94874568264F758400CFCDB2 /* Colors.xcassets in Resources */,
 				74D45C9F2651854A00C7E996 /* NanumSquareOTFR.ttf in Resources */,
 			);
@@ -1729,7 +1733,7 @@
 				CODE_SIGN_ENTITLEMENTS = Arum/Arum.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6HG343YJUX;
 				INFOPLIST_FILE = Arum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1755,7 +1759,7 @@
 				CODE_SIGN_ENTITLEMENTS = Arum/Arum.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 6HG343YJUX;
 				INFOPLIST_FILE = Arum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

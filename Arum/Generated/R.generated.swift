@@ -590,7 +590,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 4 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
     /// Resource file `AppleGothic.ttf`.
     static let appleGothicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "AppleGothic", pathExtension: "ttf")
@@ -600,6 +600,8 @@ struct R: Rswift.Validatable {
     static let nanumSquareOTFRTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NanumSquareOTFR", pathExtension: "ttf")
     /// Resource file `NanumSquareRoundEB.ttf`.
     static let nanumSquareRoundEBTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "NanumSquareRoundEB", pathExtension: "ttf")
+    /// Resource file `alarm.wav`.
+    static let alarmWav = Rswift.FileResource(bundle: R.hostingBundle, name: "alarm", pathExtension: "wav")
 
     /// `bundle.url(forResource: "AppleGothic", withExtension: "ttf")`
     static func appleGothicTtf(_: Void = ()) -> Foundation.URL? {
@@ -622,6 +624,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "NanumSquareRoundEB", withExtension: "ttf")`
     static func nanumSquareRoundEBTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.nanumSquareRoundEBTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "alarm", withExtension: "wav")`
+    static func alarmWav(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.alarmWav
       return fileResource.bundle.url(forResource: fileResource)
     }
 
