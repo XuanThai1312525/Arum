@@ -20,22 +20,28 @@ final class ArumAppNavigator {
     
     func startup(_ win: UIWindow?) {
         window = win
-        handleSession(with: window)
-        
-//        let navigationBarAppearace = UINavigationBar.appearance()
-//        navigationBarAppearace.tintColor = .clear
-//        navigationBarAppearace.barTintColor = .clear
-        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
-        
+        showSplashScreen()
     }
     
-    func setHideBackButton(shouldShow: Bool, animated: Bool = false) {
-        DispatchQueue.main.async {
-//            self.mainNavi.navigationItem.setHidesBackButton(shouldShow, animated: animated)
+    func showSplashScreen() {
+        func showSplashScreen() {
+            let vc = R.storyboard.main.splashViewController()!
+            window?.rootViewController = vc
+        }
+        
+        if let _ = window {
+            showSplashScreen()
+        } else {
+            AppDelegate.shared.window = UIWindow(frame: UIScreen.main.bounds)
+            window = AppDelegate.shared.window!
+            showSplashScreen()
+            window!.makeKeyAndVisible()
         }
     }
     
-    func handleSession(with window: UIWindow?) {
+    func setHideBackButton(shouldShow: Bool, animated: Bool = false) {}
+    
+    func handleSession() {
         UserSession.roleSubject
             .share()
             .subscribe(onNext: { [weak self] role in
@@ -43,22 +49,21 @@ final class ArumAppNavigator {
                     return
                 }
                 
-                if let window = AppDelegate.shared.window {
+                if let window = self.window {
                     let options: UIView.AnimationOptions = .transitionFlipFromLeft
                     UIView.transition(with: window, duration: 0.3, options: options, animations: {
                         self.setupRootView(window: window, role: role)
                     })
-                    if #available(iOS 13.0, *) {
-                        window.overrideUserInterfaceStyle = .light
-                    }
+               
                 } else {
                     AppDelegate.shared.window = UIWindow(frame: UIScreen.main.bounds)
-                    let window = AppDelegate.shared.window!
-                    self.setupRootView(window: window, role: role)
-                    window.makeKeyAndVisible()
-                    if #available(iOS 13.0, *) {
-                        window.overrideUserInterfaceStyle = .light
-                    }
+                    self.window = AppDelegate.shared.window!
+                    self.setupRootView(window: self.window, role: role)
+                    self.window!.makeKeyAndVisible()
+                }
+                
+                if #available(iOS 13.0, *) {
+                    self.window!.overrideUserInterfaceStyle = .light
                 }
             })
             .disposed(by: bag)
@@ -78,6 +83,7 @@ final class ArumAppNavigator {
         }
         
         mainNavi = BaseNavigationVC(rootViewController:  vc)
+        mainNavi.interactivePopGestureRecognizer?.isEnabled = false
         window?.rootViewController = mainNavi
     }
     

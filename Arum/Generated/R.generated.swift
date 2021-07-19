@@ -943,15 +943,22 @@ struct _R: Rswift.Validatable {
       let arWebContentViewController = StoryboardViewControllerResource<ARWebContentViewController>(identifier: "ARWebContentViewController")
       let bundle = R.hostingBundle
       let name = "Main"
+      let splashViewController = StoryboardViewControllerResource<SplashViewController>(identifier: "SplashViewController")
 
       func arWebContentViewController(_: Void = ()) -> ARWebContentViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: arWebContentViewController)
       }
 
+      func splashViewController(_: Void = ()) -> SplashViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: splashViewController)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "bg_backgroundImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'bg_backgroundImage' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().arWebContentViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'arWebContentViewController' could not be loaded from storyboard 'Main' as 'ARWebContentViewController'.") }
+        if _R.storyboard.main().splashViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'splashViewController' could not be loaded from storyboard 'Main' as 'SplashViewController'.") }
       }
 
       fileprivate init() {}

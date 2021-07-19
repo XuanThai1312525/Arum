@@ -22,8 +22,8 @@ class AuthenticationViewController: BaseViewController {
     
     //MARK: Properties
     let viewModel = AuthenticationViewModel()
-    
-    
+    var timeObserveble: Observable<Int>?
+    var timerDisposeBag = DisposeBag()
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,9 +114,9 @@ class AuthenticationViewController: BaseViewController {
                 self.setEnableConfirmButton(false)
                 
                 let time = 60*3
-                Observable<Int>
+                self.timeObserveble = Observable<Int>
                     .timer(0, period: 1, scheduler: MainScheduler.instance)
-                    .take(time)
+                _ = self.timeObserveble!.take(time)
                     .map { time - $0 }
                     .subscribe(onNext: { [weak self](timePassed) in
                         let seconds = timePassed % 60
@@ -128,8 +128,8 @@ class AuthenticationViewController: BaseViewController {
                         self.sendOtpButton.isEnabled = true
                         self.verifyOtpButton.isEnabled = false
                         self.otpTextField.text = ""
-                    })
-                    .disposed(by: self.disposeBag)
+                    }).disposed(by: self.timerDisposeBag)
+                    
             }.disposed(by: disposeBag)
         
         
@@ -139,6 +139,9 @@ class AuthenticationViewController: BaseViewController {
                     return
                 }
                 self.setEnableConfirmButton(true)
+                _ = self.otpTextField.resignFirstResponder()
+                self.otpTimeOutLabel.text = "인증완료"
+                self.timerDisposeBag = DisposeBag()
             }
             .bind(to: alertBinding)
             .disposed(by: disposeBag)

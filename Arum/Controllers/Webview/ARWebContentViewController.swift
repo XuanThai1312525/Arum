@@ -14,10 +14,10 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerWebview: UIView!
     @IBOutlet weak var topHeightConstraint: NSLayoutConstraint!
-    
     var contentWebView: WKWebView!
     var bridge: WKWebViewJavascriptBridge!
     var popupWebView: WKWebView?
+    var containerPopUpWebView = UIView()
     var urlString: String? {
         didSet {
             if (isViewLoaded) {
@@ -102,6 +102,10 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         bridge = WKWebViewJavascriptBridge(for: contentWebView)
         bridge.setWebViewDelegate(self)
         listenWebview()
+        containerPopUpWebView.frame = view.bounds
+        view.addSubview(containerPopUpWebView)
+        containerPopUpWebView.isHidden = true
+        containerPopUpWebView.backgroundColor = .white
     }
     
     private func listenWebview() {
@@ -179,7 +183,7 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
     
     func handleError(error: Error) {
         if let failingUrl = error.userInfo[NSURLErrorFailingURLStringErrorKey] as? String {
-            if let url = NSURL(string: failingUrl) {
+            if let url = NSURL(string: failingUrl), !(url.absoluteString?.contains("https://aleum.kr") ?? true) {
                 UIApplication.shared.openURL(url as URL)
             }
         }
@@ -188,7 +192,9 @@ extension ARWebContentViewController: WKNavigationDelegate, WKScriptMessageHandl
 
 extension ARWebContentViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        popupWebView = WKWebView(frame: view.frame, configuration: configuration)
+        let yPosition = topHeightConstraint.constant
+        let frame = CGRect(x: 0, y: yPosition + 36, width: view.frame.width, height: view.frame.height - (yPosition + 36))
+        popupWebView = WKWebView(frame: frame, configuration: configuration)
         popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         popupWebView!.navigationDelegate = self
         popupWebView!.uiDelegate = self
@@ -196,14 +202,35 @@ extension ARWebContentViewController: WKUIDelegate {
         popupWebView?.backgroundColor = .white
         popupWebView?.scrollView.backgroundColor = .white
         popupWebView?.isOpaque = false
-        view.addSubview(popupWebView!)
+        containerPopUpWebView.addSubview(popupWebView!)
+        containerPopUpWebView.isHidden = false
+        addExitWebviewButton()
         return popupWebView
 
     }
     
+    private func addExitWebviewButton(){
+        let yPosition = topHeightConstraint.constant
+        let cancel = UIButton(frame: CGRect(x: containerPopUpWebView.frame.width - 60, y: yPosition, width: 50, height: 36))
+        cancel.setTitle("닫기", for: .normal)
+        cancel.titleLabel?.font = UIFont.normal(size: 16)
+        cancel.setTitleColor(.gray, for: .normal)
+        containerPopUpWebView.addSubview(cancel)
+
+        cancel.did(.touchUpInside) {[weak self] _, _ in
+            guard let _self = self else {return}
+            _self.hideExternalWebview()
+        }
+    }
+    
     func webViewDidClose(_ webView: WKWebView) {
+        hideExternalWebview()
+    }
+    
+    private func hideExternalWebview() {
         if let popupWebView = popupWebView, popupWebView.isDescendant(of: view) {
             popupWebView.removeFromSuperview()
+            containerPopUpWebView.isHidden = true
         }
     }
     
