@@ -16,6 +16,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         FirebaseApp.configure()
         registerNotification(application)
         registerFirebaseMessage(launchOptions)
+        
+        application.applicationIconBadgeNumber = 0
     }
 }
 
