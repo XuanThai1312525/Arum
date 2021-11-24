@@ -23,5 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, HasAppProperties {
         
         return true
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
 }
 

@@ -73,15 +73,28 @@ final class ARWebContentViewController: HideNavigationBarViewController {
     }
     
     private func configs() {
-//        let contentController = WKUserContentController()
+        let contentController = WKUserContentController()
 //        let js:String = buttonClickEventTriggeredScriptToAddToDocument()
 //        let userScript:WKUserScript =  WKUserScript(source: js,
 //                                                 injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
 //                                                 forMainFrameOnly: false)
 //        contentController.addUserScript(userScript)
 //        contentController.add(self, name: "showLogin")
+        
+        let removeLocationJS = """
+        navigator.geolocation.getCurrentPosition = function(success, error, options) {
+            error({
+                PERMISSION_DENIED: 1,
+                code: 1
+            });
+        };
+        """
+
+        let removeLocation = WKUserScript(source: removeLocationJS, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+        contentController.addUserScript(removeLocation)
+        
         let config = WKWebViewConfiguration()
-//        config.userContentController = contentController
+        config.userContentController = contentController
         
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = true
