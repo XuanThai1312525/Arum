@@ -94,7 +94,7 @@ final class ARWebContentViewController: HideNavigationBarViewController {
         contentController.addUserScript(removeLocation)
         
         let config = WKWebViewConfiguration()
-        config.userContentController = contentController
+//        config.userContentController = contentController
         
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = true
