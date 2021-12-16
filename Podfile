@@ -39,6 +39,7 @@ target 'Arum' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
   pod 'IQKeyboardManagerSwift'
+  pod 'Google-Mobile-Ads-SDK'
   # Pods for Arum
 
   target 'ArumTests' do

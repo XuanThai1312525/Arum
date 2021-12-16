@@ -75,4 +75,6 @@ extension Constants {
 //MARK: User Info
 extension Constants {
     static let USER_INFO_KEY = "USER_INFO_KEY"
+    static let rewardAd = "ca-app-pub-3305422501449778/6979782299"
+    static let fullScreenAd = "ca-app-pub-3305422501449778/1919027303"
 }

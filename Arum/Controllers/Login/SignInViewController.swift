@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 import CoreLocation
 import WebKit
+import GoogleMobileAds
 
 class SignInViewController: HideNavigationBarViewController {
     
@@ -152,10 +153,13 @@ class SignInViewController: HideNavigationBarViewController {
         output.onSignUp
             .subscribe(onNext: { [weak self](url) in
                 self?.gotoSignUp(url: url)
+//                self?.loadAdmob()
             })
             .disposed(by: disposeBag)
     }
     
+    
+ 
 }
 
 extension SignInViewController: WKNavigationDelegate,  WKUIDelegate {

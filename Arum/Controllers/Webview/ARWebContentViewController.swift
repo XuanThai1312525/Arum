@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import WebViewJavascriptBridge
+import GoogleMobileAds
 
 final class ARWebContentViewController: HideNavigationBarViewController {
 
@@ -140,6 +141,46 @@ final class ARWebContentViewController: HideNavigationBarViewController {
             callback?(dataName)
         }
         
+        bridge.registerHandler("CalltoAD") {[weak self] data, callback in
+            callback?(data)
+            DispatchQueue.main.async {
+                guard let _self = self else {return}
+                _self.loadFullScreenAdmob()
+            }
+        }
+        
+        bridge.registerHandler("CalltoRewardAD") {[weak self] data, callback in
+            callback?(data)
+            DispatchQueue.main.async {
+                guard let _self = self else {return}
+                _self.loadAdmob()
+            }
+        }
+    }
+    
+    private func loadAdmob() {
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: Constants.fullScreenAd, request: request) { rewardAd, error in
+            guard let rewardAd = rewardAd else {return}
+            rewardAd.present(fromRootViewController: self) {
+                
+            }
+        }
+    }
+    
+    private func loadFullScreenAdmob() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3305422501449778/1919027303",
+                               request: request,
+                               completionHandler: { [self] ad, error in
+                                if let error = error {
+                                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    ad?.present(fromRootViewController: self)
+                                }
+                               })
     }
 
 }

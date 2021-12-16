@@ -7,6 +7,7 @@
 
 import Firebase
 import IQKeyboardManagerSwift
+import GoogleMobileAds
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
@@ -16,7 +17,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         FirebaseApp.configure()
         registerNotification(application)
         registerFirebaseMessage(launchOptions)
-        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         application.applicationIconBadgeNumber = 0
     }
 }
